@@ -1,0 +1,4 @@
+Average Power nitro5 nic : 0.09 Watts
+Total Energy nitro5 nic : 0.62 Joules
+2025-11-14 00:57:22,0.31
+2025-11-14 00:57:23,0.31

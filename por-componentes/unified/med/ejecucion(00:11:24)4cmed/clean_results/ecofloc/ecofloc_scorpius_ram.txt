@@ -1,0 +1,2 @@
+Average Power scorpius ram : 0.00 Watts
+Total Energy scorpius ram : 0.00 Joules

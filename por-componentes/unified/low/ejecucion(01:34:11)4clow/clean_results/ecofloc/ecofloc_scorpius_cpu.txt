@@ -1,0 +1,2 @@
+Average Power scorpius cpu : 0.00 Watts
+Total Energy scorpius cpu : 0.00 Joules

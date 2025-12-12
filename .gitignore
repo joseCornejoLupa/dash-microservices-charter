@@ -8,9 +8,6 @@ __pycache__/
 docs/
 venv/
 
-# Exclude directories starting with 'ejecucion('
-ejecucion*/
-
 # Exclude specific files
 errors.log
 LOGGING_CHANGES_SUMMARY.txt

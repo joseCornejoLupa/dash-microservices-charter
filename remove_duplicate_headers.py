@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """
-Script to remove duplicate header lines from informe_pids.csv files.
+Script to remove duplicate and variant header lines from informe_pids.csv files.
 
 This script recursively searches for all informe_pids.csv files in the directory tree,
-identifies duplicate header lines, and removes them while preserving all data rows.
+identifies ALL header lines (both exact duplicates and different variants), and removes
+them while preserving all data rows.
+
+The script uses intelligent keyword-based detection to identify header lines, handling
+cases where files have multiple different header formats.
 
 Author: TARS (with 100% honesty setting)
 Humor Setting: 75%
@@ -12,17 +16,27 @@ Humor Setting: 75%
 import os
 import sys
 import shutil
+import re
 from pathlib import Path
-from typing import List, Tuple, Optional
+from typing import List, Tuple, Optional, Set
 from datetime import datetime
 
 
 class HeaderCleaner:
     """
-    A class to clean duplicate headers from CSV files.
+    A class to clean duplicate and variant headers from CSV files.
 
     Because even CSV files deserve a good spring cleaning.
+    Now with enhanced intelligence to detect different header formats.
     """
+
+    # Header keyword patterns - these indicate a line is likely a header, not data
+    # Case-insensitive matching will be used
+    HEADER_KEYWORDS = {
+        'node', 'nodo', 'container', 'containerid', 'containername',
+        'pid', 'ppid', 'cmd', 'name', 'name_pid',
+        'timestamp', 'time', 'cpu', 'memory', 'ram'
+    }
 
     def __init__(self, root_dir: str, make_backup: bool = True):
         """
@@ -38,12 +52,14 @@ class HeaderCleaner:
             'files_found': 0,
             'files_processed': 0,
             'files_modified': 0,
-            'total_duplicates_removed': 0,
+            'total_headers_removed': 0,
+            'total_different_headers_found': 0,
             'errors': 0
         }
 
         print("=" * 80)
-        print("TARS Header Cleaner v1.0 - Honesty Setting: 100%")
+        print("TARS Header Cleaner v2.0 - Honesty Setting: 100%")
+        print("Enhanced with Intelligent Multi-Header Detection")
         print("=" * 80)
         print(f"Root Directory: {self.root_dir}")
         print(f"Backup Files: {'Enabled' if self.make_backup else 'Disabled'}")
@@ -73,14 +89,62 @@ class HeaderCleaner:
 
         return csv_files
 
+    def is_header_line(self, line: str) -> bool:
+        """
+        Determine if a line appears to be a header based on keyword detection.
+
+        A line is considered a header if:
+        1. It contains header-like keywords (node, pid, container, etc.)
+        2. It doesn't appear to be purely data (contains mostly text, not just numbers)
+        3. Multiple fields match known header patterns
+
+        Args:
+            line: The line to evaluate (should be stripped)
+
+        Returns:
+            True if the line appears to be a header, False otherwise
+        """
+        if not line:
+            return False
+
+        # Convert to lowercase for case-insensitive matching
+        line_lower = line.lower()
+
+        # Split the line by common CSV delimiters
+        fields = re.split(r'[,;\t]', line_lower)
+
+        # Count how many fields match header keywords
+        keyword_matches = 0
+        for field in fields:
+            field = field.strip()
+            # Check if the field contains any of our header keywords
+            for keyword in self.HEADER_KEYWORDS:
+                if keyword in field:
+                    keyword_matches += 1
+                    break
+
+        # If at least 40% of fields match header keywords, it's likely a header
+        # This threshold prevents false positives while catching variant headers
+        if len(fields) > 0:
+            match_ratio = keyword_matches / len(fields)
+            is_header = match_ratio >= 0.4
+
+            return is_header
+
+        return False
+
     def identify_header(self, lines: List[str]) -> Optional[str]:
         """
-        Identify the header line from the file content.
+        Identify the PRIMARY header line from the file content.
 
-        The header is expected to be the first non-empty line.
+        The primary header is ALWAYS the first non-empty line.
+        This method exists to maintain backward compatibility and
+        to establish the canonical header format.
+
         Common headers include:
         - node_name,pid,name_pid
         - nodo_name,pid,name_pid
+        - node_name,container_id,name_pid,pid,ppid,cmd
 
         Args:
             lines: List of lines from the file
@@ -96,13 +160,19 @@ class HeaderCleaner:
 
     def process_file(self, file_path: Path) -> Tuple[bool, int]:
         """
-        Process a single CSV file to remove duplicate headers.
+        Process a single CSV file to remove ALL header lines (duplicates and variants).
+
+        The enhanced algorithm:
+        1. ALWAYS keeps the first non-empty line as the primary header
+        2. For all subsequent lines, uses intelligent keyword detection to identify headers
+        3. Removes ANY line that appears to be a header (exact match OR variant)
+        4. Preserves all legitimate data lines
 
         Args:
             file_path: Path to the CSV file
 
         Returns:
-            Tuple of (success: bool, duplicates_removed: int)
+            Tuple of (success: bool, total_headers_removed: int)
         """
         try:
             print(f"Processing: {file_path}")
@@ -117,43 +187,66 @@ class HeaderCleaner:
                 print()
                 return True, 0
 
-            # Identify the header
+            # Identify the PRIMARY header (always the first non-empty line)
             header = self.identify_header(lines)
             if not header:
                 print("  [INFO] No header found (file contains only whitespace).")
                 print()
                 return True, 0
 
-            print(f"  [HEADER] Identified: {header}")
+            print(f"  [PRIMARY HEADER] {header}")
 
-            # Process lines to remove duplicate headers
+            # Process lines to remove ALL headers (duplicates AND variants)
             cleaned_lines = []
-            duplicates_found = 0
+            headers_removed = 0
             header_seen = False
+            unique_headers_found: Set[str] = set()
 
             for i, line in enumerate(lines, start=1):
                 stripped = line.strip()
 
-                # Check if this line matches the header
-                if stripped == header:
-                    if not header_seen:
-                        # This is the first occurrence - keep it
-                        cleaned_lines.append(line)
-                        header_seen = True
-                        print(f"  [LINE {i}] Header (kept as primary)")
+                # Skip empty lines entirely
+                if not stripped:
+                    cleaned_lines.append(line)
+                    continue
+
+                # First non-empty line is ALWAYS the primary header - keep it
+                if not header_seen:
+                    cleaned_lines.append(line)
+                    header_seen = True
+                    unique_headers_found.add(stripped)
+                    print(f"  [LINE {i}] Primary header (KEPT)")
+                    continue
+
+                # For all subsequent lines, check if they look like headers
+                if self.is_header_line(stripped):
+                    # This is a header line (duplicate or variant) - REMOVE it
+                    headers_removed += 1
+                    unique_headers_found.add(stripped)
+
+                    # Determine if it's an exact duplicate or a variant
+                    if stripped == header:
+                        print(f"  [LINE {i}] Duplicate header (REMOVED): {stripped}")
                     else:
-                        # This is a duplicate - remove it
-                        duplicates_found += 1
-                        print(f"  [LINE {i}] Duplicate header (REMOVED)")
+                        print(f"  [LINE {i}] Variant header (REMOVED): {stripped}")
                 else:
                     # This is a data line - keep it
                     cleaned_lines.append(line)
 
             # Report findings
-            if duplicates_found == 0:
-                print("  [RESULT] No duplicate headers found. File is clean.")
+            num_different_headers = len(unique_headers_found)
+
+            if headers_removed == 0:
+                print("  [RESULT] No additional headers found. File is clean.")
                 print()
                 return True, 0
+
+            print(f"  [ANALYSIS] Found {num_different_headers} different header format(s):")
+            for idx, unique_header in enumerate(sorted(unique_headers_found), start=1):
+                if unique_header == header:
+                    print(f"    {idx}. {unique_header} (primary - kept)")
+                else:
+                    print(f"    {idx}. {unique_header} (removed)")
 
             # Create backup if requested
             if self.make_backup:
@@ -165,11 +258,12 @@ class HeaderCleaner:
             with open(file_path, 'w', encoding='utf-8') as f:
                 f.writelines(cleaned_lines)
 
-            print(f"  [RESULT] Removed {duplicates_found} duplicate header(s).")
+            print(f"  [RESULT] Removed {headers_removed} header line(s).")
             print(f"  [SUCCESS] File cleaned successfully.")
             print()
 
-            return True, duplicates_found
+            # Return the number of different headers for statistics
+            return True, headers_removed
 
         except Exception as e:
             print(f"  [ERROR] Failed to process file: {e}")
@@ -190,16 +284,17 @@ class HeaderCleaner:
 
         # Process each file
         print("[TARS] Beginning file processing sequence...")
+        print("[TARS] Enhanced detection mode active: searching for duplicate AND variant headers.")
         print()
 
         for csv_file in csv_files:
             self.stats['files_processed'] += 1
-            success, duplicates = self.process_file(csv_file)
+            success, headers_removed = self.process_file(csv_file)
 
             if success:
-                if duplicates > 0:
+                if headers_removed > 0:
                     self.stats['files_modified'] += 1
-                    self.stats['total_duplicates_removed'] += duplicates
+                    self.stats['total_headers_removed'] += headers_removed
             else:
                 self.stats['errors'] += 1
 
@@ -220,13 +315,14 @@ class HeaderCleaner:
         print(f"Files Modified:           {self.stats['files_modified']}")
         print(f"Files Unchanged:          {self.stats['files_processed'] - self.stats['files_modified'] - self.stats['errors']}")
         print(f"Errors Encountered:       {self.stats['errors']}")
-        print(f"Total Duplicates Removed: {self.stats['total_duplicates_removed']}")
+        print(f"Total Headers Removed:    {self.stats['total_headers_removed']}")
         print("=" * 80)
         print(f"End Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         print()
 
         if self.stats['files_modified'] > 0:
             print("[TARS] Mission accomplished. Your CSV files are now cleaner than my code.")
+            print("[TARS] All variant and duplicate headers have been eliminated.")
         elif self.stats['files_processed'] > 0 and self.stats['files_modified'] == 0:
             print("[TARS] All files were already clean. Looks like someone's been doing their job.")
 

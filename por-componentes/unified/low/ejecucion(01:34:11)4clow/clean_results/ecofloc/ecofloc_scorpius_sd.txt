@@ -1,0 +1,2 @@
+Average Power scorpius sd : 0.00 Watts
+Total Energy scorpius sd : 0.00 Joules
