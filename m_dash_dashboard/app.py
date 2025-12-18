@@ -11,6 +11,7 @@ from plotly.subplots import make_subplots
 import pandas as pd
 from data_loader import DataLoader
 import os
+from pathlib import Path
 
 # Initialize the Dash app
 app = dash.Dash(__name__, suppress_callback_exceptions=True)
@@ -134,18 +135,22 @@ app.layout = html.Div(
                                     ],
                                     style={"marginBottom": 20},
                                 ),
-                                # Energy charts
+                                # Row 1: Main Energy Evolution by Node
                                 html.Div(
                                     [
                                         dcc.Graph(id="energy-evolution-chart"),
                                     ]
                                 ),
-                                # Component-specific energy charts
+                                # Row 2: Component-specific energy charts
                                 html.Div(
                                     [
                                         html.H4(
-                                            "Component-Level Energy Analysis",
-                                            style={"color": "#34495e", "marginTop": 30, "marginBottom": 20},
+                                            "Energy Evolution by Component",
+                                            style={
+                                                "color": "#34495e",
+                                                "marginTop": 30,
+                                                "marginBottom": 20,
+                                            },
                                         ),
                                         dcc.Graph(id="cpu-energy-chart"),
                                         dcc.Graph(id="ram-energy-chart"),
@@ -154,63 +159,34 @@ app.layout = html.Div(
                                     ],
                                     style={"marginTop": 20},
                                 ),
+                                # Row 3: Process Energy Consumption per-node bar charts
                                 html.Div(
                                     [
-                                        html.Div(
-                                            [
-                                                dcc.Graph(
-                                                    id="energy-distribution-chart"
-                                                ),
-                                            ],
+                                        html.H4(
+                                            "Process Energy Consumption",
                                             style={
-                                                "width": "48%",
-                                                "display": "inline-block",
+                                                "color": "#34495e",
+                                                "marginTop": 30,
+                                                "marginBottom": 20,
                                             },
                                         ),
-                                        html.Div(
-                                            [
-                                                dcc.Graph(id="cumulative-energy-chart"),
-                                            ],
-                                            style={
-                                                "width": "48%",
-                                                "display": "inline-block",
-                                                "float": "right",
-                                            },
-                                        ),
-                                    ]
-                                ),
-                                # Process-level energy treemap
-                                html.Div(
-                                    [
-                                        dcc.Graph(id="process-energy-treemap"),
+                                        html.Div(id="process-energy-bars-container"),
                                     ],
                                     style={"marginTop": 20},
                                 ),
-                                # Node selector for process-level time-series
+                                # Row 4: Energy Distribution by Process (pie charts)
                                 html.Div(
                                     [
-                                        html.Label(
-                                            "Select Node to Inspect:",
-                                            style={
-                                                "fontWeight": "bold",
-                                                "marginRight": 10,
-                                            },
-                                        ),
-                                        dcc.Dropdown(
-                                            id="node-selector-dropdown",
-                                            options=[],
-                                            placeholder="Select a node",
-                                            style={"width": "300px"},
-                                        ),
+                                        dcc.Graph(id="energy-distribution-chart"),
                                     ],
-                                    style={"marginTop": 20, "marginBottom": 10},
+                                    style={"marginTop": 20},
                                 ),
-                                # Process-level energy time-series chart
+                                # Row 5: Cumulative Energy by Component (bar charts)
                                 html.Div(
                                     [
-                                        dcc.Graph(id="process-energy-timeseries"),
+                                        dcc.Graph(id="cumulative-energy-chart"),
                                     ],
-                                    style={"marginTop": 10},
+                                    style={"marginTop": 20},
                                 ),
                             ],
                             style={"padding": 20},
@@ -262,7 +238,45 @@ app.layout = html.Div(
                         )
                     ],
                 ),
-                # Tab 3: Correlation
+                # Tab 3: Averages
+                dcc.Tab(
+                    label="Averages",
+                    value="tab-averages",
+                    id="averages-tab",
+                    disabled=True,
+                    children=[
+                        html.Div(
+                            [
+                                html.H3(
+                                    "Averages Analysis",
+                                    style={"color": "#34495e", "marginTop": 20},
+                                ),
+                                # Experiment Information Display
+                                html.Div(
+                                    id="averages-experiment-info",
+                                    style={"marginBottom": 20},
+                                ),
+                                # Energy Profile Pie Chart
+                                html.Div(
+                                    [
+                                        dcc.Graph(id="averages-energy-profile-pie"),
+                                    ]
+                                ),
+                                # Average Component Energy Breakdown Bar Chart
+                                html.Div(
+                                    [
+                                        dcc.Graph(
+                                            id="averages-component-breakdown-bar"
+                                        ),
+                                    ],
+                                    style={"marginTop": 30},
+                                ),
+                            ],
+                            style={"padding": 20},
+                        )
+                    ],
+                ),
+                # Tab 4: Correlation
                 dcc.Tab(
                     label="Correlation",
                     value="tab-correlation",
@@ -318,6 +332,58 @@ app.layout = html.Div(
                                         dcc.Graph(id="correlation-response-time-chart"),
                                     ]
                                 ),
+                                # Energy Profile Pie Charts Section
+                                html.Div(
+                                    [
+                                        html.H4(
+                                            "Energy Profile by Transaction Outcome",
+                                            style={
+                                                "color": "#34495e",
+                                                "marginTop": 30,
+                                                "marginBottom": 20,
+                                            },
+                                        ),
+                                        html.Div(
+                                            [
+                                                html.Div(
+                                                    [
+                                                        dcc.Graph(
+                                                            id="energy-profile-successful-pie"
+                                                        ),
+                                                    ],
+                                                    style={
+                                                        "width": "32%",
+                                                        "display": "inline-block",
+                                                        "marginRight": "1%",
+                                                    },
+                                                ),
+                                                html.Div(
+                                                    [
+                                                        dcc.Graph(
+                                                            id="energy-profile-failed-pie"
+                                                        ),
+                                                    ],
+                                                    style={
+                                                        "width": "32%",
+                                                        "display": "inline-block",
+                                                        "marginRight": "1%",
+                                                    },
+                                                ),
+                                                html.Div(
+                                                    [
+                                                        dcc.Graph(
+                                                            id="energy-profile-dropped-pie"
+                                                        ),
+                                                    ],
+                                                    style={
+                                                        "width": "32%",
+                                                        "display": "inline-block",
+                                                    },
+                                                ),
+                                            ]
+                                        ),
+                                    ]
+                                ),
                             ],
                             style={"padding": 20},
                         )
@@ -334,6 +400,8 @@ app.layout = html.Div(
         dcc.Store(id="component-energy-data-store"),
         # Store for synchronized hover position
         dcc.Store(id="hover-position-store"),
+        # Store for averages data (all experiments in category)
+        dcc.Store(id="averages-data-store"),
     ],
     style={
         "fontFamily": "Arial, sans-serif",
@@ -366,12 +434,12 @@ def populate_intensities(component):
         return [], None
 
     # For unified component, include 'specific-scenarios' in addition to standard intensities
-    if component == 'unified':
+    if component == "unified":
         options = [
             {"label": "LOW", "value": "low"},
             {"label": "MED", "value": "med"},
             {"label": "HIGH", "value": "high"},
-            {"label": "SPECIFIC-SCENARIOS", "value": "specific-scenarios"}
+            {"label": "SPECIFIC-SCENARIOS", "value": "specific-scenarios"},
         ]
         return options, None
 
@@ -382,19 +450,25 @@ def populate_intensities(component):
 
 
 # Callback to populate experiment dropdown based on component and intensity
+# Also controls the Averages tab disabled state
 @app.callback(
     Output("experiment-dropdown", "options"),
     Output("experiment-dropdown", "value"),
+    Output("averages-tab", "disabled"),
     Input("component-dropdown", "value"),
     Input("intensity-dropdown", "value"),
 )
 def populate_experiments(component, intensity):
     """Populate experiment dropdown based on component and intensity"""
     if not component or not intensity:
-        return [], None
+        return [], None, True
 
     experiments = data_loader.get_available_experiments(component, intensity)
-    return experiments, None
+
+    # Enable averages tab if we have valid component and intensity
+    averages_tab_disabled = not (component and intensity)
+
+    return experiments, None, averages_tab_disabled
 
 
 # Callback to load data when experiment is selected
@@ -449,9 +523,9 @@ def load_component_energy_data(experiment_path):
 
     # Load data for each component
     component_data = {}
-    for component in ['cpu', 'ram', 'sd', 'nic']:
+    for component in ["cpu", "ram", "sd", "nic"]:
         df = data_loader.load_ecofloc_component_data(experiment_path, component)
-        component_data[component] = df.to_dict('records') if not df.empty else []
+        component_data[component] = df.to_dict("records") if not df.empty else []
 
     return component_data
 
@@ -463,16 +537,16 @@ def load_component_energy_data(experiment_path):
 )
 def update_cpu_energy_chart(component_data):
     """Update CPU energy evolution time-series chart"""
-    if not component_data or 'cpu' not in component_data:
+    if not component_data or "cpu" not in component_data:
         return create_empty_figure("No CPU data available")
 
-    data_records = component_data['cpu']
+    data_records = component_data["cpu"]
     if not data_records:
         return create_empty_figure("No CPU data available")
 
     df = pd.DataFrame(data_records)
 
-    if 'elapsed_seconds' not in df.columns or df.empty:
+    if "elapsed_seconds" not in df.columns or df.empty:
         return create_empty_figure("No CPU data available")
 
     fig = go.Figure()
@@ -510,16 +584,16 @@ def update_cpu_energy_chart(component_data):
 )
 def update_ram_energy_chart(component_data):
     """Update RAM energy evolution time-series chart"""
-    if not component_data or 'ram' not in component_data:
+    if not component_data or "ram" not in component_data:
         return create_empty_figure("No RAM data available")
 
-    data_records = component_data['ram']
+    data_records = component_data["ram"]
     if not data_records:
         return create_empty_figure("No RAM data available")
 
     df = pd.DataFrame(data_records)
 
-    if 'elapsed_seconds' not in df.columns or df.empty:
+    if "elapsed_seconds" not in df.columns or df.empty:
         return create_empty_figure("No RAM data available")
 
     fig = go.Figure()
@@ -557,16 +631,16 @@ def update_ram_energy_chart(component_data):
 )
 def update_sd_energy_chart(component_data):
     """Update SD (Storage) energy evolution time-series chart"""
-    if not component_data or 'sd' not in component_data:
+    if not component_data or "sd" not in component_data:
         return create_empty_figure("No SD data available")
 
-    data_records = component_data['sd']
+    data_records = component_data["sd"]
     if not data_records:
         return create_empty_figure("No SD data available")
 
     df = pd.DataFrame(data_records)
 
-    if 'elapsed_seconds' not in df.columns or df.empty:
+    if "elapsed_seconds" not in df.columns or df.empty:
         return create_empty_figure("No SD data available")
 
     fig = go.Figure()
@@ -604,16 +678,16 @@ def update_sd_energy_chart(component_data):
 )
 def update_nic_energy_chart(component_data):
     """Update NIC (Network) energy evolution time-series chart"""
-    if not component_data or 'nic' not in component_data:
+    if not component_data or "nic" not in component_data:
         return create_empty_figure("No NIC data available")
 
-    data_records = component_data['nic']
+    data_records = component_data["nic"]
     if not data_records:
         return create_empty_figure("No NIC data available")
 
     df = pd.DataFrame(data_records)
 
-    if 'elapsed_seconds' not in df.columns or df.empty:
+    if "elapsed_seconds" not in df.columns or df.empty:
         return create_empty_figure("No NIC data available")
 
     fig = go.Figure()
@@ -669,7 +743,7 @@ def update_energy_evolution(energy_data, source):
         # Process Ecofloc data (solid lines)
         if has_ecofloc:
             df_eco = pd.DataFrame(energy_data["ecofloc"])
-            if 'elapsed_seconds' in df_eco.columns:
+            if "elapsed_seconds" in df_eco.columns:
                 for node in df_eco["node_name"].unique():
                     node_data = df_eco[df_eco["node_name"] == node]
                     fig.add_trace(
@@ -686,7 +760,7 @@ def update_energy_evolution(energy_data, source):
         # Process Scaphandre data (dotted lines)
         if has_scaphandre:
             df_scaph = pd.DataFrame(energy_data["scaphandre"])
-            if 'elapsed_seconds' in df_scaph.columns:
+            if "elapsed_seconds" in df_scaph.columns:
                 for node in df_scaph["node_name"].unique():
                     node_data = df_scaph[df_scaph["node_name"] == node]
                     fig.add_trace(
@@ -705,7 +779,9 @@ def update_energy_evolution(energy_data, source):
             xaxis_title="Time (seconds)",
             yaxis_title="Energy (Mixed Units: Joules for Ecofloc, Watts for Scaphandre)",
             hovermode="x unified",
-            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+            legend=dict(
+                orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1
+            ),
             height=600,  # Increased height for better visibility
         )
 
@@ -722,7 +798,7 @@ def update_energy_evolution(energy_data, source):
     df = pd.DataFrame(data_records)
 
     # Use elapsed_seconds for x-axis
-    if 'elapsed_seconds' not in df.columns:
+    if "elapsed_seconds" not in df.columns:
         return create_empty_figure(f"No elapsed_seconds data available for {source}")
 
     # Create a line for each node
@@ -828,14 +904,16 @@ def update_energy_distribution(energy_data, source, experiment_path, component):
         if not pids_df.empty and not pid_energy_df.empty:
             # Merge PID data with process names
             merged_df = pid_energy_df.merge(
-                pids_df,
-                on=['node_name', 'pid'],
-                how='inner'
+                pids_df, on=["node_name", "pid"], how="inner"
             )
 
             if not merged_df.empty:
                 # Calculate process-level energy per node
-                process_energy = merged_df.groupby(['node_name', 'name_pid'])['energy_value'].sum().reset_index()
+                process_energy = (
+                    merged_df.groupby(["node_name", "name_pid"])["energy_value"]
+                    .sum()
+                    .reset_index()
+                )
 
                 # Create subplots: 1 main pie + 1 per node
                 # Calculate rows and columns for layout
@@ -849,7 +927,8 @@ def update_energy_distribution(energy_data, source, experiment_path, component):
                     rows=rows,
                     cols=cols,
                     specs=specs,
-                    subplot_titles=["Energy Distribution by Node"] + [f"Process Distribution on {node}" for node in nodes]
+                    subplot_titles=["Energy Distribution by Node"]
+                    + [f"Process Distribution on {node}" for node in nodes],
                 )
 
                 # Add main pie chart (node distribution)
@@ -860,18 +939,22 @@ def update_energy_distribution(energy_data, source, experiment_path, component):
                         name="Node Distribution",
                         hole=0.3,
                         textposition="inside",
-                        textinfo="percent+label"
+                        textinfo="percent+label",
                     ),
                     row=1,
-                    col=1
+                    col=1,
                 )
 
                 # Add per-node process distribution pie charts
                 for idx, node in enumerate(nodes):
-                    node_process_data = process_energy[process_energy['node_name'] == node]
+                    node_process_data = process_energy[
+                        process_energy["node_name"] == node
+                    ]
 
                     # Calculate position in grid
-                    chart_idx = idx + 2  # +2 because idx starts at 0 and main chart is at 1
+                    chart_idx = (
+                        idx + 2
+                    )  # +2 because idx starts at 0 and main chart is at 1
                     row = (chart_idx - 1) // cols + 1
                     col = (chart_idx - 1) % cols + 1
 
@@ -882,10 +965,10 @@ def update_energy_distribution(energy_data, source, experiment_path, component):
                             name=f"{node} Processes",
                             hole=0.3,
                             textposition="inside",
-                            textinfo="percent+label"
+                            textinfo="percent+label",
                         ),
                         row=row,
-                        col=col
+                        col=col,
                     )
 
                 # Calculate appropriate height based on rows
@@ -894,7 +977,7 @@ def update_energy_distribution(energy_data, source, experiment_path, component):
                 fig.update_layout(
                     height=height,
                     showlegend=False,
-                    title_text="Energy Distribution Analysis"
+                    title_text="Energy Distribution Analysis",
                 )
 
                 return fig
@@ -929,18 +1012,20 @@ def update_cumulative_energy(component_data, source):
 
     # For scaphandre or if no component data, show simple chart
     if not component_data or source == "scaphandre":
-        return create_empty_figure("Component breakdown only available for Ecofloc source")
+        return create_empty_figure(
+            "Component breakdown only available for Ecofloc source"
+        )
 
     # Gather all nodes from component data
     all_nodes = set()
     component_dfs = {}
 
-    for component in ['cpu', 'ram', 'sd', 'nic']:
+    for component in ["cpu", "ram", "sd", "nic"]:
         if component in component_data and component_data[component]:
             df = pd.DataFrame(component_data[component])
-            if not df.empty and 'node_name' in df.columns:
+            if not df.empty and "node_name" in df.columns:
                 component_dfs[component] = df
-                all_nodes.update(df['node_name'].unique())
+                all_nodes.update(df["node_name"].unique())
 
     if not all_nodes:
         return create_empty_figure("No component data available")
@@ -953,7 +1038,7 @@ def update_cumulative_energy(component_data, source):
         rows=num_nodes,
         cols=1,
         subplot_titles=[f"Component Energy on {node}" for node in nodes],
-        vertical_spacing=0.15 / max(num_nodes, 1)
+        vertical_spacing=0.15 / max(num_nodes, 1),
     )
 
     # For each node, create a horizontal bar chart showing component breakdown
@@ -961,10 +1046,14 @@ def update_cumulative_energy(component_data, source):
         component_energies = []
         component_names = []
 
-        for component in ['cpu', 'ram', 'sd', 'nic']:
+        for component in ["cpu", "ram", "sd", "nic"]:
             if component in component_dfs:
-                node_data = component_dfs[component][component_dfs[component]['node_name'] == node]
-                total_energy = node_data['energy_value'].sum() if not node_data.empty else 0
+                node_data = component_dfs[component][
+                    component_dfs[component]["node_name"] == node
+                ]
+                total_energy = (
+                    node_data["energy_value"].sum() if not node_data.empty else 0
+                )
                 component_energies.append(total_energy)
                 component_names.append(component.upper())
             else:
@@ -975,18 +1064,18 @@ def update_cumulative_energy(component_data, source):
             go.Bar(
                 x=component_energies,
                 y=component_names,
-                orientation='h',
+                orientation="h",
                 name=node,
                 showlegend=False,
                 marker=dict(
                     color=component_energies,
-                    colorscale='Viridis',
+                    colorscale="Viridis",
                 ),
                 text=[f"{e:.2f}" for e in component_energies],
-                textposition='auto',
+                textposition="auto",
             ),
             row=idx + 1,
-            col=1
+            col=1,
         )
 
         # Update x-axis label for bottom chart only
@@ -1001,30 +1090,34 @@ def update_cumulative_energy(component_data, source):
     height = max(400, num_nodes * 250)
 
     fig.update_layout(
-        height=height,
-        title_text="Component Energy Breakdown by Node",
-        showlegend=False
+        height=height, title_text="Component Energy Breakdown by Node", showlegend=False
     )
 
     return fig
 
 
-# Callback to update process energy treemap
+# Callback to update process energy consumption per-node bar charts
 @app.callback(
-    Output("process-energy-treemap", "figure"),
+    Output("process-energy-bars-container", "children"),
     Input("energy-data-store", "data"),
     Input("energy-source-radio", "value"),
     Input("experiment-dropdown", "value"),
     State("current-component-store", "data"),
 )
-def update_process_energy_treemap(energy_data, source, experiment_path, component):
-    """Update process-level energy consumption treemap"""
+def update_process_energy_bars(energy_data, source, experiment_path, component):
+    """Update process-level energy consumption as separate bar charts per node"""
     if not energy_data or not experiment_path or not component:
-        return create_empty_figure("No data available")
+        return html.Div(
+            "No data available",
+            style={"textAlign": "center", "color": "gray", "padding": 20},
+        )
 
     # Only use ecofloc for PID-level data (scaphandre doesn't have PID data)
     if source == "scaphandre":
-        return create_empty_figure("Process-level energy data only available for Ecofloc source")
+        return html.Div(
+            "Process-level energy data only available for Ecofloc source",
+            style={"textAlign": "center", "color": "gray", "padding": 20},
+        )
 
     if source == "both":
         # Use ecofloc data when "both" is selected
@@ -1035,53 +1128,77 @@ def update_process_energy_treemap(energy_data, source, experiment_path, componen
         pids_df = data_loader.load_informe_pids(experiment_path)
 
         if pids_df.empty:
-            return create_empty_figure("No process information available (informe_pids.csv not found)")
+            return html.Div(
+                "No process information available (informe_pids.csv not found)",
+                style={"textAlign": "center", "color": "gray", "padding": 20},
+            )
 
         # Load per-PID energy data
         pid_energy_df = data_loader.load_ecofloc_pid_data(experiment_path, component)
 
         if pid_energy_df.empty:
-            return create_empty_figure("No per-PID energy data available")
+            return html.Div(
+                "No per-PID energy data available",
+                style={"textAlign": "center", "color": "gray", "padding": 20},
+            )
 
         # Merge PID data with process names
-        merged_df = pid_energy_df.merge(
-            pids_df,
-            on=['node_name', 'pid'],
-            how='inner'
-        )
+        merged_df = pid_energy_df.merge(pids_df, on=["node_name", "pid"], how="inner")
 
         if merged_df.empty:
-            return create_empty_figure("No matching process data found")
+            return html.Div(
+                "No matching process data found",
+                style={"textAlign": "center", "color": "gray", "padding": 20},
+            )
 
         # Aggregate total energy by node and process
-        aggregated = merged_df.groupby(['node_name', 'name_pid'])['energy_value'].sum().reset_index()
-        aggregated = aggregated.sort_values('energy_value', ascending=False)
-
-        # Create treemap
-        fig = px.treemap(
-            aggregated,
-            path=[px.Constant("All Nodes"), 'node_name', 'name_pid'],
-            values='energy_value',
-            title="Process Energy Consumption Breakdown",
-            color='energy_value',
-            color_continuous_scale='Viridis',
-            hover_data={'energy_value': ':.2f'}
+        aggregated = (
+            merged_df.groupby(["node_name", "name_pid"])["energy_value"]
+            .sum()
+            .reset_index()
         )
 
-        fig.update_traces(
-            textinfo="label+value",
-            textposition="middle center",
-        )
+        # Get unique nodes
+        unique_nodes = aggregated["node_name"].unique()
 
-        fig.update_layout(
-            height=500,
-            margin=dict(t=50, l=25, r=25, b=25)
-        )
+        # Create a list to hold all the graph components
+        graph_components = []
 
-        return fig
+        # Create one bar chart for each node
+        for node_name in unique_nodes:
+            # Filter data for this specific node
+            node_data = aggregated[aggregated["node_name"] == node_name]
+
+            # Sort by energy value for better visualization
+            node_data = node_data.sort_values("energy_value", ascending=False)
+
+            # Create bar chart for this node
+            fig = px.bar(
+                node_data,
+                x="name_pid",
+                y="energy_value",
+                title=f"Process Energy on Node: {node_name}",
+                labels={"name_pid": "Process", "energy_value": "Energy (Joules)"},
+            )
+
+            fig.update_layout(
+                height=400,
+                xaxis_title="Process",
+                yaxis_title="Energy (Joules)",
+                hovermode="x unified",
+                showlegend=False,
+            )
+
+            # Add this graph to the list
+            graph_components.append(dcc.Graph(figure=fig))
+
+        return graph_components
 
     except Exception as e:
-        return create_empty_figure(f"Error creating treemap: {str(e)}")
+        return html.Div(
+            f"Error creating bar charts: {str(e)}",
+            style={"textAlign": "center", "color": "red", "padding": 20},
+        )
 
 
 # Callback to populate node selector dropdown
@@ -1104,7 +1221,7 @@ def populate_node_selector(experiment_path, component):
             return [], None
 
         # Get unique node names
-        unique_nodes = sorted(pids_df['node_name'].unique())
+        unique_nodes = sorted(pids_df["node_name"].unique())
         options = [{"label": node, "value": node} for node in unique_nodes]
 
         # Default to first node
@@ -1134,7 +1251,9 @@ def update_process_energy_timeseries(selected_node, experiment_path, component):
         pids_df = data_loader.load_informe_pids(experiment_path)
 
         if pids_df.empty:
-            return create_empty_figure("No process information available (informe_pids.csv not found)")
+            return create_empty_figure(
+                "No process information available (informe_pids.csv not found)"
+            )
 
         # Load per-PID energy data
         pid_energy_df = data_loader.load_ecofloc_pid_data(experiment_path, component)
@@ -1143,40 +1262,38 @@ def update_process_energy_timeseries(selected_node, experiment_path, component):
             return create_empty_figure("No per-PID energy data available")
 
         # Merge PID data with process names
-        merged_df = pid_energy_df.merge(
-            pids_df,
-            on=['node_name', 'pid'],
-            how='inner'
-        )
+        merged_df = pid_energy_df.merge(pids_df, on=["node_name", "pid"], how="inner")
 
         if merged_df.empty:
             return create_empty_figure("No matching process data found")
 
         # Filter data for selected node
-        node_data = merged_df[merged_df['node_name'] == selected_node]
+        node_data = merged_df[merged_df["node_name"] == selected_node]
 
         if node_data.empty:
             return create_empty_figure(f"No data available for node: {selected_node}")
 
         # Calculate elapsed seconds from first timestamp
-        min_timestamp = node_data['timestamp'].min()
+        min_timestamp = node_data["timestamp"].min()
         node_data = node_data.copy()
-        node_data['elapsed_seconds'] = (node_data['timestamp'] - min_timestamp).dt.total_seconds()
+        node_data["elapsed_seconds"] = (
+            node_data["timestamp"] - min_timestamp
+        ).dt.total_seconds()
 
         # Create time-series chart with a line for each process
         fig = go.Figure()
 
         # Get unique processes for this node
-        unique_processes = node_data['name_pid'].unique()
+        unique_processes = node_data["name_pid"].unique()
 
         for process_name in unique_processes:
-            process_data = node_data[node_data['name_pid'] == process_name]
+            process_data = node_data[node_data["name_pid"] == process_name]
 
             fig.add_trace(
                 go.Scatter(
-                    x=process_data['elapsed_seconds'],
-                    y=process_data['energy_value'],
-                    mode='lines+markers',
+                    x=process_data["elapsed_seconds"],
+                    y=process_data["energy_value"],
+                    mode="lines+markers",
                     name=process_name,
                     line=dict(width=2),
                     marker=dict(size=4),
@@ -1188,13 +1305,7 @@ def update_process_energy_timeseries(selected_node, experiment_path, component):
             xaxis_title="Time (seconds)",
             yaxis_title="Energy (Joules)",
             hovermode="x unified",
-            legend=dict(
-                orientation="v",
-                yanchor="top",
-                y=1,
-                xanchor="left",
-                x=1.02
-            ),
+            legend=dict(orientation="v", yanchor="top", y=1, xanchor="left", x=1.02),
             height=500,
         )
 
@@ -1379,6 +1490,7 @@ def create_empty_figure(message):
 
 # ========== CORRELATION TAB CALLBACKS ==========
 
+
 # Callback to update correlation energy chart
 @app.callback(
     Output("correlation-energy-chart", "figure"),
@@ -1397,7 +1509,7 @@ def update_correlation_energy_chart(energy_data, source, hover_x):
 
     df = pd.DataFrame(data_records)
 
-    if 'elapsed_seconds' not in df.columns:
+    if "elapsed_seconds" not in df.columns:
         return create_empty_figure(f"No elapsed_seconds data available for {source}")
 
     fig = go.Figure()
@@ -1423,7 +1535,7 @@ def update_correlation_energy_chart(energy_data, source, hover_x):
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         height=350,
-        uirevision='correlation-energy',  # Preserve UI state including legend clicks
+        uirevision="correlation-energy",  # Preserve UI state including legend clicks
     )
 
     # Add vertical line if hover position is set
@@ -1501,7 +1613,7 @@ def update_correlation_transaction_chart(benchmark_data, hover_x):
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         height=350,
-        uirevision='correlation-transaction',  # Preserve UI state including legend clicks
+        uirevision="correlation-transaction",  # Preserve UI state including legend clicks
     )
 
     # Add vertical line if hover position is set
@@ -1558,7 +1670,7 @@ def update_correlation_response_time_chart(benchmark_data, hover_x):
         yaxis_title="Response Time (s)",
         hovermode="x unified",
         height=350,
-        uirevision='correlation-response',  # Preserve UI state including legend clicks
+        uirevision="correlation-response",  # Preserve UI state including legend clicks
     )
 
     # Add vertical line if hover position is set
@@ -1605,6 +1717,533 @@ def update_hover_position(energy_hover, transaction_hover, response_hover):
         return hover_data["points"][0]["x"]
 
     return None
+
+
+# Callback to update energy profile pie charts by transaction outcome
+@app.callback(
+    Output("energy-profile-successful-pie", "figure"),
+    Output("energy-profile-failed-pie", "figure"),
+    Output("energy-profile-dropped-pie", "figure"),
+    Input("component-energy-data-store", "data"),
+    Input("benchmark-data-store", "data"),
+    Input("correlation-energy-source-radio", "value"),
+    Input("energy-data-store", "data"),
+)
+def update_energy_profile_pies(component_data, benchmark_data, source, energy_data):
+    """
+    Update energy profile pie charts showing component energy distribution
+    for successful, failed, and dropped transactions
+    """
+    # Default empty figures
+    empty_fig_successful = create_empty_figure(
+        "No data available for successful transactions"
+    )
+    empty_fig_failed = create_empty_figure("No data available for failed transactions")
+    empty_fig_dropped = create_empty_figure(
+        "No data available for dropped transactions"
+    )
+
+    # Validate inputs
+    if not benchmark_data or not component_data:
+        return empty_fig_successful, empty_fig_failed, empty_fig_dropped
+
+    # Handle scaphandre case - only ecofloc has component-level data
+    if source == "scaphandre":
+        return (
+            create_empty_figure(
+                "Component breakdown only available for Ecofloc source"
+            ),
+            create_empty_figure(
+                "Component breakdown only available for Ecofloc source"
+            ),
+            create_empty_figure(
+                "Component breakdown only available for Ecofloc source"
+            ),
+        )
+
+    try:
+        # Step 1: Load Performance Data and calculate totals
+        limbo_df = pd.DataFrame(benchmark_data)
+
+        if limbo_df.empty:
+            return empty_fig_successful, empty_fig_failed, empty_fig_dropped
+
+        # Calculate total transactions
+        total_successful = (
+            limbo_df["successful_transactions"].sum()
+            if "successful_transactions" in limbo_df.columns
+            else 0
+        )
+        total_failed = (
+            limbo_df["failed_transactions"].sum()
+            if "failed_transactions" in limbo_df.columns
+            else 0
+        )
+        total_dropped = (
+            limbo_df["dropped_transactions"].sum()
+            if "dropped_transactions" in limbo_df.columns
+            else 0
+        )
+
+        all_transactions = total_successful + total_failed + total_dropped
+
+        # Handle edge case when no transactions
+        if all_transactions == 0:
+            return (
+                create_empty_figure("No transactions recorded"),
+                create_empty_figure("No transactions recorded"),
+                create_empty_figure("No transactions recorded"),
+            )
+
+        # Step 2: Calculate Ratios
+        ratio_successful = total_successful / all_transactions
+        ratio_failed = total_failed / all_transactions
+        ratio_dropped = total_dropped / all_transactions
+
+        # Step 3: Load and Sum Component Energy
+        total_cpu_energy = 0
+        total_ram_energy = 0
+        total_sd_energy = 0
+        total_nic_energy = 0
+
+        for component in ["cpu", "ram", "sd", "nic"]:
+            if component in component_data and component_data[component]:
+                df = pd.DataFrame(component_data[component])
+                if not df.empty and "energy_value" in df.columns:
+                    total_energy = df["energy_value"].sum()
+                    if component == "cpu":
+                        total_cpu_energy = total_energy
+                    elif component == "ram":
+                        total_ram_energy = total_energy
+                    elif component == "sd":
+                        total_sd_energy = total_energy
+                    elif component == "nic":
+                        total_nic_energy = total_energy
+
+        # Check if we have any energy data
+        total_energy = (
+            total_cpu_energy + total_ram_energy + total_sd_energy + total_nic_energy
+        )
+        if total_energy == 0:
+            return (
+                create_empty_figure("No energy data available"),
+                create_empty_figure("No energy data available"),
+                create_empty_figure("No energy data available"),
+            )
+
+        # Step 4: Distribute Energy by transaction ratio
+        # Successful transactions
+        successful_values = [
+            total_cpu_energy * ratio_successful,
+            total_ram_energy * ratio_successful,
+            total_sd_energy * ratio_successful,
+            total_nic_energy * ratio_successful,
+        ]
+
+        # Failed transactions
+        failed_values = [
+            total_cpu_energy * ratio_failed,
+            total_ram_energy * ratio_failed,
+            total_sd_energy * ratio_failed,
+            total_nic_energy * ratio_failed,
+        ]
+
+        # Dropped transactions
+        dropped_values = [
+            total_cpu_energy * ratio_dropped,
+            total_ram_energy * ratio_dropped,
+            total_sd_energy * ratio_dropped,
+            total_nic_energy * ratio_dropped,
+        ]
+
+        # Component labels
+        labels = ["CPU", "RAM", "SD", "NIC"]
+
+        # Step 5: Create Pie Charts
+        fig_successful = px.pie(
+            values=successful_values,
+            names=labels,
+            title=f"Energy Profile for Successful Transactions<br>({total_successful:,.0f} transactions, {ratio_successful:.1%})",
+            hole=0.3,
+        )
+        fig_successful.update_traces(textposition="inside", textinfo="percent+label")
+        fig_successful.update_layout(height=400)
+
+        fig_failed = px.pie(
+            values=failed_values,
+            names=labels,
+            title=f"Energy Profile for Failed Transactions<br>({total_failed:,.0f} transactions, {ratio_failed:.1%})",
+            hole=0.3,
+        )
+        fig_failed.update_traces(textposition="inside", textinfo="percent+label")
+        fig_failed.update_layout(height=400)
+
+        fig_dropped = px.pie(
+            values=dropped_values,
+            names=labels,
+            title=f"Energy Profile for Dropped Transactions<br>({total_dropped:,.0f} transactions, {ratio_dropped:.1%})",
+            hole=0.3,
+        )
+        fig_dropped.update_traces(textposition="inside", textinfo="percent+label")
+        fig_dropped.update_layout(height=400)
+
+        return fig_successful, fig_failed, fig_dropped
+
+    except Exception as e:
+        error_msg = f"Error creating energy profile pie charts: {str(e)}"
+        print(error_msg)
+        return (
+            create_empty_figure(error_msg),
+            create_empty_figure(error_msg),
+            create_empty_figure(error_msg),
+        )
+
+
+# ========== AVERAGES TAB CALLBACKS ==========
+
+
+# Callback to load averages data (all experiments in the selected category)
+@app.callback(
+    Output("averages-data-store", "data"),
+    Input("component-dropdown", "value"),
+    Input("intensity-dropdown", "value"),
+)
+def load_averages_data(component, intensity):
+    """
+    Load data for all experiments in the selected component/intensity category
+    """
+    if not component or not intensity:
+        return None
+
+    # Get all experiments for this component/intensity combination
+    experiments = data_loader.get_available_experiments(component, intensity)
+
+    if not experiments:
+        return None
+
+    # Collect data from all experiments
+    all_experiments_data = []
+
+    for exp in experiments:
+        exp_path = exp["value"]
+        exp_name = exp["label"]
+
+        try:
+            # Load limbo results to get transaction counts
+            limbo_df = data_loader.load_limbo_data(exp_path, intensity)
+
+            if limbo_df.empty:
+                continue
+
+            # Calculate total transactions for this experiment
+            total_successful = (
+                limbo_df["successful_transactions"].sum()
+                if "successful_transactions" in limbo_df.columns
+                else 0
+            )
+            total_failed = (
+                limbo_df["failed_transactions"].sum()
+                if "failed_transactions" in limbo_df.columns
+                else 0
+            )
+            total_dropped = (
+                limbo_df["dropped_transactions"].sum()
+                if "dropped_transactions" in limbo_df.columns
+                else 0
+            )
+
+            # Load energy data for all components with node-level detail
+            component_energies = {}
+            node_component_energies = {}  # Store {node: {component: energy}}
+
+            for comp in ["cpu", "ram", "sd", "nic"]:
+                # Use the existing, proven data_loader function
+                comp_df = data_loader.load_ecofloc_component_data(exp_path, comp)
+
+                if not comp_df.empty and "energy_value" in comp_df.columns:
+                    # Calculate total energy per node for this component
+                    node_totals = comp_df.groupby("node_name")["energy_value"].sum()
+
+                    # Aggregate total for this component across all nodes
+                    component_energies[comp] = node_totals.sum()
+
+                    # Store node-level data
+                    for node_name, energy in node_totals.items():
+                        if node_name not in node_component_energies:
+                            node_component_energies[node_name] = {}
+                        node_component_energies[node_name][comp] = energy
+                else:
+                    # No data for this component
+                    component_energies[comp] = 0
+
+            # Calculate total energy for this experiment
+            total_energy = sum(component_energies.values())
+
+            # Store experiment data
+            all_experiments_data.append(
+                {
+                    "name": exp_name,
+                    "path": exp_path,
+                    "total_successful": total_successful,
+                    "total_failed": total_failed,
+                    "total_dropped": total_dropped,
+                    "total_energy": total_energy,
+                    "component_energies": component_energies,
+                    "node_component_energies": node_component_energies,
+                }
+            )
+
+        except Exception as e:
+            print(f"Error loading data for {exp_name}: {e}")
+            continue
+
+    if not all_experiments_data:
+        return None
+
+    return {
+        "component": component,
+        "intensity": intensity,
+        "experiments": all_experiments_data,
+    }
+
+
+# Callback to display experiment information
+@app.callback(
+    Output("averages-experiment-info", "children"),
+    Input("averages-data-store", "data"),
+)
+def update_averages_info(averages_data):
+    """Display information about experiments in the averages analysis"""
+    if not averages_data:
+        return html.Div(
+            "No data available. Please select a component and intensity.",
+            style={"color": "gray"},
+        )
+
+    component = averages_data["component"]
+    intensity = averages_data["intensity"]
+    experiments = averages_data["experiments"]
+
+    num_experiments = len(experiments)
+
+    # Create experiment list
+    experiment_names = [exp["name"] for exp in experiments]
+
+    return html.Div(
+        [
+            html.H4(
+                f"Found {num_experiments} experiment{'s' if num_experiments != 1 else ''} for {component}/{intensity}",
+                style={"color": "#2c3e50", "marginBottom": 10},
+            ),
+            html.Div(
+                [
+                    html.Strong("Experiments in this group:"),
+                    html.Ul([html.Li(name) for name in experiment_names]),
+                ],
+                style={"marginTop": 10},
+            ),
+        ]
+    )
+
+
+# Callback to create energy profile pie chart by transaction outcome
+@app.callback(
+    Output("averages-energy-profile-pie", "figure"),
+    Input("averages-data-store", "data"),
+)
+def update_averages_energy_profile(averages_data):
+    """
+    Create pie chart showing energy distribution by transaction outcome
+    across all experiments in the category
+    """
+    if not averages_data:
+        return create_empty_figure(
+            "No data available. Please select a component and intensity."
+        )
+
+    experiments = averages_data["experiments"]
+
+    if not experiments:
+        return create_empty_figure("No experiments found")
+
+    # Initialize grand totals
+    grand_total_success_energy = 0
+    grand_total_fail_energy = 0
+    grand_total_drop_energy = 0
+
+    # Process each experiment
+    for exp in experiments:
+        total_successful = exp["total_successful"]
+        total_failed = exp["total_failed"]
+        total_dropped = exp["total_dropped"]
+        total_energy = exp["total_energy"]
+
+        # Calculate total transactions
+        total_txns = total_successful + total_failed + total_dropped
+
+        # Apportion energy based on transaction outcome ratios
+        if total_txns > 0:
+            energy_for_success = total_energy * (total_successful / total_txns)
+            energy_for_fail = total_energy * (total_failed / total_txns)
+            energy_for_drop = total_energy * (total_dropped / total_txns)
+        else:
+            energy_for_success = 0
+            energy_for_fail = 0
+            energy_for_drop = 0
+
+        # Add to grand totals
+        grand_total_success_energy += energy_for_success
+        grand_total_fail_energy += energy_for_fail
+        grand_total_drop_energy += energy_for_drop
+
+    # Create pie chart
+    values = [
+        grand_total_success_energy,
+        grand_total_fail_energy,
+        grand_total_drop_energy,
+    ]
+    names = ["Successful Transactions", "Failed Transactions", "Dropped Transactions"]
+
+    # Check if we have any energy data
+    if sum(values) == 0:
+        return create_empty_figure("No energy data available")
+
+    # Calculate percentages for label positioning
+    total = sum(values)
+    percentages = [(v / total) * 100 if total > 0 else 0 for v in values]
+
+    # Determine text positions: small slices (< 4%) go outside, others inside
+    text_positions = ["outside" if pct < 4 else "inside" for pct in percentages]
+
+    # Apply static color mapping
+    color_map = {
+        "Successful Transactions": "green",
+        "Failed Transactions": "rgb(168, 37, 37)",
+        "Dropped Transactions": "rgb(223, 197, 60)",
+    }
+
+    fig = px.pie(
+        values=values,
+        names=names,
+        title="Average Energy Profile by Transaction Outcome",
+        hole=0.3,
+        color=names,
+        color_discrete_map=color_map,
+    )
+
+    fig.update_traces(textposition=text_positions, textinfo="percent+label")
+    fig.update_layout(height=500)
+
+    return fig
+
+
+# Callback to create average component energy breakdown bar chart
+@app.callback(
+    Output("averages-component-breakdown-bar", "figure"),
+    Input("averages-data-store", "data"),
+)
+def update_averages_component_breakdown(averages_data):
+    """
+    Create grouped bar chart showing average energy consumption of each
+    hardware component by node across all experiments in the category
+    """
+    # print(
+    #     f"DEBUG: update_averages_component_breakdown called with averages_data: {averages_data is not None}"
+    # )
+
+    if not averages_data:
+        return create_empty_figure(
+            "No data available. Please select a component and intensity."
+        )
+
+    experiments = averages_data["experiments"]
+    # print(
+    #     f"DEBUG: Averaging data for experiments: {[exp['path'] for exp in experiments]}"
+    # )
+
+    if not experiments:
+        return create_empty_figure("No experiments found")
+
+    # Collect all node-component energy data across all experiments
+    # Structure: {node: {component: [list of energies from each experiment]}}
+    node_component_data = {}
+
+    for exp in experiments:
+        # print(f"DEBUG: Processing experiment: {exp['path']}")
+        node_energies = exp.get("node_component_energies", {})
+        # print(f"DEBUG:   - node_component_energies: {node_energies}")
+
+        for node_name, components in node_energies.items():
+            if node_name not in node_component_data:
+                node_component_data[node_name] = {
+                    "cpu": [],
+                    "ram": [],
+                    "sd": [],
+                    "nic": [],
+                }
+
+            for component in ["cpu", "ram", "sd", "nic"]:
+                energy = components.get(component, 0)
+                # print(f"  - Reading component: {component} for node {node_name}")
+                # print(f"    - Calculated Energy: {energy} J")
+                node_component_data[node_name][component].append(energy)
+
+    # Calculate averages for each node-component pair
+    averaged_data = []
+
+    for node_name, components in node_component_data.items():
+        for component in ["cpu", "ram", "sd", "nic"]:
+            energies = components[component]
+            if energies:
+                avg_energy = sum(energies) / len(energies)
+                averaged_data.append(
+                    {
+                        "node_name": node_name,
+                        "component": component.upper(),
+                        "average_energy_joules": avg_energy,
+                    }
+                )
+
+    if not averaged_data:
+        return create_empty_figure("No component energy data available")
+
+    # Create DataFrame for plotting
+    df = pd.DataFrame(averaged_data)
+    # print(f"DEBUG: Final DataFrame for chart:\n{df.to_string()}")
+
+    # Apply static color mapping
+    color_map = {
+        "CPU": "rgb(168, 37, 37)",
+        "RAM": "rgb(21, 11, 147)",
+        "SD": "rgb(223, 197, 60)",
+        "NIC": "purple",
+    }
+
+    # Create grouped bar chart
+    fig = px.bar(
+        df,
+        x="node_name",
+        y="average_energy_joules",
+        color="component",
+        barmode="group",
+        title="Average Component Energy Breakdown by Node",
+        labels={
+            "node_name": "Node",
+            "average_energy_joules": "Average Energy (Joules)",
+            "component": "Component",
+        },
+        color_discrete_map=color_map,
+    )
+
+    fig.update_layout(
+        height=500,
+        xaxis_title="Node",
+        yaxis_title="Average Energy (Joules)",
+        legend_title="Component",
+        hovermode="x unified",
+    )
+
+    return fig
 
 
 if __name__ == "__main__":
