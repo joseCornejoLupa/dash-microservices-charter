@@ -251,6 +251,22 @@ app.layout = html.Div(
                                     "Averages Analysis",
                                     style={"color": "#34495e", "marginTop": 20},
                                 ),
+                                # Informational note about data source
+                                html.Div(
+                                    [
+                                        html.Strong("Note: ", style={"color": "#2c3e50"}),
+                                        "The charts on this tab display averages calculated exclusively from Ecofloc data.",
+                                    ],
+                                    style={
+                                        "backgroundColor": "#d4edda",
+                                        "color": "#155724",
+                                        "padding": "12px 20px",
+                                        "borderRadius": "5px",
+                                        "border": "1px solid #c3e6cb",
+                                        "marginBottom": 20,
+                                        "fontSize": "14px",
+                                    },
+                                ),
                                 # Experiment Information Display
                                 html.Div(
                                     id="averages-experiment-info",
@@ -268,6 +284,39 @@ app.layout = html.Div(
                                         dcc.Graph(
                                             id="averages-component-breakdown-bar"
                                         ),
+                                    ],
+                                    style={"marginTop": 30},
+                                ),
+                                # Average Overall Energy Evolution Chart
+                                html.Div(
+                                    [
+                                        html.H4(
+                                            "Average Energy Evolution Over Time",
+                                            style={
+                                                "color": "#34495e",
+                                                "marginTop": 30,
+                                                "marginBottom": 20,
+                                            },
+                                        ),
+                                        dcc.Graph(id="averages-overall-energy-evolution"),
+                                    ],
+                                    style={"marginTop": 30},
+                                ),
+                                # Average Energy Evolution by Component Charts
+                                html.Div(
+                                    [
+                                        html.H4(
+                                            "Average Component Energy Evolution",
+                                            style={
+                                                "color": "#34495e",
+                                                "marginTop": 30,
+                                                "marginBottom": 20,
+                                            },
+                                        ),
+                                        dcc.Graph(id="averages-cpu-energy-evolution"),
+                                        dcc.Graph(id="averages-ram-energy-evolution"),
+                                        dcc.Graph(id="averages-sd-energy-evolution"),
+                                        dcc.Graph(id="averages-nic-energy-evolution"),
                                     ],
                                     style={"marginTop": 30},
                                 ),
@@ -1900,6 +1949,10 @@ def update_energy_profile_pies(component_data, benchmark_data, source, energy_da
 
 
 # ========== AVERAGES TAB CALLBACKS ==========
+# NOTE: All callbacks in this section use ECOFLOC data exclusively.
+# The data_loader functions (load_ecofloc_data, load_ecofloc_component_data)
+# are hardcoded to search only in ecofloc directories, ensuring consistent
+# data source regardless of any filters on other tabs.
 
 
 # Callback to load averages data (all experiments in the selected category)
@@ -1911,6 +1964,8 @@ def update_energy_profile_pies(component_data, benchmark_data, source, energy_da
 def load_averages_data(component, intensity):
     """
     Load data for all experiments in the selected component/intensity category
+
+    NOTE: This function uses ECOFLOC data exclusively via load_ecofloc_component_data()
     """
     if not component or not intensity:
         return None
@@ -1958,6 +2013,7 @@ def load_averages_data(component, intensity):
 
             for comp in ["cpu", "ram", "sd", "nic"]:
                 # Use the existing, proven data_loader function
+                # NOTE: load_ecofloc_component_data() only reads from ecofloc directories
                 comp_df = data_loader.load_ecofloc_component_data(exp_path, comp)
 
                 if not comp_df.empty and "energy_value" in comp_df.columns:
@@ -2055,6 +2111,8 @@ def update_averages_energy_profile(averages_data):
     """
     Create pie chart showing energy distribution by transaction outcome
     across all experiments in the category
+
+    NOTE: Uses ECOFLOC data exclusively (data loaded by load_averages_data callback)
     """
     if not averages_data:
         return create_empty_figure(
@@ -2146,6 +2204,8 @@ def update_averages_component_breakdown(averages_data):
     """
     Create grouped bar chart showing average energy consumption of each
     hardware component by node across all experiments in the category
+
+    NOTE: Uses ECOFLOC data exclusively (data loaded by load_averages_data callback)
     """
     # print(
     #     f"DEBUG: update_averages_component_breakdown called with averages_data: {averages_data is not None}"
@@ -2241,6 +2301,244 @@ def update_averages_component_breakdown(averages_data):
         yaxis_title="Average Energy (Joules)",
         legend_title="Component",
         hovermode="x unified",
+    )
+
+    return fig
+
+
+# Callback to create average overall energy evolution chart
+@app.callback(
+    Output("averages-overall-energy-evolution", "figure"),
+    Input("component-dropdown", "value"),
+    Input("intensity-dropdown", "value"),
+)
+def update_averages_overall_energy_evolution(component, intensity):
+    """
+    Create line chart showing average total energy over time
+    across all experiments in the selected category
+
+    NOTE: Uses ECOFLOC data exclusively via load_ecofloc_data()
+    """
+    if not component or not intensity:
+        return create_empty_figure(
+            "No data available. Please select a component and intensity."
+        )
+
+    # Get all experiments for this component/intensity combination
+    experiments = data_loader.get_available_experiments(component, intensity)
+
+    if not experiments:
+        return create_empty_figure("No experiments found")
+
+    # Collect time-series data from all experiments
+    all_time_series = []
+
+    for exp in experiments:
+        exp_path = exp["value"]
+
+        try:
+            # Load ecofloc data for unified component view
+            # NOTE: load_ecofloc_data() only reads from ecofloc directories
+            ecofloc_df = data_loader.load_ecofloc_data(exp_path, component)
+
+            if ecofloc_df.empty or "elapsed_seconds" not in ecofloc_df.columns:
+                continue
+
+            # Aggregate total energy across all nodes at each time point
+            time_series = (
+                ecofloc_df.groupby("elapsed_seconds")["energy_value"]
+                .sum()
+                .reset_index()
+            )
+            time_series["experiment"] = exp["label"]
+
+            all_time_series.append(time_series)
+
+        except Exception as e:
+            print(f"Error loading data for {exp['label']}: {e}")
+            continue
+
+    if not all_time_series:
+        return create_empty_figure("No valid energy data available")
+
+    # Combine all time series and calculate average
+    combined_df = pd.concat(all_time_series, ignore_index=True)
+
+    # Calculate average energy at each elapsed_seconds point
+    avg_time_series = (
+        combined_df.groupby("elapsed_seconds")["energy_value"].mean().reset_index()
+    )
+
+    # Create line chart
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Scatter(
+            x=avg_time_series["elapsed_seconds"],
+            y=avg_time_series["energy_value"],
+            mode="lines+markers",
+            name="Average Total Energy",
+            line=dict(width=3, color="blue"),
+            marker=dict(size=5),
+        )
+    )
+
+    fig.update_layout(
+        title=f"Average Overall Energy Evolution ({component.upper()}/{intensity.upper()})",
+        xaxis_title="Time (seconds)",
+        yaxis_title="Average Energy (Joules)",
+        hovermode="x unified",
+        height=500,
+    )
+
+    return fig
+
+
+# Callback to create average CPU energy evolution chart
+@app.callback(
+    Output("averages-cpu-energy-evolution", "figure"),
+    Input("component-dropdown", "value"),
+    Input("intensity-dropdown", "value"),
+)
+def update_averages_cpu_energy_evolution(component, intensity):
+    """
+    Create line chart showing average CPU energy over time
+
+    NOTE: Uses ECOFLOC data exclusively via create_component_average_chart()
+    """
+    return create_component_average_chart(component, intensity, "cpu", "CPU")
+
+
+# Callback to create average RAM energy evolution chart
+@app.callback(
+    Output("averages-ram-energy-evolution", "figure"),
+    Input("component-dropdown", "value"),
+    Input("intensity-dropdown", "value"),
+)
+def update_averages_ram_energy_evolution(component, intensity):
+    """
+    Create line chart showing average RAM energy over time
+
+    NOTE: Uses ECOFLOC data exclusively via create_component_average_chart()
+    """
+    return create_component_average_chart(component, intensity, "ram", "RAM")
+
+
+# Callback to create average SD energy evolution chart
+@app.callback(
+    Output("averages-sd-energy-evolution", "figure"),
+    Input("component-dropdown", "value"),
+    Input("intensity-dropdown", "value"),
+)
+def update_averages_sd_energy_evolution(component, intensity):
+    """
+    Create line chart showing average SD energy over time
+
+    NOTE: Uses ECOFLOC data exclusively via create_component_average_chart()
+    """
+    return create_component_average_chart(component, intensity, "sd", "SD")
+
+
+# Callback to create average NIC energy evolution chart
+@app.callback(
+    Output("averages-nic-energy-evolution", "figure"),
+    Input("component-dropdown", "value"),
+    Input("intensity-dropdown", "value"),
+)
+def update_averages_nic_energy_evolution(component, intensity):
+    """
+    Create line chart showing average NIC energy over time
+
+    NOTE: Uses ECOFLOC data exclusively via create_component_average_chart()
+    """
+    return create_component_average_chart(component, intensity, "nic", "NIC")
+
+
+def create_component_average_chart(component, intensity, target_component, label):
+    """
+    Helper function to create average energy evolution chart for a specific component
+
+    Args:
+        component: Selected component filter (cpu, ram, sd, nic, unified)
+        intensity: Selected intensity filter (low, med, high)
+        target_component: The specific hardware component to chart (cpu, ram, sd, nic)
+        label: Display label for the component (CPU, RAM, SD, NIC)
+
+    Returns:
+        Plotly figure showing average energy evolution
+
+    NOTE: This function uses ECOFLOC data exclusively via load_ecofloc_component_data()
+    """
+    if not component or not intensity:
+        return create_empty_figure(
+            "No data available. Please select a component and intensity."
+        )
+
+    # Get all experiments for this component/intensity combination
+    experiments = data_loader.get_available_experiments(component, intensity)
+
+    if not experiments:
+        return create_empty_figure("No experiments found")
+
+    # Collect time-series data from all experiments
+    all_time_series = []
+
+    for exp in experiments:
+        exp_path = exp["value"]
+
+        try:
+            # Load component-specific data
+            # NOTE: load_ecofloc_component_data() only reads from ecofloc directories
+            comp_df = data_loader.load_ecofloc_component_data(exp_path, target_component)
+
+            if comp_df.empty or "elapsed_seconds" not in comp_df.columns:
+                continue
+
+            # Aggregate total energy across all nodes at each time point
+            time_series = (
+                comp_df.groupby("elapsed_seconds")["energy_value"]
+                .sum()
+                .reset_index()
+            )
+            time_series["experiment"] = exp["label"]
+
+            all_time_series.append(time_series)
+
+        except Exception as e:
+            print(f"Error loading {target_component} data for {exp['label']}: {e}")
+            continue
+
+    if not all_time_series:
+        return create_empty_figure(f"No valid {label} energy data available")
+
+    # Combine all time series and calculate average
+    combined_df = pd.concat(all_time_series, ignore_index=True)
+
+    # Calculate average energy at each elapsed_seconds point
+    avg_time_series = (
+        combined_df.groupby("elapsed_seconds")["energy_value"].mean().reset_index()
+    )
+
+    # Create line chart
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Scatter(
+            x=avg_time_series["elapsed_seconds"],
+            y=avg_time_series["energy_value"],
+            mode="lines+markers",
+            name=f"Average {label} Energy",
+            line=dict(width=3),
+            marker=dict(size=5),
+        )
+    )
+
+    fig.update_layout(
+        title=f"Average {label} Energy Evolution ({component.upper()}/{intensity.upper()})",
+        xaxis_title="Time (seconds)",
+        yaxis_title="Average Energy (Joules)",
+        hovermode="x unified",
+        height=400,
     )
 
     return fig
