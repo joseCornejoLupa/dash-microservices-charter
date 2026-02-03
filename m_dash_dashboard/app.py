@@ -19,7 +19,7 @@ app.title = "Experimental Data Analysis Dashboard"
 
 # Initialize data loader
 ROOT_DIR = (
-    "/home/josec/green_computing/microservices/historyexecutions/experiments-data"
+    "/home/luish/Documents/death/dash-microservices-charter"
 )
 data_loader = DataLoader(ROOT_DIR)
 
@@ -438,6 +438,93 @@ app.layout = html.Div(
                         )
                     ],
                 ),
+                # Tab 5: Average Time Distribution
+                dcc.Tab(
+                    label="Promedios Tiempo",
+                    value="tab-time-averages",
+                    id="time-averages-tab",
+                    disabled=True,
+                    children=[
+                        html.Div(
+                            [
+                                html.H3(
+                                    "Time-Normalized Energy Distribution Analysis",
+                                    style={"color": "#34495e", "marginTop": 20},
+                                ),
+                                # Informational note about functionality
+                                html.Div(
+                                    [
+                                        html.Strong("Note: ", style={"color": "#2c3e50"}),
+                                        "This tab normalizes experiment times and displays probability distributions (box plots) of energy consumption by component across normalized time intervals.",
+                                    ],
+                                    style={
+                                        "backgroundColor": "#d4edda",
+                                        "color": "#155724",
+                                        "padding": "12px 20px",
+                                        "borderRadius": "5px",
+                                        "border": "1px solid #c3e6cb",
+                                        "marginBottom": 20,
+                                        "fontSize": "14px",
+                                    },
+                                ),
+                                # Controls for time normalization
+                                html.Div(
+                                    [
+                                        html.Label("Number of Time Intervals:", style={"fontWeight": "bold", "marginRight": 10}),
+                                        dcc.Slider(
+                                            id="time-intervals-slider",
+                                            min=5,
+                                            max=50,
+                                            step=5,
+                                            value=10,
+                                            marks={i: str(i) for i in range(5, 51, 5)},
+                                            tooltip={"placement": "bottom", "always_visible": True},
+                                        ),
+                                    ],
+                                    style={"marginBottom": 30, "padding": "0 20px"},
+                                ),
+                                # Box plots by component
+                                html.Div(
+                                    [
+                                        html.H4(
+                                            "CPU Energy Distribution Over Normalized Time",
+                                            style={"color": "#34495e", "marginTop": 20, "marginBottom": 15},
+                                        ),
+                                        dcc.Graph(id="time-avg-cpu-boxplot"),
+                                    ]
+                                ),
+                                html.Div(
+                                    [
+                                        html.H4(
+                                            "RAM Energy Distribution Over Normalized Time",
+                                            style={"color": "#34495e", "marginTop": 30, "marginBottom": 15},
+                                        ),
+                                        dcc.Graph(id="time-avg-ram-boxplot"),
+                                    ]
+                                ),
+                                html.Div(
+                                    [
+                                        html.H4(
+                                            "SD Energy Distribution Over Normalized Time",
+                                            style={"color": "#34495e", "marginTop": 30, "marginBottom": 15},
+                                        ),
+                                        dcc.Graph(id="time-avg-sd-boxplot"),
+                                    ]
+                                ),
+                                html.Div(
+                                    [
+                                        html.H4(
+                                            "NIC Energy Distribution Over Normalized Time",
+                                            style={"color": "#34495e", "marginTop": 30, "marginBottom": 15},
+                                        ),
+                                        dcc.Graph(id="time-avg-nic-boxplot"),
+                                    ]
+                                ),
+                            ],
+                            style={"padding": 20},
+                        )
+                    ],
+                ),
             ],
         ),
         # Hidden div to store loaded data
@@ -504,20 +591,21 @@ def populate_intensities(component):
     Output("experiment-dropdown", "options"),
     Output("experiment-dropdown", "value"),
     Output("averages-tab", "disabled"),
+    Output("time-averages-tab", "disabled"),
     Input("component-dropdown", "value"),
     Input("intensity-dropdown", "value"),
 )
 def populate_experiments(component, intensity):
     """Populate experiment dropdown based on component and intensity"""
     if not component or not intensity:
-        return [], None, True
+        return [], None, True, True
 
     experiments = data_loader.get_available_experiments(component, intensity)
 
-    # Enable averages tab if we have valid component and intensity
-    averages_tab_disabled = not (component and intensity)
+    # Enable averages and time-averages tabs if we have valid component and intensity
+    tab_disabled = not (component and intensity)
 
-    return experiments, None, averages_tab_disabled
+    return experiments, None, tab_disabled, tab_disabled
 
 
 # Callback to load data when experiment is selected
@@ -602,15 +690,18 @@ def update_cpu_energy_chart(component_data):
 
     # Create a line for each node
     for node in df["node_name"].unique():
-        node_data = df[df["node_name"] == node]
+        # IMPORTANTE: Ordenar por tiempo para que la línea conecte secuencialmente
+        node_data = df[df["node_name"] == node].sort_values("elapsed_seconds")
+        
         fig.add_trace(
             go.Scatter(
                 x=node_data["elapsed_seconds"],
                 y=node_data["energy_value"],
-                mode="lines+markers",
+                mode="lines+markers",  # Conecta los puntos y muestra el marcador
                 name=node,
-                line=dict(width=2),
+                line=dict(width=2, shape='linear'), # shape='linear' asegura conexión directa
                 marker=dict(size=4),
+                connectgaps=True # Conecta la línea incluso si falta un dato intermedio
             )
         )
 
@@ -621,6 +712,7 @@ def update_cpu_energy_chart(component_data):
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         height=350,
+        template="plotly_white"
     )
 
     return fig
@@ -647,9 +739,10 @@ def update_ram_energy_chart(component_data):
 
     fig = go.Figure()
 
-    # Create a line for each node
     for node in df["node_name"].unique():
-        node_data = df[df["node_name"] == node]
+        # Ordenar por tiempo
+        node_data = df[df["node_name"] == node].sort_values("elapsed_seconds")
+        
         fig.add_trace(
             go.Scatter(
                 x=node_data["elapsed_seconds"],
@@ -658,6 +751,7 @@ def update_ram_energy_chart(component_data):
                 name=node,
                 line=dict(width=2),
                 marker=dict(size=4),
+                connectgaps=True
             )
         )
 
@@ -668,6 +762,7 @@ def update_ram_energy_chart(component_data):
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         height=350,
+        template="plotly_white"
     )
 
     return fig
@@ -694,9 +789,10 @@ def update_sd_energy_chart(component_data):
 
     fig = go.Figure()
 
-    # Create a line for each node
     for node in df["node_name"].unique():
-        node_data = df[df["node_name"] == node]
+        # Ordenar por tiempo
+        node_data = df[df["node_name"] == node].sort_values("elapsed_seconds")
+        
         fig.add_trace(
             go.Scatter(
                 x=node_data["elapsed_seconds"],
@@ -705,6 +801,7 @@ def update_sd_energy_chart(component_data):
                 name=node,
                 line=dict(width=2),
                 marker=dict(size=4),
+                connectgaps=True
             )
         )
 
@@ -715,6 +812,7 @@ def update_sd_energy_chart(component_data):
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         height=350,
+        template="plotly_white"
     )
 
     return fig
@@ -741,9 +839,10 @@ def update_nic_energy_chart(component_data):
 
     fig = go.Figure()
 
-    # Create a line for each node
     for node in df["node_name"].unique():
-        node_data = df[df["node_name"] == node]
+        # Ordenar por tiempo
+        node_data = df[df["node_name"] == node].sort_values("elapsed_seconds")
+        
         fig.add_trace(
             go.Scatter(
                 x=node_data["elapsed_seconds"],
@@ -752,6 +851,7 @@ def update_nic_energy_chart(component_data):
                 name=node,
                 line=dict(width=2),
                 marker=dict(size=4),
+                connectgaps=True
             )
         )
 
@@ -762,11 +862,13 @@ def update_nic_energy_chart(component_data):
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         height=350,
+        template="plotly_white"
     )
 
     return fig
 
 
+# Callback to update energy evolution chart
 # Callback to update energy evolution chart
 @app.callback(
     Output("energy-evolution-chart", "figure"),
@@ -774,13 +876,41 @@ def update_nic_energy_chart(component_data):
     Input("energy-source-radio", "value"),
 )
 def update_energy_evolution(energy_data, source):
-    """Update energy evolution time-series chart"""
+    """Update energy evolution time-series chart showing AVERAGE across nodes"""
     if not energy_data:
         return create_empty_figure("No data available")
 
     fig = go.Figure()
 
-    # Handle "both" option - show both sources
+    # Función auxiliar para procesar y añadir traza de promedio
+    def add_average_trace(data_list, source_name, line_style, marker_symbol):
+        if not data_list:
+            return
+        
+        df = pd.DataFrame(data_list)
+        if "elapsed_seconds" not in df.columns:
+            return
+
+        # 1. Agrupar por tiempo y calcular el PROMEDIO de energía entre todos los nodos
+        # Esto colapsa las N líneas de nodos en una sola línea promedio
+        avg_df = df.groupby("elapsed_seconds")["energy_value"].mean().reset_index()
+        
+        # 2. Ordenar por tiempo para asegurar conexión correcta de líneas
+        avg_df = avg_df.sort_values("elapsed_seconds")
+
+        fig.add_trace(
+            go.Scatter(
+                x=avg_df["elapsed_seconds"],
+                y=avg_df["energy_value"],
+                mode="lines+markers",
+                name=f"Average {source_name}", # Etiqueta clara
+                line=dict(width=3, dash=line_style), # Línea un poco más gruesa
+                marker=dict(size=6, symbol=marker_symbol),
+                connectgaps=True
+            )
+        )
+
+    # Lógica para manejar las fuentes seleccionadas
     if source == "both":
         # Check if we have both data sources
         has_ecofloc = "ecofloc" in energy_data and energy_data["ecofloc"]
@@ -789,92 +919,41 @@ def update_energy_evolution(energy_data, source):
         if not has_ecofloc and not has_scaphandre:
             return create_empty_figure("No data available")
 
-        # Process Ecofloc data (solid lines)
         if has_ecofloc:
-            df_eco = pd.DataFrame(energy_data["ecofloc"])
-            if "elapsed_seconds" in df_eco.columns:
-                for node in df_eco["node_name"].unique():
-                    node_data = df_eco[df_eco["node_name"] == node]
-                    fig.add_trace(
-                        go.Scatter(
-                            x=node_data["elapsed_seconds"],
-                            y=node_data["energy_value"],
-                            mode="lines+markers",
-                            name=f"{node} (Ecofloc)",
-                            line=dict(width=2, dash="solid"),
-                            marker=dict(size=4),
-                        )
-                    )
-
-        # Process Scaphandre data (dotted lines)
+            add_average_trace(energy_data["ecofloc"], "Ecofloc", "solid", "circle")
+        
         if has_scaphandre:
-            df_scaph = pd.DataFrame(energy_data["scaphandre"])
-            if "elapsed_seconds" in df_scaph.columns:
-                for node in df_scaph["node_name"].unique():
-                    node_data = df_scaph[df_scaph["node_name"] == node]
-                    fig.add_trace(
-                        go.Scatter(
-                            x=node_data["elapsed_seconds"],
-                            y=node_data["energy_value"],
-                            mode="lines+markers",
-                            name=f"{node} (Scaphandre)",
-                            line=dict(width=2, dash="dot"),
-                            marker=dict(size=4, symbol="diamond"),
-                        )
-                    )
+            add_average_trace(energy_data["scaphandre"], "Scaphandre", "dot", "diamond")
 
-        fig.update_layout(
-            title="Energy Evolution Over Time (Both Sources)",
-            xaxis_title="Time (seconds)",
-            yaxis_title="Energy (Mixed Units: Joules for Ecofloc, Watts for Scaphandre)",
-            hovermode="x unified",
-            legend=dict(
-                orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1
-            ),
-            height=600,  # Increased height for better visibility
-        )
+        title_text = "Average Energy Evolution (All Nodes)"
+        y_axis_label = "Average Energy (Mixed Units)"
 
-        return fig
-
-    # Handle single source (original logic)
-    if source not in energy_data:
-        return create_empty_figure("No data available")
-
-    data_records = energy_data[source]
-    if not data_records:
-        return create_empty_figure(f"No {source} data available")
-
-    df = pd.DataFrame(data_records)
-
-    # Use elapsed_seconds for x-axis
-    if "elapsed_seconds" not in df.columns:
-        return create_empty_figure(f"No elapsed_seconds data available for {source}")
-
-    # Create a line for each node
-    for node in df["node_name"].unique():
-        node_data = df[df["node_name"] == node]
-        fig.add_trace(
-            go.Scatter(
-                x=node_data["elapsed_seconds"],
-                y=node_data["energy_value"],
-                mode="lines+markers",
-                name=node,
-                line=dict(width=2),
-                marker=dict(size=4),
-            )
-        )
+    else:
+        # Single source
+        if source not in energy_data:
+            return create_empty_figure("No data available")
+        
+        data_records = energy_data[source]
+        if not data_records:
+            return create_empty_figure(f"No {source} data available")
+            
+        # Llamar a la función auxiliar
+        add_average_trace(data_records, source.capitalize(), "solid", "circle")
+        
+        title_text = f"Average Energy Evolution ({source.capitalize()})"
+        y_axis_label = "Average Energy (Watts)" if source == "scaphandre" else "Average Energy (Joules)"
 
     fig.update_layout(
-        title=f"Energy Evolution Over Time ({source.capitalize()})",
+        title=title_text,
         xaxis_title="Time (seconds)",
-        yaxis_title="Energy (Watts)" if source == "scaphandre" else "Energy (Joules)",
+        yaxis_title=y_axis_label,
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
-        height=400,
+        height=600 if source == "both" else 400,
+        template="plotly_white"
     )
 
     return fig
-
 
 # Callback to update energy distribution pie chart
 @app.callback(
@@ -2542,6 +2621,133 @@ def create_component_average_chart(component, intensity, target_component, label
     )
 
     return fig
+
+
+# ========== TIME-NORMALIZED AVERAGES TAB CALLBACKS ==========
+# These callbacks normalize experiment duration and create probability distributions
+# for energy consumption by component across normalized time intervals
+def normalize_and_bin_time_series(df, num_intervals):
+    """
+    Normaliza el tiempo a 0-1 y lo divide en N intervalos con etiquetas descriptivas.
+    """
+    if df.empty or 'elapsed_seconds' not in df.columns:
+        return []
+    
+    df_copy = df.copy()
+    min_time = df_copy['elapsed_seconds'].min()
+    max_time = df_copy['elapsed_seconds'].max()
+    
+    if max_time == min_time:
+        df_copy['normalized_time'] = 0.0
+        df_copy['interval_label'] = "0%"
+        return df_copy.to_dict('records')
+    
+    # Normalización
+    df_copy['normalized_time'] = (df_copy['elapsed_seconds'] - min_time) / (max_time - min_time)
+    
+    # Crear intervalos (bins)
+    # Usamos labels que representen el porcentaje del tiempo del experimento
+    step = 100 / num_intervals
+    bins = [i/num_intervals for i in range(num_intervals + 1)]
+    labels = [f"{int(i*step)}-{int((i+1)*step)}%" for i in range(num_intervals)]
+    
+    df_copy['interval_label'] = pd.cut(df_copy['normalized_time'], bins=bins, labels=labels, include_lowest=True)
+    
+    return df_copy[['interval_label', 'energy_value']].to_dict('records')
+
+def create_time_boxplot(component_name, component_label, num_intervals, component_dropdown_value, intensity_dropdown_value):
+    if not component_dropdown_value or not intensity_dropdown_value:
+        return create_empty_figure("Seleccione componente e intensidad")
+    
+    experiments = data_loader.get_available_experiments(component_dropdown_value, intensity_dropdown_value)
+    if not experiments: return create_empty_figure("No se encontraron experimentos")
+    
+    all_binned_data = []
+    for exp in experiments:
+        try:
+            comp_df = data_loader.load_ecofloc_component_data(exp['value'], component_name)
+            if comp_df.empty: continue
+            
+            time_series = comp_df.groupby('elapsed_seconds')['energy_value'].sum().reset_index()
+            binned = normalize_and_bin_time_series(time_series, num_intervals)
+            all_binned_data.extend(binned)
+        except Exception as e:
+            continue
+
+    if not all_binned_data:
+        return create_empty_figure(f"Sin datos para {component_label}")
+    
+    plot_df = pd.DataFrame(all_binned_data)
+    
+    # Creación del gráfico con Plotly Express para manejo automático de categorías
+    fig = px.box(
+        plot_df, 
+        x="interval_label", 
+        y="energy_value",
+        color_discrete_sequence=["#3498db"],
+        points="outliers", # Muestra solo puntos extremos para no saturar
+        notched=True # Ayuda a ver la confianza en la mediana
+    )
+    
+    fig.update_layout(
+        title=f"Distribución Detallada de Energía: {component_label} (Tiempo Normalizado)",
+        xaxis_title="Intervalo de Tiempo del Experimento (%)",
+        yaxis_title="Energía (Joules)",
+        hovermode="x unified",
+        height=500,
+        template="plotly_white",
+        xaxis={'tickangle': 45} # Rotar etiquetas para que no se traslapen si hay muchos intervalos
+    )
+    
+    return fig
+
+
+# Callback for CPU energy boxplot
+@app.callback(
+    Output("time-avg-cpu-boxplot", "figure"),
+    Input("time-intervals-slider", "value"),
+    Input("component-dropdown", "value"),
+    Input("intensity-dropdown", "value"),
+)
+def update_time_cpu_boxplot(num_intervals, component, intensity):
+    """Update CPU energy distribution box plot"""
+    return create_time_boxplot("cpu", "CPU", num_intervals, component, intensity)
+
+
+# Callback for RAM energy boxplot
+@app.callback(
+    Output("time-avg-ram-boxplot", "figure"),
+    Input("time-intervals-slider", "value"),
+    Input("component-dropdown", "value"),
+    Input("intensity-dropdown", "value"),
+)
+def update_time_ram_boxplot(num_intervals, component, intensity):
+    """Update RAM energy distribution box plot"""
+    return create_time_boxplot("ram", "RAM", num_intervals, component, intensity)
+
+
+# Callback for SD energy boxplot
+@app.callback(
+    Output("time-avg-sd-boxplot", "figure"),
+    Input("time-intervals-slider", "value"),
+    Input("component-dropdown", "value"),
+    Input("intensity-dropdown", "value"),
+)
+def update_time_sd_boxplot(num_intervals, component, intensity):
+    """Update SD energy distribution box plot"""
+    return create_time_boxplot("sd", "SD", num_intervals, component, intensity)
+
+
+# Callback for NIC energy boxplot
+@app.callback(
+    Output("time-avg-nic-boxplot", "figure"),
+    Input("time-intervals-slider", "value"),
+    Input("component-dropdown", "value"),
+    Input("intensity-dropdown", "value"),
+)
+def update_time_nic_boxplot(num_intervals, component, intensity):
+    """Update NIC energy distribution box plot"""
+    return create_time_boxplot("nic", "NIC", num_intervals, component, intensity)
 
 
 if __name__ == "__main__":

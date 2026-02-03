@@ -22,11 +22,56 @@ A sophisticated Plotly Dash application for analyzing experimental data with ene
   2. Average Response Time: Area chart displaying response time trends
   3. Load Intensity: Time-series showing load intensity progression
 
+### Tab 6: ⚡ Energy Score Manager (Kubernetes)
+- Calculates energy efficiency scores per node from Ecofloc or Scaphandre data.
+- Applies `energy-score` labels to Kubernetes nodes for scheduler scoring.
+- Visualizes current labels, score ranking, component breakdown, and efficiency radar.
+
+## Energy Score Labeling (CLI)
+
+We added a standalone script to calculate and apply node labels used by the scheduler plugin:
+
+- Script: [energy_score_labeler.py](energy_score_labeler.py)
+- Label: `energy-score`
+- Higher score = more energy‑efficient node
+
+### CLI Usage
+
+Dry run (no changes):
+```bash
+python3 energy_score_labeler.py --dry-run
+```
+
+Apply labels using Ecofloc:
+```bash
+python3 energy_score_labeler.py --apply --source ecofloc
+```
+
+Apply labels using Scaphandre:
+```bash
+python3 energy_score_labeler.py --apply --source scaphandre
+```
+
+Remove labels:
+```bash
+python3 energy_score_labeler.py --remove
+```
+
+### Node Name Mapping
+If your energy data uses node aliases (e.g., `aspire`, `nitro5`) and Kubernetes uses full names,
+edit the `NODE_NAME_MAPPING` in [energy_score_labeler.py](energy_score_labeler.py).
+
+### Score Logic (Resumen)
+- Each component is normalized to 0–100 across nodes.
+- Efficiency is inverted: **lower energy use → higher score**.
+- Ecofloc uses weighted components (CPU/RAM/NIC/SD).
+- Scaphandre uses global energy per node.
+
 ## Installation
 
 1. Navigate to the dashboard directory:
 ```bash
-cd /home/josec/green_computing/microservices/historyexecutions/experiments-data/m_dash_dashboard
+cd /home/luish/Documents/death/dash-microservices-charter/m_dash_dashboard
 ```
 
 2. Install dependencies:
@@ -38,12 +83,12 @@ pip install -r requirements.txt
 
 1. Start the application:
 ```bash
-python app.py
+python3 main2.py
 ```
 
 2. Open your browser and navigate to:
 ```
-http://127.0.0.1:8050
+http://127.0.0.1:8051
 ```
 
 3. Use the control panel:
@@ -121,8 +166,10 @@ If data doesn't appear:
 
 ```
 m_dash_dashboard/
-├── app.py              # Main Dash application
-├── data_loader.py      # Data loading utilities
-├── requirements.txt    # Python dependencies
-└── README.md          # This file
+├── app.py                   # Main Dash application (legacy)
+├── main2.py                 # Current multi-tab dashboard
+├── data_loader.py           # Data loading utilities
+├── energy_score_labeler.py  # CLI for Kubernetes energy-score labels
+├── requirements.txt         # Python dependencies
+└── README.md                # This file
 ```
