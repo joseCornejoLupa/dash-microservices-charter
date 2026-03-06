@@ -1,0 +1,5 @@
+node,teastore-webui,teastore-image,teastore-db,teastore-registry,teastore-auth,teastore-recommender,teastore-persistence,own-k8s
+nitro5,0,0,0,0,0,0,0,6
+aspire,1,0,1,0,1,0,0,4
+scorpius,0,1,0,1,0,0,0,3
+leo,0,0,0,0,0,1,1,2

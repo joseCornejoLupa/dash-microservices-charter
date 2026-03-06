@@ -1,0 +1,185 @@
+========================================
+🔬 EXPERIMENTO: 2 iteraciones por escenario
+   Escenarios: 3
+   Total ejecuciones: 6
+   Inicio: 2026-02-20 10:41:09
+========================================
+
+########################################################
+🔄 ESCENARIO: low | ITERACIÓN: 1 / 2
+   Hora: 10:41:09
+########################################################
+========================================
+🔋 FASE 1: Descarga de imágenes (low, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [10:41:34] Iniciando medición de energía: fase1_descarga_low_iter1 (25s)
+   PID de medición: 1931280
+🚀 Desplegando TeaStore desde /home/luish/Documents/death/teastore/TeaStore/examples/kubernetes/teastore-energy-scheduler.yaml...
+========================================
+🔋 MEASURE ENERGY - Fase: fase1_descarga_low_iter1
+   Duración: 25s
+   PID: 1931280
+========================================
+=== Medición bloque 25s - Fase: fase1_descarga_low_iter1 ===
+[⏱ 10:41:34] Iniciando ecofloc en nitro5 por 25s (fase: fase1_descarga_low_iter1)
+⏳ Esperando a que todos los pods de TeaStore estén Running y Ready...
+  ├─ [nitro5:sd] start 10:41:34
+  ├─ [nitro5:ram] start 10:41:35
+  ├─ [nitro5:nic] start 10:41:35
+[⏱ 10:41:36] Iniciando ecofloc en aspire por 25s (fase: fase1_descarga_low_iter1)
+  ├─ [nitro5:cpu] start 10:41:36
+  ├─ [aspire:sd] start 10:41:36
+  ├─ [aspire:ram] start 10:41:36
+[⏱ 10:41:36] Iniciando ecofloc en scorpius por 25s (fase: fase1_descarga_low_iter1)
+  ├─ [aspire:nic] start 10:41:36
+  ├─ [aspire:cpu] start 10:41:36
+  ├─ [scorpius:sd] start 10:41:36
+  ├─ [scorpius:ram] start 10:41:36
+[⏱ 10:41:36] Iniciando ecofloc en leo por 25s (fase: fase1_descarga_low_iter1)
+  ├─ [scorpius:cpu] start 10:41:36
+  ├─ [scorpius:nic] start 10:41:36
+  ├─ [leo:ram] start 10:41:36
+  ├─ [leo:sd] start 10:41:36
+  ├─ [leo:nic] start 10:41:36
+  ├─ [leo:cpu] start 10:41:36
+  └─ [nitro5:sd] end 10:42:00
+  └─ [nitro5:ram] end 10:42:00
+  └─ [nitro5:nic] end 10:42:00
+  └─ [nitro5:cpu] end 10:42:01
+  └─ [scorpius:cpu] end 10:42:03
+  └─ [scorpius:sd] end 10:42:03
+  └─ [leo:sd] end 10:42:03
+  └─ [leo:cpu] end 10:42:03
+  └─ [scorpius:nic] end 10:42:04
+  └─ [scorpius:ram] end 10:42:04
+  └─ [leo:ram] end 10:42:04
+  └─ [leo:nic] end 10:42:05
+=== Bloque 25s terminado - Fase: fase1_descarga_low_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase1_descarga_low_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+ssh: connect to host luish-aspire-a315-55g port 22: No route to host
+⚠️ Algunos pods aún no están listos. Estado actual:
+NAME                                    READY   STATUS    RESTARTS   AGE   IP       NODE     NOMINATED NODE   READINESS GATES
+teastore-auth-7f45dc5b78-xdgrm          0/1     Pending   0          2m    <none>   <none>   <none>           <none>
+teastore-db-7fbd65fffc-xwbjh            0/1     Pending   0          2m    <none>   <none>   <none>           <none>
+teastore-image-d667f788f-7wj9d          0/1     Pending   0          2m    <none>   <none>   <none>           <none>
+teastore-persistence-78457db6cd-m2fl4   0/1     Pending   0          2m    <none>   <none>   <none>           <none>
+teastore-recommender-74b77f5cd9-bkx4t   0/1     Pending   0          2m    <none>   <none>   <none>           <none>
+teastore-registry-5ff566bd59-m7mm7      0/1     Pending   0          2m    <none>   <none>   <none>           <none>
+teastore-webui-6dc474c7f8-rmx2r         0/1     Pending   0          2m    <none>   <none>   <none>           <none>
+🔁 Reintentando espera...
+⚠️ Algunos pods aún no están listos. Estado actual:
+NAME                                    READY   STATUS              RESTARTS   AGE   IP       NODE                   NOMINATED NODE   READINESS GATES
+teastore-auth-7f45dc5b78-xdgrm          0/1     Pending             0          4m    <none>   scorpius03             <none>           <none>
+teastore-db-7fbd65fffc-xwbjh            0/1     Pending             0          4m    <none>   scorpius03             <none>           <none>
+teastore-image-d667f788f-7wj9d          0/1     Pending             0          4m    <none>   scorpius03             <none>           <none>
+teastore-persistence-78457db6cd-m2fl4   0/1     Pending             0          4m    <none>   scorpius03             <none>           <none>
+teastore-recommender-74b77f5cd9-bkx4t   0/1     Pending             0          4m    <none>   scorpius03             <none>           <none>
+teastore-registry-5ff566bd59-m7mm7      0/1     Pending             0          4m    <none>   scorpius03             <none>           <none>
+teastore-webui-6dc474c7f8-rmx2r         0/1     ContainerCreating   0          4m    <none>   luish-nitro-an515-57   <none>           <none>
+🔁 Reintentando espera...
+⚠️ Algunos pods aún no están listos. Estado actual:
+NAME                                    READY   STATUS              RESTARTS   AGE   IP             NODE                   NOMINATED NODE   READINESS GATES
+teastore-auth-7f45dc5b78-xdgrm          1/1     Running             0          6m    172.16.91.33   scorpius03             <none>           <none>
+teastore-db-7fbd65fffc-xwbjh            1/1     Running             0          6m    172.16.91.32   scorpius03             <none>           <none>
+teastore-image-d667f788f-7wj9d          1/1     Running             0          6m    172.16.91.34   scorpius03             <none>           <none>
+teastore-persistence-78457db6cd-m2fl4   1/1     Running             0          6m    172.16.91.37   scorpius03             <none>           <none>
+teastore-recommender-74b77f5cd9-bkx4t   1/1     Running             0          6m    172.16.91.35   scorpius03             <none>           <none>
+teastore-registry-5ff566bd59-m7mm7      1/1     Running             0          6m    172.16.91.36   scorpius03             <none>           <none>
+teastore-webui-6dc474c7f8-rmx2r         0/1     ContainerCreating   0          6m    <none>         luish-nitro-an515-57   <none>           <none>
+🔁 Reintentando espera...
+✅ Pods listos.
+⏳ [10:47:42] Esperando que termine medición: fase1_descarga_low_iter1 (PID: 1931280)
+✔️ [10:47:42] Medición fase1_descarga_low_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(10:47:47)_fase1_low_iter1
+[✔] Archivado: ./historyexecutions/exp(10:47:47)_fase1_low_iter1
+========================================
+🔋 FASE 2: Preparación de servicios (low, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [10:48:07] Iniciando medición de energía: fase2_preparacion_low_iter1 (50s)
+   PID de medición: 2001715
+========================================
+🔋 MEASURE ENERGY - Fase: fase2_preparacion_low_iter1
+   Duración: 50s
+   PID: 2001715
+========================================
+=== Medición bloque 50s - Fase: fase2_preparacion_low_iter1 ===
+[⏱ 10:48:07] Iniciando ecofloc en nitro5 por 50s (fase: fase2_preparacion_low_iter1)
+⏳ Esperando 10s a que CoreDNS se estabilice...
+  ├─ [nitro5:sd] start 10:48:07
+  ├─ [nitro5:ram] start 10:48:08
+  ├─ [nitro5:nic] start 10:48:08
+[⏱ 10:48:08] Iniciando ecofloc en aspire por 50s (fase: fase2_preparacion_low_iter1)
+  ├─ [nitro5:cpu] start 10:48:08
+  ├─ [aspire:sd] start 10:48:08
+  ├─ [aspire:ram] start 10:48:08
+[⏱ 10:48:08] Iniciando ecofloc en scorpius por 50s (fase: fase2_preparacion_low_iter1)
+  ├─ [aspire:nic] start 10:48:08
+  ├─ [aspire:cpu] start 10:48:08
+  ├─ [scorpius:sd] start 10:48:08
+  ├─ [scorpius:ram] start 10:48:08
+  ├─ [scorpius:nic] start 10:48:08
+[⏱ 10:48:08] Iniciando ecofloc en leo por 50s (fase: fase2_preparacion_low_iter1)
+  ├─ [scorpius:cpu] start 10:48:08
+  ├─ [leo:ram] start 10:48:08
+  ├─ [leo:sd] start 10:48:08
+  ├─ [leo:cpu] start 10:48:08
+  ├─ [leo:nic] start 10:48:08
+➡️ Pod WebUI: teastore-webui-6dc474c7f8-rmx2r
+➡️ Está en el nodo: luish-nitro-an515-57
+🌐 IP del nodo WebUI: 192.168.18.27
+⏳ Verificando estado del TeaStore en http://192.168.18.27:30080/tools.descartes.teastore.webui/status ...
+   ➤ Estado actual: 5 / 5 servicios OK
+✔ TODOS los servicios del TeaStore están OK. Continuando...
+⏳ [10:48:28] Esperando que termine medición: fase2_preparacion_low_iter1 (PID: 2001715)
+  └─ [nitro5:sd] end 10:48:57
+  └─ [nitro5:ram] end 10:48:58
+  └─ [nitro5:nic] end 10:48:58
+  └─ [nitro5:cpu] end 10:48:58
+  └─ [aspire:sd] end 10:48:59
+  └─ [aspire:cpu] end 10:48:59
+  └─ [aspire:nic] end 10:49:00
+  └─ [leo:sd] end 10:49:01
+  └─ [leo:nic] end 10:49:02
+  └─ [aspire:ram] end 10:49:02
+  └─ [scorpius:sd] end 10:49:03
+  └─ [leo:cpu] end 10:49:03
+  └─ [scorpius:nic] end 10:49:03
+  └─ [scorpius:ram] end 10:49:03
+  └─ [leo:ram] end 10:49:03
+  └─ [scorpius:cpu] end 10:49:04
+=== Bloque 50s terminado - Fase: fase2_preparacion_low_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase2_preparacion_low_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase2_preparacion_low_iter1
+========================================
+✔️ [10:49:11] Medición fase2_preparacion_low_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(10:49:16)_fase2_low_iter1

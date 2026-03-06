@@ -1,0 +1,33 @@
+=== KUBERNETES PROCESS STATUS (crictl ps) ALL NODES ===
+Archivo generado: mar. 24 févr. 2026 21:23:03 -05
+--------------------------------------------------------
+### NODO: luish-Nitro-AN515-57 (LOCAL) ###
+CONTAINER           IMAGE               CREATED             STATE               NAME                      ATTEMPT             POD ID              POD                                            NAMESPACE
+1ecc830e29f37       5e785d005ccc1       23 minutes ago      Running             calico-kube-controllers   0                   87f1d553e9e45       calico-kube-controllers-7498b9bb4c-lk28g       kube-system
+bc2265be820f5       08616d26b8e74       23 minutes ago      Running             calico-node               0                   78fd1429653ae       calico-node-svxtf                              kube-system
+a138dd6059cf9       f1b5e86e205a8       24 minutes ago      Running             kube-proxy                0                   41f0cea58febc       kube-proxy-2rnqp                               kube-system
+9ab3f8da15c9c       d3042e988f33d       24 minutes ago      Running             kube-scheduler            7                   18097ce67a94e       kube-scheduler-luish-nitro-an515-57            kube-system
+7166eed24d91f       e479eda972d59       24 minutes ago      Running             kube-controller-manager   7                   60347e663852d       kube-controller-manager-luish-nitro-an515-57   kube-system
+3b2c3068fd97d       5ff854e85948c       24 minutes ago      Running             kube-apiserver            6                   341b904ea140f       kube-apiserver-luish-nitro-an515-57            kube-system
+f616486cfe5b5       a9e7e6b294baf       24 minutes ago      Running             etcd                      8                   4f4fcd59944e5       etcd-luish-nitro-an515-57                      kube-system
+### NODO: luish@luish-Aspire-A315-55G ###
+CONTAINER           IMAGE               CREATED             STATE               NAME                   ATTEMPT             POD ID              POD                                   NAMESPACE
+140d0fb31ba24       09e4bf37b49fe       33 seconds ago      Running             teastore-recommender   0                   a6b3afff9a2c7       teastore-recommender-74559c88-tj9rk   default
+5f9b884ce9ecd       88134a277bcb9       36 seconds ago      Running             teastore-auth          0                   3cd5977389811       teastore-auth-84d7ccddd9-8kzk7        default
+23756464c6542       868441df2f305       38 seconds ago      Running             teastore-db            0                   388fb375143c9       teastore-db-84f96b9dd8-n55cd          default
+600c2a47d1323       c69fa2e9cbf5f       7 minutes ago       Running             coredns                0                   87d239a76e484       coredns-5f8b4d8d68-wndzz              kube-system
+b2ff049ca14ce       08616d26b8e74       18 minutes ago      Running             calico-node            0                   25581051af5da       calico-node-nl4jm                     kube-system
+06bc343353e96       f1b5e86e205a8       18 minutes ago      Running             kube-proxy             0                   3c1dc109930d1       kube-proxy-sfhvx                      kube-system
+### NODO: scorpius03@192.168.18.34 ###
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID              POD
+9d54e96f1dc82       8ea7763cd5370       41 seconds ago      Running             teastore-image      0                   fc6424c1b0a95       teastore-image-79674648d-jlngc
+ea6a08662bbd0       0585b48143fb9       41 seconds ago      Running             teastore-registry   0                   56ae3adf35cac       teastore-registry-676858f7cd-mqkdh
+f55b6af6421d5       08616d26b8e74       12 minutes ago      Running             calico-node         0                   9434871bd29ff       calico-node-mt54z
+dce5af58eafa1       f1b5e86e205a8       13 minutes ago      Running             kube-proxy          0                   35b139d6c54fb       kube-proxy-v5j8w
+### NODO: leo@192.168.18.36 ###
+CONTAINER           IMAGE               CREATED             STATE               NAME                   ATTEMPT             POD ID              POD
+4bf378838e151       5c6fbb85d5619       42 seconds ago      Running             teastore-persistence   0                   029174cfdddd0       teastore-persistence-784748b4b9-gml6j
+8211244bb56d1       7605cf5a4ab70       43 seconds ago      Running             teastore-webui         0                   6aacc8812605a       teastore-webui-558b54cc77-q6zm9
+bd844bd4f8403       c69fa2e9cbf5f       7 minutes ago       Running             coredns                0                   96996faef71eb       coredns-5f8b4d8d68-7pm82
+63149dbb02472       08616d26b8e74       18 minutes ago      Running             calico-node            0                   2dcc47ac38a1e       calico-node-nztd2
+28d384246fd64       f1b5e86e205a8       18 minutes ago      Running             kube-proxy             0                   d65df68fc5468       kube-proxy-gjnsm

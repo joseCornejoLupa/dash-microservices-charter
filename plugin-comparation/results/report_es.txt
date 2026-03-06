@@ -1,0 +1,167 @@
+============================================================
+REPORTE COMPARATIVO: PLUGIN DE SCHEDULING ENERGÉTICO
+Generado: 2026-03-06 13:45:00
+============================================================
+
+RESUMEN DEL DATASET
+------------------------------------------------------------
+- Experimentos con-plugin       : 29  (low, medium)  [low=20, medium=9]
+- Experimentos sin-plugin       : 54  (high, low, medium)  [high=15, low=21, medium=18]
+
+⚠️ ATENCIÓN: con-plugin no tiene intensidad HIGH en este lote.
+   La comparación RQ1/RQ2/RQ3 solo cubre LOW y MEDIUM.
+
+✅ CALIDAD DE ECOFLOC: Ambos grupos presentan mediciones válidas.
+   El problema de ecofloc truncado (~8 s) detectado en lotes anteriores
+   NO afecta a este dataset. Todas las comparaciones de energía son válidas.
+
+ESTADÍSTICAS BRUTAS (agrupadas por grupo × intensidad)
+------------------------------------------------------------
+Grupo              Intensidad   N   avg_energía_J  std_energía  avg_tx_exit   std_tx   avg_J/tx
+------------------------------------------------------------------------------------------------
+con-plugin         low         20        843.23       234.34        340.8      175.6     2.6467
+con-plugin         medium       9        659.66       127.93        546.4       82.0     1.2062
+sin-plugin         low         21        970.51       325.69       1183.6     1568.9     2.2554
+sin-plugin         medium      18       1150.95       407.17       1821.4     1517.9     1.0631
+sin-plugin         high        15       1141.58       447.46       1852.5     2061.3     1.7012
+
+PREGUNTA DE INVESTIGACIÓN 1: ¿El plugin reduce el consumo energético?
+------------------------------------------------------------
+Comparación por intensidad (con-plugin vs sin-plugin):
+
+  Intensidad LOW (N_cp=20 vs N_sp=21):
+    con-plugin    promedio: 843.23 J  (std: 234.34)
+    sin-plugin    promedio: 970.51 J  (std: 325.69)
+    Diferencia: 13.1% MENOS energía con el plugin  ✅
+
+  Intensidad MEDIUM (N_cp=9 vs N_sp=18):
+    con-plugin    promedio: 659.66 J  (std: 127.93)
+    sin-plugin    promedio: 1150.95 J  (std: 407.17)
+    Diferencia: 42.7% MENOS energía con el plugin  ✅
+
+  Intensidad HIGH — sin-plugin: 1141.58 J (N=15)  |  con-plugin: sin datos
+    No es posible comparar HIGH en este lote.
+
+  Interpretación general: El plugin reduce consistentemente el consumo
+  de energía total. La reducción es mayor en MEDIUM (42.7%) que en LOW (13.1%).
+  Comparado con el lote anterior (2026-02-27), la reducción es más pronunciada
+  (lote previo: -3.0% low, -23.9% medium), lo que sugiere que el nuevo lote
+  con-plugin opera bajo condiciones más favorables para el plugin o que las
+  condiciones del cluster difieren respecto a experimentos anteriores.
+  Ver: energy_by_intensity.png, node_energy_breakdown.png
+
+PREGUNTA DE INVESTIGACIÓN 2: ¿El plugin mejora la tasa de transacciones exitosas?
+------------------------------------------------------------
+Comparación por intensidad:
+
+  Intensidad LOW (N_cp=20 vs N_sp=21):
+    con-plugin    promedio: 340.8 tx  (std: 175.6)
+    sin-plugin    promedio: 1183.6 tx  (std: 1568.9)
+    Diferencia: 71.2% MENOS transacciones exitosas con el plugin  ⚠️
+    NOTA: sin-plugin low tiene alta varianza (dos lotes distintos: ~1500 tx vs ~4800 tx).
+
+  Intensidad MEDIUM (N_cp=9 vs N_sp=18):
+    con-plugin    promedio: 546.4 tx  (std: 82.0)
+    sin-plugin    promedio: 1821.4 tx  (std: 1517.9)
+    Diferencia: 70.0% MENOS transacciones exitosas con el plugin  ⚠️
+
+  Intensidad HIGH — sin-plugin: 1852.5 tx (N=15)  |  con-plugin: sin datos
+
+  Interpretación general: El plugin logra sistemáticamente ~70% MENOS transacciones
+  exitosas que el scheduler por defecto, tanto en low como en medium. Este patrón
+  es consistente con el lote anterior (2026-02-27: -48.5% low, -47.3% medium).
+  Posibles causas: overhead de scheduling del plugin, penalización por mayor
+  latencia de red entre nodos, o configuración del plugin no optimizada para
+  maximizar throughput.
+  Ver: requests_by_intensity.png
+
+PREGUNTA DE INVESTIGACIÓN 3: Eficiencia combinada e impacto de la distribución de pods
+------------------------------------------------------------
+Eficiencia energética (J por transacción exitosa):
+
+  LOW   : con-plugin 2.6467 J/tx  vs  sin-plugin 2.2554 J/tx  → 17.4% peor con plugin
+  MEDIUM: con-plugin 1.2062 J/tx  vs  sin-plugin 1.0631 J/tx  → 13.5% peor con plugin
+
+  Interpretación: El plugin consume menos energía en absoluto, pero al procesar
+  mucho menos transacciones, la ratio J/tx resulta peor. Esto se debe al sesgo
+  estructural de esta métrica: ecofloc mide energía total del nodo (idle + k8s +
+  TeaStore), por lo que cuando el throughput difiere mucho entre grupos, el divisor
+  baja más que el numerador. En este caso, total_energy_J es más honesto para
+  evaluar el impacto del plugin.
+
+Distribución de pods (promedio de nodos con al menos un pod de TeaStore):
+
+  LOW   :  con-plugin 3.00 nodo(s)  |  sin-plugin 3.00 nodo(s)
+  MEDIUM:  con-plugin 3.00 nodo(s)  |  sin-plugin 3.00 nodo(s)
+
+  Observación: En este lote, el plugin y el scheduler por defecto distribuyen los
+  pods en el mismo número de nodos (3.00) en ambas intensidades. Esto representa
+  un cambio respecto al lote anterior (2026-02-27), donde el plugin dispersaba
+  más (3.37 low, 3.60 medium). La hipótesis de "consolidación en 2 nodos" sigue
+  refutada; sin embargo, la dispersión adicional del plugin tampoco se confirma
+  con los nuevos datos. Ambos schedulers usan igualmente 3 de los 4 nodos.
+  Ver: energy_efficiency.png, pod_distribution_heatmap.png
+
+NOTA CRÍTICA SOBRE LA MÉTRICA J/tx
+------------------------------------------------------------
+La métrica energy_per_tx = total_energy_J / successful_tx incluye energía idle del
+cluster (ecofloc mide el nodo entero, no solo TeaStore). Cuando el throughput
+difiere marcadamente entre grupos (aquí ~70% menos para con-plugin), la J/tx
+amplifica artificialmente la diferencia. Para el impacto energético bruto del
+plugin, total_energy_J es más honesta (siempre que la duración sea comparable).
+Base científica: SCI de Green Software Foundation (GSF 2023) / ISO/IEC 21031:2024.
+
+Alternativas más robustas:
+  - Energía bruta (total_energy_J): más honesta para comparar el plugin
+  - Potencia media (total_energy_J / duration_s): comparable entre duraciones distintas
+  - Throughput energético (successful_tx / total_energy_J en tx/J): versión invertida intuitiva
+  - Energía diferencial ((E_cluster − E_baseline) / successful_tx): requiere medición idle
+
+CAMBIO RESPECTO AL REPORTE ANTERIOR (2026-02-28)
+------------------------------------------------------------
+El dataset con-plugin ha cambiado completamente: N=52 [low=19, med=15, high=18]
+(lote 2026-02-27) → N=29 [low=20, med=9] (lote actual). Los nuevos experimentos
+no incluyen HIGH y tienen energía media notablemente inferior al lote previo:
+  Low:    940.99 J (lote previo) → 843.23 J (lote actual), -10.4%
+  Medium: 875.58 J (lote previo) → 659.66 J (lote actual), -24.7%
+
+El dataset sin-plugin (N=54) es idéntico al lote del 2026-02-27 y su medición
+de ecofloc es válida. Las comparaciones RQ1/RQ2/RQ3 son ahora completamente válidas
+para low y medium.
+
+Comparación con referencia histórica (lote 2026-02-27 con-plugin válido):
+  RQ1 Low:    previo -3.0%  → actual -13.1%  (mayor reducción energética)
+  RQ1 Medium: previo -23.9% → actual -42.7%  (mayor reducción energética)
+  RQ2 Low:    previo -48.5% tx → actual -71.2% tx (mayor caída de throughput)
+  RQ2 Medium: previo -47.3% tx → actual -70.0% tx (mayor caída de throughput)
+  Distribución pods LOW: previo con-plugin 3.37 → actual 3.00 (igualado a sin-plugin)
+  Distribución pods MED: previo con-plugin 3.60 → actual 3.00 (igualado a sin-plugin)
+
+LIMITACIONES
+------------------------------------------------------------
+- con-plugin no tiene datos de intensidad HIGH en este lote. RQ1, RQ2 y RQ3
+  no pueden compararse a alta intensidad.
+- N=9 para con-plugin medium; interpretar std con cautela (mayor incertidumbre).
+- sin-plugin low tiene alta varianza (std 1568.9 tx) por mezcla de dos lotes con
+  comportamientos muy distintos (~1500 tx vs ~4800 tx).
+- ecofloc mide energía total del nodo; no puede aislar el consumo por pod individual.
+- La energía con-plugin ha bajado ~24% en medium respecto al lote previo sin una
+  causa identificada (¿condiciones del cluster? ¿configuración distinta del plugin?).
+- No se dispone de medición baseline (cluster idle sin carga) → energía diferencial
+  no calculable actualmente.
+
+CONCLUSIÓN Y PRÓXIMOS PASOS
+------------------------------------------------------------
+1. Añadir experimentos con-plugin HIGH para cubrir las 3 intensidades y completar
+   la comparación RQ1/RQ2/RQ3 a alta carga.
+2. Aumentar N de con-plugin medium (actualmente N=9) a ≥15 para robustez estadística.
+3. Investigar la causa de la caída de throughput (~70%) con el plugin:
+   ¿overhead de scheduling? ¿latencia inter-nodo? ¿configuración del plugin?
+4. Analizar avg_response_time por intensidad: si el plugin genera mayor latencia,
+   explicaría la reducción de throughput.
+5. Investigar por qué la distribución de pods del plugin pasó de 3.37–3.60 nodos
+   (lote previo) a 3.00 nodos (lote actual).
+6. Añadir medición baseline (cluster idle sin carga) para calcular energía diferencial
+   y eliminar el sesgo de energía idle de la métrica J/tx.
+
+============================================================

@@ -1,0 +1,2 @@
+Average Power aspire cpu : 0.32 Watts
+Total Energy aspire cpu : 34.72 Joules

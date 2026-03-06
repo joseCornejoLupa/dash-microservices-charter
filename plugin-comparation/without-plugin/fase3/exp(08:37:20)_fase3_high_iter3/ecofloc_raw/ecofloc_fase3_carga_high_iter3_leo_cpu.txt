@@ -1,0 +1,2 @@
+Average Power leo cpu : 1.39 Watts
+Total Energy leo cpu : 153.41 Joules

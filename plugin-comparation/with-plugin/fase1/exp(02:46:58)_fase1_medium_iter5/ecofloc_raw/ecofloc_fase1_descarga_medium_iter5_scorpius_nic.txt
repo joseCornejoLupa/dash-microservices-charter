@@ -1,0 +1,4 @@
+Average Power scorpius nic : 0.02 Watts
+Total Energy scorpius nic : 0.17 Joules
+2026-02-26 02:46:23,362568,0.16,0.16
+2026-02-26 02:46:31,363381,0.01,0.01

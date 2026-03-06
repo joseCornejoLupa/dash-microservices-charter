@@ -1,0 +1,4 @@
+Average Power leo nic : 0.01 Watts
+Total Energy leo nic : 0.12 Joules
+2026-02-25 08:07:37,3885,0.10,0.10
+2026-02-25 08:07:56,3885,0.02,0.02

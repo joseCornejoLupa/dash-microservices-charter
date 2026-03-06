@@ -1,0 +1,88 @@
+========================================
+🔬 EXPERIMENTO: 1 iteraciones por escenario
+   Escenarios: 3
+   Total ejecuciones: 3
+   Inicio: 2026-02-18 22:37:53
+========================================
+
+########################################################
+🔄 ESCENARIO: low | ITERACIÓN: 1 / 1
+   Hora: 22:37:53
+########################################################
+========================================
+🔋 FASE 1: Descarga de imágenes (low, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [22:38:12] Iniciando medición de energía: fase1_descarga_low_iter1 (25s)
+   PID de medición: 3247464
+🚀 Desplegando TeaStore desde GitHub...
+========================================
+🔋 MEASURE ENERGY - Fase: fase1_descarga_low_iter1
+   Duración: 25s
+   PID: 3247464
+========================================
+=== Medición bloque 25s - Fase: fase1_descarga_low_iter1 ===
+[⏱ 22:38:12] Iniciando ecofloc en nitro5 por 25s (fase: fase1_descarga_low_iter1)
+⏳ Esperando a que todos los pods de TeaStore estén Running y Ready...
+  ├─ [nitro5:sd] start 22:38:13
+  ├─ [nitro5:ram] start 22:38:13
+  ├─ [nitro5:nic] start 22:38:14
+[⏱ 22:38:14] Iniciando ecofloc en aspire por 25s (fase: fase1_descarga_low_iter1)
+  ├─ [nitro5:cpu] start 22:38:14
+  ├─ [aspire:sd] start 22:38:14
+  ├─ [aspire:ram] start 22:38:14
+[⏱ 22:38:14] Iniciando ecofloc en scorpius por 25s (fase: fase1_descarga_low_iter1)
+  ├─ [aspire:nic] start 22:38:14
+  ├─ [aspire:cpu] start 22:38:14
+  ├─ [scorpius:sd] start 22:38:14
+  ├─ [scorpius:ram] start 22:38:14
+  ├─ [scorpius:nic] start 22:38:14
+[⏱ 22:38:14] Iniciando ecofloc en leo por 25s (fase: fase1_descarga_low_iter1)
+  ├─ [scorpius:cpu] start 22:38:14
+  ├─ [leo:sd] start 22:38:14
+  ├─ [leo:nic] start 22:38:14
+  ├─ [leo:ram] start 22:38:14
+  ├─ [leo:cpu] start 22:38:14
+✅ Pods listos.
+⏳ [22:38:23] Esperando que termine medición: fase1_descarga_low_iter1 (PID: 3247464)
+  └─ [nitro5:sd] end 22:38:38
+  └─ [nitro5:ram] end 22:38:38
+  └─ [nitro5:nic] end 22:38:39
+  └─ [nitro5:cpu] end 22:38:39
+  └─ [aspire:nic] end 22:38:40
+  └─ [aspire:sd] end 22:38:40
+  └─ [aspire:cpu] end 22:38:40
+  └─ [leo:cpu] end 22:38:40
+  └─ [leo:sd] end 22:38:41
+  └─ [scorpius:sd] end 22:38:41
+  └─ [aspire:ram] end 22:38:41
+  └─ [leo:ram] end 22:38:42
+  └─ [scorpius:cpu] end 22:38:42
+  └─ [scorpius:nic] end 22:38:42
+  └─ [scorpius:ram] end 22:38:42
+  └─ [leo:nic] end 22:38:42
+=== Bloque 25s terminado - Fase: fase1_descarga_low_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase1_descarga_low_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase1_descarga_low_iter1
+========================================
+✔️ [22:38:46] Medición fase1_descarga_low_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(22:38:51)_fase1_low_iter1

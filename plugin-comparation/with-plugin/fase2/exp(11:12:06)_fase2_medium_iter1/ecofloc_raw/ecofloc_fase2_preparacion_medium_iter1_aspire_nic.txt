@@ -1,0 +1,4 @@
+Average Power aspire nic : 0.01 Watts
+Total Energy aspire nic : 0.14 Joules
+2026-02-20 11:11:10,9601,0.12,0.12
+2026-02-20 11:11:14,9601,0.02,0.02

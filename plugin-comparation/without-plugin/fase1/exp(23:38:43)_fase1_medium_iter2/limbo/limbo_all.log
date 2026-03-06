@@ -1,0 +1,3069 @@
+========================================
+🔬 EXPERIMENTO: 1 iteraciones por escenario
+   Escenarios: 3
+   Total ejecuciones: 3
+   Inicio: 2026-02-18 22:46:58
+========================================
+
+########################################################
+🔄 ESCENARIO: low | ITERACIÓN: 1 / 1
+   Hora: 22:46:58
+########################################################
+========================================
+🔋 FASE 1: Descarga de imágenes (low, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [22:47:19] Iniciando medición de energía: fase1_descarga_low_iter1 (25s)
+   PID de medición: 3743887
+🚀 Desplegando TeaStore desde GitHub...
+========================================
+🔋 MEASURE ENERGY - Fase: fase1_descarga_low_iter1
+   Duración: 25s
+   PID: 3743887
+========================================
+=== Medición bloque 25s - Fase: fase1_descarga_low_iter1 ===
+[⏱ 22:47:20] Iniciando ecofloc en nitro5 por 25s (fase: fase1_descarga_low_iter1)
+⏳ Esperando a que todos los pods de TeaStore estén Running y Ready...
+  ├─ [nitro5:sd] start 22:47:20
+  ├─ [nitro5:ram] start 22:47:20
+  ├─ [nitro5:nic] start 22:47:21
+[⏱ 22:47:21] Iniciando ecofloc en aspire por 25s (fase: fase1_descarga_low_iter1)
+  ├─ [nitro5:cpu] start 22:47:21
+  ├─ [aspire:sd] start 22:47:21
+  ├─ [aspire:ram] start 22:47:21
+  ├─ [aspire:nic] start 22:47:21
+[⏱ 22:47:21] Iniciando ecofloc en scorpius por 25s (fase: fase1_descarga_low_iter1)
+  ├─ [aspire:cpu] start 22:47:21
+  ├─ [scorpius:sd] start 22:47:21
+  ├─ [scorpius:ram] start 22:47:21
+  ├─ [scorpius:nic] start 22:47:21
+[⏱ 22:47:21] Iniciando ecofloc en leo por 25s (fase: fase1_descarga_low_iter1)
+  ├─ [scorpius:cpu] start 22:47:21
+  ├─ [leo:sd] start 22:47:21
+  ├─ [leo:ram] start 22:47:21
+  ├─ [leo:nic] start 22:47:21
+  ├─ [leo:cpu] start 22:47:21
+✅ Pods listos.
+⏳ [22:47:29] Esperando que termine medición: fase1_descarga_low_iter1 (PID: 3743887)
+  └─ [nitro5:sd] end 22:47:45
+  └─ [nitro5:ram] end 22:47:45
+  └─ [nitro5:nic] end 22:47:46
+  └─ [nitro5:cpu] end 22:47:46
+  └─ [scorpius:sd] end 22:47:48
+  └─ [scorpius:cpu] end 22:47:48
+  └─ [leo:sd] end 22:47:48
+  └─ [aspire:sd] end 22:47:49
+  └─ [leo:cpu] end 22:47:49
+  └─ [aspire:cpu] end 22:47:52
+  └─ [scorpius:nic] end 22:47:52
+  └─ [scorpius:ram] end 22:47:53
+  └─ [aspire:nic] end 22:47:54
+  └─ [aspire:ram] end 22:47:54
+  └─ [leo:nic] end 22:47:55
+  └─ [leo:ram] end 22:47:55
+=== Bloque 25s terminado - Fase: fase1_descarga_low_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase1_descarga_low_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase1_descarga_low_iter1
+========================================
+✔️ [22:48:00] Medición fase1_descarga_low_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(22:48:05)_fase1_low_iter1
+[✔] Archivado: ./historyexecutions/exp(22:48:05)_fase1_low_iter1
+========================================
+🔋 FASE 2: Preparación de servicios (low, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [22:48:29] Iniciando medición de energía: fase2_preparacion_low_iter1 (50s)
+   PID de medición: 3809812
+========================================
+🔋 MEASURE ENERGY - Fase: fase2_preparacion_low_iter1
+   Duración: 50s
+   PID: 3809812
+========================================
+=== Medición bloque 50s - Fase: fase2_preparacion_low_iter1 ===
+[⏱ 22:48:29] Iniciando ecofloc en nitro5 por 50s (fase: fase2_preparacion_low_iter1)
+⏳ Esperando 10s a que CoreDNS se estabilice...
+  ├─ [nitro5:sd] start 22:48:30
+  ├─ [nitro5:ram] start 22:48:30
+  ├─ [nitro5:nic] start 22:48:30
+[⏱ 22:48:31] Iniciando ecofloc en aspire por 50s (fase: fase2_preparacion_low_iter1)
+  ├─ [nitro5:cpu] start 22:48:31
+  ├─ [aspire:sd] start 22:48:31
+  ├─ [aspire:ram] start 22:48:31
+  ├─ [aspire:nic] start 22:48:31
+[⏱ 22:48:31] Iniciando ecofloc en scorpius por 50s (fase: fase2_preparacion_low_iter1)
+  ├─ [aspire:cpu] start 22:48:31
+  ├─ [scorpius:sd] start 22:48:31
+  ├─ [scorpius:ram] start 22:48:31
+  ├─ [scorpius:nic] start 22:48:31
+[⏱ 22:48:31] Iniciando ecofloc en leo por 50s (fase: fase2_preparacion_low_iter1)
+  ├─ [scorpius:cpu] start 22:48:31
+  ├─ [leo:sd] start 22:48:31
+  ├─ [leo:ram] start 22:48:31
+  ├─ [leo:nic] start 22:48:31
+  ├─ [leo:cpu] start 22:48:31
+➡️ Pod WebUI: teastore-webui-558b54cc77-6lf4s
+➡️ Está en el nodo: luish-aspire-a315-55g
+🌐 IP del nodo WebUI: 192.168.18.37
+⏳ Verificando estado del TeaStore en http://192.168.18.37:30080/tools.descartes.teastore.webui/status ...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+  └─ [nitro5:sd] end 22:49:20
+  └─ [nitro5:ram] end 22:49:20
+  └─ [nitro5:nic] end 22:49:20
+  └─ [nitro5:cpu] end 22:49:21
+  └─ [leo:sd] end 22:49:23
+  └─ [scorpius:cpu] end 22:49:24
+  └─ [aspire:sd] end 22:49:24
+  └─ [aspire:cpu] end 22:49:25
+  └─ [leo:nic] end 22:49:25
+  └─ [aspire:nic] end 22:49:25
+  └─ [leo:ram] end 22:49:26
+  └─ [scorpius:sd] end 22:49:26
+  └─ [leo:cpu] end 22:49:26
+  └─ [scorpius:nic] end 22:49:26
+  └─ [aspire:ram] end 22:49:27
+  └─ [scorpius:ram] end 22:49:27
+=== Bloque 50s terminado - Fase: fase2_preparacion_low_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase2_preparacion_low_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase2_preparacion_low_iter1
+========================================
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 3 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 5 / 5 servicios OK
+✔ TODOS los servicios del TeaStore están OK. Continuando...
+⏳ [22:50:51] Esperando que termine medición: fase2_preparacion_low_iter1 (PID: 3809812)
+✔️ [22:50:51] Medición fase2_preparacion_low_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(22:50:56)_fase2_low_iter1
+[✔] Archivado: ./historyexecutions/exp(22:50:56)_fase2_low_iter1
+========================================
+🔋 FASE 3: Ejecución de carga (low, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [22:51:15] Iniciando medición de energía: fase3_carga_low_iter1 (145s)
+   PID de medición: 3940779
+=== Escenario low (iter 1) ===
+========================================
+🔋 MEASURE ENERGY - Fase: fase3_carga_low_iter1
+   Duración: 145s
+   PID: 3940779
+========================================
+=== Medición bloque 145s - Fase: fase3_carga_low_iter1 ===
+🚀 Iniciando LIMBO con profile=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/increasingLowIntensity.csv y script=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+[⏱ 22:51:15] Iniciando ecofloc en nitro5 por 145s (fase: fase3_carga_low_iter1)
+Feb 18, 2026 10:51:15 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+WARNING: No power measurements
+Feb 18, 2026 10:51:15 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Load Generator Thread Count set to 128
+Feb 18, 2026 10:51:15 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: URL connection timout set to 10000 ms
+Feb 18, 2026 10:51:15 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Using Lua Script: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 10:51:15 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Read 120 Arrival Rate Tuples
+Load Generator sent: ok
+Feb 18, 2026 10:51:15 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Arrival Rates sent to Load Generator(s).
+Load Generator sent: ok
+Feb 18, 2026 10:51:15 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Thread Count sent to Load Generator(s): 128
+Load Generator sent: ok
+Feb 18, 2026 10:51:15 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: URL connection timeout sent to Load Generator(s): 10000
+Load Generator sent: ok
+Feb 18, 2026 10:51:15 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Contents of script sent to Load Generator: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 10:51:15 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Starting Load Generation
+Beginning Run @1771473075768(18.02.2026;22:51:15768)
+  ├─ [nitro5:sd] start 22:51:16
+Target Time = 0.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+  ├─ [nitro5:ram] start 22:51:16
+  ├─ [nitro5:nic] start 22:51:16
+[⏱ 22:51:17] Iniciando ecofloc en aspire por 145s (fase: fase3_carga_low_iter1)
+  ├─ [nitro5:cpu] start 22:51:17
+  ├─ [aspire:sd] start 22:51:17
+  ├─ [aspire:ram] start 22:51:17
+[⏱ 22:51:17] Iniciando ecofloc en scorpius por 145s (fase: fase3_carga_low_iter1)
+  ├─ [aspire:nic] start 22:51:17
+  ├─ [aspire:cpu] start 22:51:17
+  ├─ [scorpius:sd] start 22:51:17
+  ├─ [scorpius:ram] start 22:51:17
+[⏱ 22:51:17] Iniciando ecofloc en leo por 145s (fase: fase3_carga_low_iter1)
+  ├─ [scorpius:nic] start 22:51:17
+  ├─ [scorpius:cpu] start 22:51:17
+  ├─ [leo:sd] start 22:51:17
+  ├─ [leo:ram] start 22:51:17
+  ├─ [leo:nic] start 22:51:17
+  ├─ [leo:cpu] start 22:51:17
+Target Time = 1.5; Load Intensity = 1.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 2.5; Load Intensity = 2.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 3.5; Load Intensity = 2.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 4.5; Load Intensity = 3.0; #Success = 8; #Failed = 0; #Dropped = 0
+Target Time = 5.5; Load Intensity = 4.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 6.5; Load Intensity = 5.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 7.5; Load Intensity = 6.0; #Success = 6; #Failed = 0; #Dropped = 0
+Target Time = 8.5; Load Intensity = 7.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 9.5; Load Intensity = 7.0; #Success = 11; #Failed = 0; #Dropped = 0
+Target Time = 10.5; Load Intensity = 8.0; #Success = 7; #Failed = 0; #Dropped = 0
+Target Time = 11.5; Load Intensity = 9.0; #Success = 10; #Failed = 0; #Dropped = 0
+Target Time = 12.5; Load Intensity = 10.0; #Success = 10; #Failed = 0; #Dropped = 0
+Target Time = 13.5; Load Intensity = 11.0; #Success = 9; #Failed = 0; #Dropped = 0
+Target Time = 14.5; Load Intensity = 12.0; #Success = 10; #Failed = 0; #Dropped = 0
+Target Time = 15.5; Load Intensity = 12.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 16.5; Load Intensity = 13.0; #Success = 11; #Failed = 0; #Dropped = 0
+Target Time = 17.5; Load Intensity = 14.0; #Success = 17; #Failed = 0; #Dropped = 0
+Target Time = 18.5; Load Intensity = 15.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 19.5; Load Intensity = 16.0; #Success = 24; #Failed = 0; #Dropped = 0
+Target Time = 20.5; Load Intensity = 17.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 21.5; Load Intensity = 17.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 22.5; Load Intensity = 18.0; #Success = 11; #Failed = 0; #Dropped = 0
+Target Time = 23.5; Load Intensity = 19.0; #Success = 6; #Failed = 0; #Dropped = 0
+Target Time = 24.5; Load Intensity = 20.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 25.5; Load Intensity = 21.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 26.5; Load Intensity = 22.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 27.5; Load Intensity = 22.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 28.5; Load Intensity = 23.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 29.5; Load Intensity = 24.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 30.5; Load Intensity = 25.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 31.5; Load Intensity = 26.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 32.5; Load Intensity = 27.0; #Success = 13; #Failed = 5; #Dropped = 0
+Target Time = 33.5; Load Intensity = 27.0; #Success = 7; #Failed = 12; #Dropped = 0
+Target Time = 34.5; Load Intensity = 28.0; #Success = 14; #Failed = 6; #Dropped = 0
+Target Time = 35.5; Load Intensity = 29.0; #Success = 13; #Failed = 7; #Dropped = 0
+Target Time = 36.5; Load Intensity = 30.0; #Success = 12; #Failed = 11; #Dropped = 0
+Target Time = 37.5; Load Intensity = 31.0; #Success = 19; #Failed = 2; #Dropped = 0
+Target Time = 38.5; Load Intensity = 32.0; #Success = 7; #Failed = 0; #Dropped = 0
+Target Time = 39.5; Load Intensity = 32.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 40.5; Load Intensity = 33.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 41.5; Load Intensity = 34.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 42.5; Load Intensity = 35.0; #Success = 18; #Failed = 7; #Dropped = 0
+Target Time = 43.5; Load Intensity = 36.0; #Success = 19; #Failed = 10; #Dropped = 0
+Target Time = 44.5; Load Intensity = 37.0; #Success = 18; #Failed = 12; #Dropped = 0
+Target Time = 45.5; Load Intensity = 37.0; #Success = 21; #Failed = 12; #Dropped = 0
+Target Time = 46.5; Load Intensity = 38.0; #Success = 21; #Failed = 17; #Dropped = 0
+Target Time = 47.5; Load Intensity = 39.0; #Success = 21; #Failed = 17; #Dropped = 0
+Target Time = 48.5; Load Intensity = 40.0; #Success = 6; #Failed = 6; #Dropped = 0
+Target Time = 49.5; Load Intensity = 41.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 50.5; Load Intensity = 42.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 51.5; Load Intensity = 42.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 52.5; Load Intensity = 43.0; #Success = 18; #Failed = 0; #Dropped = 78
+Target Time = 53.5; Load Intensity = 44.0; #Success = 16; #Failed = 36; #Dropped = 2
+Target Time = 54.5; Load Intensity = 45.0; #Success = 8; #Failed = 17; #Dropped = 0
+Target Time = 55.5; Load Intensity = 46.0; #Success = 14; #Failed = 17; #Dropped = 2
+Target Time = 56.5; Load Intensity = 47.0; #Success = 9; #Failed = 2; #Dropped = 19
+Target Time = 57.5; Load Intensity = 47.0; #Success = 21; #Failed = 0; #Dropped = 25
+Target Time = 58.5; Load Intensity = 48.0; #Success = 33; #Failed = 0; #Dropped = 8
+Target Time = 59.5; Load Intensity = 49.0; #Success = 19; #Failed = 2; #Dropped = 17
+Target Time = 60.5; Load Intensity = 50.0; #Success = 14; #Failed = 4; #Dropped = 26
+Target Time = 61.5; Load Intensity = 51.0; #Success = 57; #Failed = 0; #Dropped = 0
+Target Time = 62.5; Load Intensity = 52.0; #Success = 23; #Failed = 0; #Dropped = 1
+Target Time = 63.5; Load Intensity = 52.0; #Success = 33; #Failed = 7; #Dropped = 3
+Target Time = 64.5; Load Intensity = 53.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 65.5; Load Intensity = 54.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 66.5; Load Intensity = 55.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 67.5; Load Intensity = 56.0; #Success = 1; #Failed = 0; #Dropped = 147
+Target Time = 68.5; Load Intensity = 57.0; #Success = 1; #Failed = 0; #Dropped = 47
+Target Time = 69.5; Load Intensity = 57.0; #Success = 2; #Failed = 0; #Dropped = 46
+Target Time = 70.5; Load Intensity = 58.0; #Success = 11; #Failed = 0; #Dropped = 85
+Target Time = 71.5; Load Intensity = 59.0; #Success = 50; #Failed = 0; #Dropped = 6
+Target Time = 72.5; Load Intensity = 60.0; #Success = 24; #Failed = 0; #Dropped = 24
+Target Time = 73.5; Load Intensity = 61.0; #Success = 39; #Failed = 0; #Dropped = 5
+Target Time = 74.5; Load Intensity = 62.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 75.5; Load Intensity = 62.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 76.5; Load Intensity = 63.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 77.5; Load Intensity = 64.0; #Success = 1; #Failed = 0; #Dropped = 175
+Target Time = 78.5; Load Intensity = 65.0; #Success = 1; #Failed = 0; #Dropped = 56
+Target Time = 79.5; Load Intensity = 66.0; #Success = 2; #Failed = 0; #Dropped = 56
+Target Time = 80.5; Load Intensity = 67.0; #Success = 11; #Failed = 1; #Dropped = 94
+Target Time = 81.5; Load Intensity = 67.0; #Success = 40; #Failed = 9; #Dropped = 10
+Target Time = 82.5; Load Intensity = 68.0; #Success = 24; #Failed = 0; #Dropped = 33
+Target Time = 83.5; Load Intensity = 69.0; #Success = 39; #Failed = 0; #Dropped = 19
+Target Time = 84.5; Load Intensity = 70.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 85.5; Load Intensity = 71.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 86.5; Load Intensity = 72.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 87.5; Load Intensity = 72.0; #Success = 1; #Failed = 0; #Dropped = 205
+Target Time = 88.5; Load Intensity = 73.0; #Success = 1; #Failed = 0; #Dropped = 59
+Target Time = 89.5; Load Intensity = 74.0; #Success = 2; #Failed = 8; #Dropped = 114
+Target Time = 90.5; Load Intensity = 75.0; #Success = 5; #Failed = 45; #Dropped = 10
+Target Time = 91.5; Load Intensity = 76.0; #Success = 12; #Failed = 13; #Dropped = 40
+Target Time = 92.5; Load Intensity = 77.0; #Success = 13; #Failed = 0; #Dropped = 59
+Target Time = 93.5; Load Intensity = 77.0; #Success = 26; #Failed = 3; #Dropped = 46
+Target Time = 94.5; Load Intensity = 78.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 95.5; Load Intensity = 79.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 96.5; Load Intensity = 80.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 97.5; Load Intensity = 81.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 98.5; Load Intensity = 82.0; #Success = 1; #Failed = 0; #Dropped = 293
+Target Time = 99.5; Load Intensity = 82.0; #Success = 7; #Failed = 0; #Dropped = 125
+Target Time = 100.5; Load Intensity = 83.0; #Success = 53; #Failed = 0; #Dropped = 22
+Target Time = 101.5; Load Intensity = 84.0; #Success = 26; #Failed = 0; #Dropped = 53
+Target Time = 102.5; Load Intensity = 85.0; #Success = 12; #Failed = 0; #Dropped = 62
+Target Time = 103.5; Load Intensity = 86.0; #Success = 29; #Failed = 0; #Dropped = 48
+Target Time = 104.5; Load Intensity = 87.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 105.5; Load Intensity = 87.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 106.5; Load Intensity = 88.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 107.5; Load Intensity = 89.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 108.5; Load Intensity = 90.0; #Success = 2; #Failed = 17; #Dropped = 388
+Target Time = 109.5; Load Intensity = 91.0; #Success = 3; #Failed = 5; #Dropped = 19
+Target Time = 110.5; Load Intensity = 92.0; #Success = 34; #Failed = 0; #Dropped = 95
+Target Time = 111.5; Load Intensity = 92.0; #Success = 24; #Failed = 0; #Dropped = 56
+Target Time = 112.5; Load Intensity = 93.0; #Success = 14; #Failed = 0; #Dropped = 77
+Target Time = 113.5; Load Intensity = 94.0; #Success = 28; #Failed = 0; #Dropped = 53
+Target Time = 114.5; Load Intensity = 95.0; #Success = 1; #Failed = 0; #Dropped = 4
+Target Time = 115.5; Load Intensity = 96.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 116.5; Load Intensity = 97.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 117.5; Load Intensity = 97.0; #Success = 0; #Failed = 2; #Dropped = 306
+Target Time = 118.5; Load Intensity = 98.0; #Success = 15; #Failed = 1; #Dropped = 112
+Target Time = 119.5; Load Intensity = 99.0; #Success = 5; #Failed = 8; #Dropped = 60
+Target Time = 120.5; Load Intensity = 0.0; #Success = 22; #Failed = 35; #Dropped = 66
+Target Time = 121.5; Load Intensity = 0.0; #Success = 1; #Failed = 35; #Dropped = 60
+Target Time = 122.5; Load Intensity = 0.0; #Success = 1; #Failed = 3; #Dropped = 24
+Target Time = 123.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 124.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 125.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 126.5; Load Intensity = 0.0; #Success = 1; #Failed = 0; #Dropped = 399
+Target Time = 127.5; Load Intensity = 0.0; #Success = 1; #Failed = 0; #Dropped = 64
+Target Time = 128.5; Load Intensity = 0.0; #Success = 19; #Failed = 0; #Dropped = 152
+Target Time = 129.5; Load Intensity = 0.0; #Success = 10; #Failed = 0; #Dropped = 70
+Target Time = 130.5; Load Intensity = 0.0; #Success = 57; #Failed = 0; #Dropped = 12
+Target Time = 131.5; Load Intensity = 0.0; #Success = 35; #Failed = 0; #Dropped = 0
+Target Time = 132.5; Load Intensity = 0.0; #Success = 5; #Failed = 0; #Dropped = 0
+Target Time = 133.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 134.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 135.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 136.5; Load Intensity = 0.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 137.5; Load Intensity = 0.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 138.5; Load Intensity = 0.0; #Success = 21; #Failed = 0; #Dropped = 0
+Target Time = 139.5; Load Intensity = 0.0; #Success = 8; #Failed = 0; #Dropped = 0
+Workload finished.
+Log finished.
+📄 LIMBO finalizado para scenario=low
+⏳ [22:53:40] Esperando que termine medición: fase3_carga_low_iter1 (PID: 3940779)
+  └─ [nitro5:sd] end 22:53:41
+  └─ [nitro5:ram] end 22:53:41
+  └─ [nitro5:nic] end 22:53:41
+  └─ [nitro5:cpu] end 22:53:42
+  └─ [leo:cpu] end 22:53:46
+  └─ [aspire:nic] end 22:53:48
+  └─ [leo:sd] end 22:53:48
+  └─ [scorpius:cpu] end 22:53:49
+  └─ [leo:nic] end 22:53:49
+  └─ [scorpius:nic] end 22:53:50
+  └─ [scorpius:sd] end 22:53:53
+  └─ [aspire:cpu] end 22:53:53
+  └─ [aspire:sd] end 22:53:56
+  └─ [aspire:ram] end 22:53:56
+  └─ [leo:ram] end 22:53:56
+  └─ [scorpius:ram] end 22:53:56
+=== Bloque 145s terminado - Fase: fase3_carga_low_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase3_carga_low_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase3_carga_low_iter1
+========================================
+✔️ [22:54:00] Medición fase3_carga_low_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(22:54:05)_fase3_low_iter1
+[✔] Archivado: ./historyexecutions/exp(22:54:05)_fase3_low_iter1
+🧹 Limpiando TeaStore (iter 1)...
+⏸ Esperando 15s para limpieza completa...
+✅ Iteración 1 / 1 del escenario low completada.
+
+🏁 Escenario low finalizado (1 iteraciones).
+
+########################################################
+🔄 ESCENARIO: medium | ITERACIÓN: 1 / 1
+   Hora: 22:54:54
+########################################################
+========================================
+🔋 FASE 1: Descarga de imágenes (medium, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [22:55:12] Iniciando medición de energía: fase1_descarga_medium_iter1 (25s)
+   PID de medición: 96776
+🚀 Desplegando TeaStore desde GitHub...
+========================================
+🔋 MEASURE ENERGY - Fase: fase1_descarga_medium_iter1
+   Duración: 25s
+   PID: 96776
+========================================
+=== Medición bloque 25s - Fase: fase1_descarga_medium_iter1 ===
+[⏱ 22:55:12] Iniciando ecofloc en nitro5 por 25s (fase: fase1_descarga_medium_iter1)
+⏳ Esperando a que todos los pods de TeaStore estén Running y Ready...
+  ├─ [nitro5:sd] start 22:55:13
+  ├─ [nitro5:ram] start 22:55:13
+  ├─ [nitro5:nic] start 22:55:14
+[⏱ 22:55:14] Iniciando ecofloc en aspire por 25s (fase: fase1_descarga_medium_iter1)
+  ├─ [nitro5:cpu] start 22:55:14
+  ├─ [aspire:sd] start 22:55:14
+  ├─ [aspire:ram] start 22:55:14
+  ├─ [aspire:nic] start 22:55:14
+[⏱ 22:55:14] Iniciando ecofloc en scorpius por 25s (fase: fase1_descarga_medium_iter1)
+  ├─ [aspire:cpu] start 22:55:14
+  ├─ [scorpius:sd] start 22:55:14
+  ├─ [scorpius:ram] start 22:55:14
+[⏱ 22:55:14] Iniciando ecofloc en leo por 25s (fase: fase1_descarga_medium_iter1)
+  ├─ [scorpius:nic] start 22:55:14
+  ├─ [scorpius:cpu] start 22:55:14
+  ├─ [leo:sd] start 22:55:14
+  ├─ [leo:ram] start 22:55:14
+  ├─ [leo:cpu] start 22:55:14
+  ├─ [leo:nic] start 22:55:14
+✅ Pods listos.
+⏳ [22:55:23] Esperando que termine medición: fase1_descarga_medium_iter1 (PID: 96776)
+  └─ [nitro5:sd] end 22:55:38
+  └─ [nitro5:ram] end 22:55:38
+  └─ [nitro5:nic] end 22:55:39
+  └─ [nitro5:cpu] end 22:55:39
+  └─ [scorpius:sd] end 22:55:41
+  └─ [scorpius:cpu] end 22:55:41
+  └─ [aspire:cpu] end 22:55:41
+  └─ [aspire:sd] end 22:55:41
+  └─ [leo:sd] end 22:55:42
+  └─ [scorpius:nic] end 22:55:42
+  └─ [leo:cpu] end 22:55:42
+  └─ [scorpius:ram] end 22:55:42
+  └─ [aspire:ram] end 22:55:42
+  └─ [aspire:nic] end 22:55:42
+  └─ [leo:nic] end 22:55:42
+  └─ [leo:ram] end 22:55:43
+=== Bloque 25s terminado - Fase: fase1_descarga_medium_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase1_descarga_medium_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase1_descarga_medium_iter1
+========================================
+✔️ [22:55:48] Medición fase1_descarga_medium_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(22:55:53)_fase1_medium_iter1
+[✔] Archivado: ./historyexecutions/exp(22:55:53)_fase1_medium_iter1
+========================================
+🔋 FASE 2: Preparación de servicios (medium, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [22:56:14] Iniciando medición de energía: fase2_preparacion_medium_iter1 (50s)
+   PID de medición: 158912
+========================================
+🔋 MEASURE ENERGY - Fase: fase2_preparacion_medium_iter1
+   Duración: 50s
+   PID: 158912
+========================================
+=== Medición bloque 50s - Fase: fase2_preparacion_medium_iter1 ===
+[⏱ 22:56:14] Iniciando ecofloc en nitro5 por 50s (fase: fase2_preparacion_medium_iter1)
+⏳ Esperando 10s a que CoreDNS se estabilice...
+  ├─ [nitro5:sd] start 22:56:15
+  ├─ [nitro5:ram] start 22:56:15
+  ├─ [nitro5:nic] start 22:56:15
+[⏱ 22:56:16] Iniciando ecofloc en aspire por 50s (fase: fase2_preparacion_medium_iter1)
+  ├─ [nitro5:cpu] start 22:56:16
+  ├─ [aspire:sd] start 22:56:16
+  ├─ [aspire:ram] start 22:56:16
+[⏱ 22:56:16] Iniciando ecofloc en scorpius por 50s (fase: fase2_preparacion_medium_iter1)
+  ├─ [aspire:nic] start 22:56:16
+  ├─ [aspire:cpu] start 22:56:16
+  ├─ [scorpius:sd] start 22:56:16
+  ├─ [scorpius:ram] start 22:56:16
+  ├─ [scorpius:nic] start 22:56:16
+[⏱ 22:56:16] Iniciando ecofloc en leo por 50s (fase: fase2_preparacion_medium_iter1)
+  ├─ [scorpius:cpu] start 22:56:16
+  ├─ [leo:sd] start 22:56:16
+  ├─ [leo:ram] start 22:56:16
+  ├─ [leo:nic] start 22:56:16
+  ├─ [leo:cpu] start 22:56:16
+➡️ Pod WebUI: teastore-webui-558b54cc77-6bhjp
+➡️ Está en el nodo: scorpius03
+🌐 IP del nodo WebUI: 192.168.18.34
+⏳ Verificando estado del TeaStore en http://192.168.18.34:30080/tools.descartes.teastore.webui/status ...
+   ➤ Estado actual: 5 / 5 servicios OK
+✔ TODOS los servicios del TeaStore están OK. Continuando...
+⏳ [22:56:31] Esperando que termine medición: fase2_preparacion_medium_iter1 (PID: 158912)
+  └─ [nitro5:sd] end 22:57:05
+  └─ [nitro5:ram] end 22:57:05
+  └─ [nitro5:nic] end 22:57:05
+  └─ [nitro5:cpu] end 22:57:06
+  └─ [leo:cpu] end 22:57:07
+  └─ [aspire:nic] end 22:57:07
+  └─ [aspire:cpu] end 22:57:08
+  └─ [scorpius:cpu] end 22:57:08
+  └─ [aspire:sd] end 22:57:08
+  └─ [scorpius:sd] end 22:57:09
+  └─ [scorpius:nic] end 22:57:09
+  └─ [scorpius:ram] end 22:57:10
+  └─ [leo:nic] end 22:57:10
+  └─ [aspire:ram] end 22:57:10
+  └─ [leo:ram] end 22:57:10
+  └─ [leo:sd] end 22:57:10
+=== Bloque 50s terminado - Fase: fase2_preparacion_medium_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase2_preparacion_medium_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase2_preparacion_medium_iter1
+========================================
+✔️ [22:57:17] Medición fase2_preparacion_medium_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(22:57:22)_fase2_medium_iter1
+[✔] Archivado: ./historyexecutions/exp(22:57:22)_fase2_medium_iter1
+========================================
+🔋 FASE 3: Ejecución de carga (medium, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [22:57:45] Iniciando medición de energía: fase3_carga_medium_iter1 (145s)
+   PID de medición: 286237
+=== Escenario medium (iter 1) ===
+🚀 Iniciando LIMBO con profile=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/increasingMedIntensity.csv y script=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+========================================
+🔋 MEASURE ENERGY - Fase: fase3_carga_medium_iter1
+   Duración: 145s
+   PID: 286237
+========================================
+=== Medición bloque 145s - Fase: fase3_carga_medium_iter1 ===
+[⏱ 22:57:45] Iniciando ecofloc en nitro5 por 145s (fase: fase3_carga_medium_iter1)
+Feb 18, 2026 10:57:45 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+WARNING: No power measurements
+Feb 18, 2026 10:57:45 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Load Generator Thread Count set to 128
+Feb 18, 2026 10:57:45 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: URL connection timout set to 10000 ms
+Feb 18, 2026 10:57:45 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Using Lua Script: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 10:57:45 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Read 120 Arrival Rate Tuples
+Load Generator sent: ok
+Feb 18, 2026 10:57:45 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Arrival Rates sent to Load Generator(s).
+Load Generator sent: ok
+Feb 18, 2026 10:57:45 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Thread Count sent to Load Generator(s): 128
+Load Generator sent: ok
+Feb 18, 2026 10:57:45 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: URL connection timeout sent to Load Generator(s): 10000
+Load Generator sent: ok
+Feb 18, 2026 10:57:46 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Contents of script sent to Load Generator: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 10:57:46 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Starting Load Generation
+Beginning Run @1771473466031(18.02.2026;22:57:46031)
+  ├─ [nitro5:sd] start 22:57:46
+Target Time = 0.5; Load Intensity = 8.0; #Success = 0; #Failed = 0; #Dropped = 0
+  ├─ [nitro5:ram] start 22:57:46
+  ├─ [nitro5:nic] start 22:57:47
+[⏱ 22:57:47] Iniciando ecofloc en aspire por 145s (fase: fase3_carga_medium_iter1)
+  ├─ [nitro5:cpu] start 22:57:47
+  ├─ [aspire:sd] start 22:57:47
+  ├─ [aspire:ram] start 22:57:47
+  ├─ [aspire:nic] start 22:57:47
+[⏱ 22:57:47] Iniciando ecofloc en scorpius por 145s (fase: fase3_carga_medium_iter1)
+  ├─ [aspire:cpu] start 22:57:47
+  ├─ [scorpius:sd] start 22:57:47
+  ├─ [scorpius:ram] start 22:57:47
+  ├─ [scorpius:nic] start 22:57:47
+[⏱ 22:57:47] Iniciando ecofloc en leo por 145s (fase: fase3_carga_medium_iter1)
+  ├─ [scorpius:cpu] start 22:57:47
+  ├─ [leo:sd] start 22:57:47
+  ├─ [leo:ram] start 22:57:47
+  ├─ [leo:nic] start 22:57:47
+  ├─ [leo:cpu] start 22:57:47
+Target Time = 1.5; Load Intensity = 16.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 2.5; Load Intensity = 25.0; #Success = 2; #Failed = 2; #Dropped = 0
+Target Time = 3.5; Load Intensity = 33.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 4.5; Load Intensity = 41.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 5.5; Load Intensity = 50.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 6.5; Load Intensity = 58.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 7.5; Load Intensity = 66.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 8.5; Load Intensity = 75.0; #Success = 1; #Failed = 11; #Dropped = 0
+Target Time = 9.5; Load Intensity = 83.0; #Success = 0; #Failed = 5; #Dropped = 0
+Target Time = 10.5; Load Intensity = 91.0; #Success = 0; #Failed = 8; #Dropped = 0
+Target Time = 11.5; Load Intensity = 100.0; #Success = 1; #Failed = 4; #Dropped = 0
+Target Time = 12.5; Load Intensity = 108.0; #Success = 21; #Failed = 4; #Dropped = 0
+Target Time = 13.5; Load Intensity = 116.0; #Success = 32; #Failed = 3; #Dropped = 0
+Target Time = 14.5; Load Intensity = 125.0; #Success = 25; #Failed = 1; #Dropped = 0
+Target Time = 15.5; Load Intensity = 133.0; #Success = 5; #Failed = 2; #Dropped = 0
+Target Time = 16.5; Load Intensity = 141.0; #Success = 3; #Failed = 0; #Dropped = 0
+Target Time = 17.5; Load Intensity = 150.0; #Success = 1; #Failed = 1; #Dropped = 15
+Target Time = 18.5; Load Intensity = 158.0; #Success = 12; #Failed = 1; #Dropped = 41
+Target Time = 19.5; Load Intensity = 166.0; #Success = 4; #Failed = 16; #Dropped = 80
+Target Time = 20.5; Load Intensity = 175.0; #Success = 8; #Failed = 0; #Dropped = 69
+Target Time = 21.5; Load Intensity = 183.0; #Success = 4; #Failed = 11; #Dropped = 110
+Target Time = 22.5; Load Intensity = 191.0; #Success = 17; #Failed = 3; #Dropped = 83
+Target Time = 23.5; Load Intensity = 200.0; #Success = 29; #Failed = 1; #Dropped = 86
+Target Time = 24.5; Load Intensity = 208.0; #Success = 16; #Failed = 0; #Dropped = 80
+Target Time = 25.5; Load Intensity = 216.0; #Success = 2; #Failed = 0; #Dropped = 105
+Target Time = 26.5; Load Intensity = 225.0; #Success = 1; #Failed = 0; #Dropped = 133
+Target Time = 27.5; Load Intensity = 233.0; #Success = 4; #Failed = 0; #Dropped = 202
+Target Time = 28.5; Load Intensity = 241.0; #Success = 12; #Failed = 0; #Dropped = 76
+Target Time = 29.5; Load Intensity = 250.0; #Success = 22; #Failed = 0; #Dropped = 244
+Target Time = 30.5; Load Intensity = 258.0; #Success = 6; #Failed = 0; #Dropped = 98
+Target Time = 31.5; Load Intensity = 266.0; #Success = 16; #Failed = 0; #Dropped = 224
+Target Time = 32.5; Load Intensity = 275.0; #Success = 18; #Failed = 17; #Dropped = 148
+Target Time = 33.5; Load Intensity = 283.0; #Success = 28; #Failed = 27; #Dropped = 142
+Target Time = 34.5; Load Intensity = 291.0; #Success = 16; #Failed = 16; #Dropped = 144
+Target Time = 35.5; Load Intensity = 300.0; #Success = 2; #Failed = 0; #Dropped = 124
+Target Time = 36.5; Load Intensity = 308.0; #Success = 2; #Failed = 0; #Dropped = 358
+Target Time = 37.5; Load Intensity = 316.0; #Success = 3; #Failed = 1; #Dropped = 207
+Target Time = 38.5; Load Intensity = 325.0; #Success = 12; #Failed = 10; #Dropped = 116
+Target Time = 39.5; Load Intensity = 333.0; #Success = 22; #Failed = 11; #Dropped = 331
+Target Time = 40.5; Load Intensity = 341.0; #Success = 5; #Failed = 1; #Dropped = 197
+Target Time = 41.5; Load Intensity = 350.0; #Success = 15; #Failed = 0; #Dropped = 306
+Target Time = 42.5; Load Intensity = 358.0; #Success = 20; #Failed = 1; #Dropped = 248
+Target Time = 43.5; Load Intensity = 366.0; #Success = 31; #Failed = 0; #Dropped = 284
+Target Time = 44.5; Load Intensity = 375.0; #Success = 15; #Failed = 0; #Dropped = 201
+Target Time = 45.5; Load Intensity = 383.0; #Success = 2; #Failed = 8; #Dropped = 342
+Target Time = 46.5; Load Intensity = 391.0; #Success = 1; #Failed = 15; #Dropped = 276
+Target Time = 47.5; Load Intensity = 400.0; #Success = 1; #Failed = 18; #Dropped = 309
+Target Time = 48.5; Load Intensity = 408.0; #Success = 7; #Failed = 16; #Dropped = 306
+Target Time = 49.5; Load Intensity = 416.0; #Success = 12; #Failed = 2; #Dropped = 333
+Target Time = 50.5; Load Intensity = 425.0; #Success = 3; #Failed = 2; #Dropped = 151
+Target Time = 51.5; Load Intensity = 433.0; #Success = 9; #Failed = 0; #Dropped = 504
+Target Time = 52.5; Load Intensity = 441.0; #Success = 9; #Failed = 1; #Dropped = 331
+Target Time = 53.5; Load Intensity = 450.0; #Success = 18; #Failed = 2; #Dropped = 328
+Target Time = 54.5; Load Intensity = 458.0; #Success = 11; #Failed = 0; #Dropped = 313
+Target Time = 55.5; Load Intensity = 466.0; #Success = 8; #Failed = 0; #Dropped = 466
+Target Time = 56.5; Load Intensity = 475.0; #Success = 12; #Failed = 2; #Dropped = 368
+Target Time = 57.5; Load Intensity = 483.0; #Success = 18; #Failed = 0; #Dropped = 391
+Target Time = 58.5; Load Intensity = 491.0; #Success = 15; #Failed = 0; #Dropped = 240
+Target Time = 59.5; Load Intensity = 500.0; #Success = 17; #Failed = 0; #Dropped = 553
+Target Time = 60.5; Load Intensity = 508.0; #Success = 6; #Failed = 0; #Dropped = 166
+Target Time = 61.5; Load Intensity = 516.0; #Success = 9; #Failed = 0; #Dropped = 661
+Target Time = 62.5; Load Intensity = 525.0; #Success = 10; #Failed = 0; #Dropped = 429
+Target Time = 63.5; Load Intensity = 533.0; #Success = 21; #Failed = 0; #Dropped = 506
+Target Time = 64.5; Load Intensity = 541.0; #Success = 10; #Failed = 0; #Dropped = 293
+Target Time = 65.5; Load Intensity = 550.0; #Success = 6; #Failed = 0; #Dropped = 534
+Target Time = 66.5; Load Intensity = 558.0; #Success = 16; #Failed = 0; #Dropped = 467
+Target Time = 67.5; Load Intensity = 566.0; #Success = 18; #Failed = 0; #Dropped = 478
+Target Time = 68.5; Load Intensity = 575.0; #Success = 15; #Failed = 0; #Dropped = 289
+Target Time = 69.5; Load Intensity = 583.0; #Success = 16; #Failed = 0; #Dropped = 671
+Target Time = 70.5; Load Intensity = 591.0; #Success = 7; #Failed = 0; #Dropped = 285
+Target Time = 71.5; Load Intensity = 600.0; #Success = 9; #Failed = 0; #Dropped = 714
+Target Time = 72.5; Load Intensity = 608.0; #Success = 10; #Failed = 0; #Dropped = 509
+Target Time = 73.5; Load Intensity = 616.0; #Success = 20; #Failed = 0; #Dropped = 516
+Target Time = 74.5; Load Intensity = 625.0; #Success = 11; #Failed = 0; #Dropped = 429
+Target Time = 75.5; Load Intensity = 633.0; #Success = 10; #Failed = 0; #Dropped = 707
+Target Time = 76.5; Load Intensity = 641.0; #Success = 12; #Failed = 0; #Dropped = 471
+Target Time = 77.5; Load Intensity = 650.0; #Success = 18; #Failed = 0; #Dropped = 569
+Target Time = 78.5; Load Intensity = 658.0; #Success = 15; #Failed = 0; #Dropped = 389
+Target Time = 79.5; Load Intensity = 666.0; #Success = 15; #Failed = 0; #Dropped = 720
+Target Time = 80.5; Load Intensity = 675.0; #Success = 8; #Failed = 0; #Dropped = 294
+Target Time = 81.5; Load Intensity = 683.0; #Success = 9; #Failed = 0; #Dropped = 899
+Target Time = 82.5; Load Intensity = 691.0; #Success = 10; #Failed = 0; #Dropped = 594
+Target Time = 83.5; Load Intensity = 700.0; #Success = 21; #Failed = 0; #Dropped = 628
+Target Time = 84.5; Load Intensity = 708.0; #Success = 10; #Failed = 0; #Dropped = 496
+Target Time = 85.5; Load Intensity = 716.0; #Success = 6; #Failed = 0; #Dropped = 693
+Target Time = 86.5; Load Intensity = 725.0; #Success = 16; #Failed = 0; #Dropped = 614
+Target Time = 87.5; Load Intensity = 733.0; #Success = 18; #Failed = 0; #Dropped = 667
+Target Time = 88.5; Load Intensity = 741.0; #Success = 15; #Failed = 0; #Dropped = 388
+Target Time = 89.5; Load Intensity = 750.0; #Success = 16; #Failed = 0; #Dropped = 937
+Target Time = 90.5; Load Intensity = 758.0; #Success = 7; #Failed = 0; #Dropped = 281
+Target Time = 91.5; Load Intensity = 766.0; #Success = 9; #Failed = 0; #Dropped = 1031
+Target Time = 92.5; Load Intensity = 775.0; #Success = 10; #Failed = 0; #Dropped = 638
+Target Time = 93.5; Load Intensity = 783.0; #Success = 21; #Failed = 0; #Dropped = 718
+Target Time = 94.5; Load Intensity = 791.0; #Success = 10; #Failed = 0; #Dropped = 525
+Target Time = 95.5; Load Intensity = 800.0; #Success = 7; #Failed = 0; #Dropped = 950
+Target Time = 96.5; Load Intensity = 808.0; #Success = 15; #Failed = 0; #Dropped = 597
+Target Time = 97.5; Load Intensity = 816.0; #Success = 18; #Failed = 0; #Dropped = 760
+Target Time = 98.5; Load Intensity = 825.0; #Success = 15; #Failed = 0; #Dropped = 528
+Target Time = 99.5; Load Intensity = 833.0; #Success = 17; #Failed = 0; #Dropped = 970
+Target Time = 100.5; Load Intensity = 841.0; #Success = 6; #Failed = 0; #Dropped = 354
+Target Time = 101.5; Load Intensity = 850.0; #Success = 9; #Failed = 0; #Dropped = 1119
+Target Time = 102.5; Load Intensity = 858.0; #Success = 10; #Failed = 0; #Dropped = 752
+Target Time = 103.5; Load Intensity = 866.0; #Success = 20; #Failed = 0; #Dropped = 721
+Target Time = 104.5; Load Intensity = 875.0; #Success = 11; #Failed = 0; #Dropped = 569
+Target Time = 105.5; Load Intensity = 883.0; #Success = 10; #Failed = 0; #Dropped = 1097
+Target Time = 106.5; Load Intensity = 891.0; #Success = 12; #Failed = 0; #Dropped = 745
+Target Time = 107.5; Load Intensity = 900.0; #Success = 18; #Failed = 6; #Dropped = 774
+Target Time = 108.5; Load Intensity = 908.0; #Success = 15; #Failed = 1; #Dropped = 524
+Target Time = 109.5; Load Intensity = 916.0; #Success = 15; #Failed = 1; #Dropped = 1113
+Target Time = 110.5; Load Intensity = 925.0; #Success = 8; #Failed = 1; #Dropped = 465
+Target Time = 111.5; Load Intensity = 933.0; #Success = 9; #Failed = 1; #Dropped = 1209
+Target Time = 112.5; Load Intensity = 941.0; #Success = 10; #Failed = 1; #Dropped = 792
+Target Time = 113.5; Load Intensity = 950.0; #Success = 21; #Failed = 1; #Dropped = 954
+Target Time = 114.5; Load Intensity = 958.0; #Success = 10; #Failed = 1; #Dropped = 587
+Target Time = 115.5; Load Intensity = 966.0; #Success = 7; #Failed = 1; #Dropped = 1076
+Target Time = 116.5; Load Intensity = 975.0; #Success = 15; #Failed = 1; #Dropped = 905
+Target Time = 117.5; Load Intensity = 983.0; #Success = 16; #Failed = 11; #Dropped = 800
+Target Time = 118.5; Load Intensity = 991.0; #Success = 14; #Failed = 5; #Dropped = 789
+Target Time = 119.5; Load Intensity = 1000.0; #Success = 14; #Failed = 9; #Dropped = 1241
+Target Time = 120.5; Load Intensity = 0.0; #Success = 3; #Failed = 1; #Dropped = 336
+Target Time = 121.5; Load Intensity = 0.0; #Success = 9; #Failed = 5; #Dropped = 1336
+Target Time = 122.5; Load Intensity = 0.0; #Success = 14; #Failed = 5; #Dropped = 894
+Target Time = 123.5; Load Intensity = 0.0; #Success = 25; #Failed = 8; #Dropped = 895
+Target Time = 124.5; Load Intensity = 0.0; #Success = 14; #Failed = 0; #Dropped = 819
+Target Time = 125.5; Load Intensity = 0.0; #Success = 10; #Failed = 0; #Dropped = 1113
+Target Time = 126.5; Load Intensity = 0.0; #Success = 17; #Failed = 0; #Dropped = 921
+Target Time = 127.5; Load Intensity = 0.0; #Success = 19; #Failed = 0; #Dropped = 1046
+Target Time = 128.5; Load Intensity = 0.0; #Success = 10; #Failed = 0; #Dropped = 700
+Target Time = 129.5; Load Intensity = 0.0; #Success = 9; #Failed = 0; #Dropped = 1213
+Target Time = 130.5; Load Intensity = 0.0; #Success = 1; #Failed = 0; #Dropped = 29
+Target Time = 131.5; Load Intensity = 0.0; #Success = 9; #Failed = 0; #Dropped = 0
+Target Time = 132.5; Load Intensity = 0.0; #Success = 11; #Failed = 0; #Dropped = 0
+Target Time = 133.5; Load Intensity = 0.0; #Success = 23; #Failed = 0; #Dropped = 0
+Target Time = 134.5; Load Intensity = 0.0; #Success = 10; #Failed = 0; #Dropped = 0
+Target Time = 135.5; Load Intensity = 0.0; #Success = 9; #Failed = 0; #Dropped = 0
+Target Time = 136.5; Load Intensity = 0.0; #Success = 12; #Failed = 0; #Dropped = 0
+Target Time = 137.5; Load Intensity = 0.0; #Success = 16; #Failed = 0; #Dropped = 0
+Target Time = 138.5; Load Intensity = 0.0; #Success = 10; #Failed = 0; #Dropped = 0
+Target Time = 139.5; Load Intensity = 0.0; #Success = 9; #Failed = 0; #Dropped = 0
+Workload finished.
+Log finished.
+📄 LIMBO finalizado para scenario=medium
+⏳ [23:00:10] Esperando que termine medición: fase3_carga_medium_iter1 (PID: 286237)
+  └─ [nitro5:sd] end 23:00:11
+  └─ [nitro5:ram] end 23:00:11
+  └─ [nitro5:nic] end 23:00:12
+  └─ [nitro5:cpu] end 23:00:12
+  └─ [scorpius:sd] end 23:00:18
+  └─ [scorpius:cpu] end 23:00:20
+  └─ [scorpius:nic] end 23:00:23
+  └─ [leo:sd] end 23:00:25
+  └─ [leo:cpu] end 23:00:25
+  └─ [scorpius:ram] end 23:00:26
+  └─ [leo:nic] end 23:00:28
+  └─ [leo:ram] end 23:00:29
+  └─ [aspire:ram] end 23:00:30
+  └─ [aspire:cpu] end 23:00:39
+  └─ [aspire:sd] end 23:00:39
+  └─ [aspire:nic] end 23:00:39
+=== Bloque 145s terminado - Fase: fase3_carga_medium_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase3_carga_medium_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase3_carga_medium_iter1
+========================================
+✔️ [23:00:46] Medición fase3_carga_medium_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:00:51)_fase3_medium_iter1
+[✔] Archivado: ./historyexecutions/exp(23:00:51)_fase3_medium_iter1
+🧹 Limpiando TeaStore (iter 1)...
+⏸ Esperando 15s para limpieza completa...
+✅ Iteración 1 / 1 del escenario medium completada.
+
+🏁 Escenario medium finalizado (1 iteraciones).
+
+########################################################
+🔄 ESCENARIO: high | ITERACIÓN: 1 / 1
+   Hora: 23:01:40
+########################################################
+========================================
+🔋 FASE 1: Descarga de imágenes (high, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:01:57] Iniciando medición de energía: fase1_descarga_high_iter1 (25s)
+   PID de medición: 650082
+🚀 Desplegando TeaStore desde GitHub...
+========================================
+🔋 MEASURE ENERGY - Fase: fase1_descarga_high_iter1
+   Duración: 25s
+   PID: 650082
+========================================
+=== Medición bloque 25s - Fase: fase1_descarga_high_iter1 ===
+[⏱ 23:01:57] Iniciando ecofloc en nitro5 por 25s (fase: fase1_descarga_high_iter1)
+⏳ Esperando a que todos los pods de TeaStore estén Running y Ready...
+  ├─ [nitro5:sd] start 23:01:57
+  ├─ [nitro5:ram] start 23:01:58
+  ├─ [nitro5:nic] start 23:01:58
+[⏱ 23:01:59] Iniciando ecofloc en aspire por 25s (fase: fase1_descarga_high_iter1)
+  ├─ [nitro5:cpu] start 23:01:59
+  ├─ [aspire:sd] start 23:01:59
+  ├─ [aspire:ram] start 23:01:59
+[⏱ 23:01:59] Iniciando ecofloc en scorpius por 25s (fase: fase1_descarga_high_iter1)
+  ├─ [aspire:nic] start 23:01:59
+  ├─ [aspire:cpu] start 23:01:59
+  ├─ [scorpius:sd] start 23:01:59
+  ├─ [scorpius:ram] start 23:01:59
+  ├─ [scorpius:nic] start 23:01:59
+[⏱ 23:01:59] Iniciando ecofloc en leo por 25s (fase: fase1_descarga_high_iter1)
+  ├─ [scorpius:cpu] start 23:01:59
+  ├─ [leo:sd] start 23:01:59
+  ├─ [leo:nic] start 23:01:59
+  ├─ [leo:ram] start 23:01:59
+  ├─ [leo:cpu] start 23:01:59
+✅ Pods listos.
+⏳ [23:02:06] Esperando que termine medición: fase1_descarga_high_iter1 (PID: 650082)
+  └─ [nitro5:sd] end 23:02:23
+  └─ [nitro5:ram] end 23:02:23
+  └─ [nitro5:nic] end 23:02:23
+  └─ [nitro5:cpu] end 23:02:24
+  └─ [scorpius:sd] end 23:02:25
+  └─ [scorpius:cpu] end 23:02:25
+  └─ [scorpius:nic] end 23:02:25
+  └─ [aspire:sd] end 23:02:26
+  └─ [aspire:cpu] end 23:02:26
+  └─ [leo:sd] end 23:02:26
+  └─ [leo:cpu] end 23:02:26
+  └─ [scorpius:ram] end 23:02:27
+  └─ [aspire:nic] end 23:02:27
+  └─ [aspire:ram] end 23:02:27
+  └─ [leo:ram] end 23:02:27
+=== Bloque 25s terminado - Fase: fase1_descarga_high_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase1_descarga_high_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase1_descarga_high_iter1
+========================================
+✔️ [23:02:32] Medición fase1_descarga_high_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:02:37)_fase1_high_iter1
+[✔] Archivado: ./historyexecutions/exp(23:02:37)_fase1_high_iter1
+========================================
+🔋 FASE 2: Preparación de servicios (high, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:02:53] Iniciando medición de energía: fase2_preparacion_high_iter1 (50s)
+   PID de medición: 716696
+========================================
+🔋 MEASURE ENERGY - Fase: fase2_preparacion_high_iter1
+   Duración: 50s
+   PID: 716696
+========================================
+=== Medición bloque 50s - Fase: fase2_preparacion_high_iter1 ===
+[⏱ 23:02:53] Iniciando ecofloc en nitro5 por 50s (fase: fase2_preparacion_high_iter1)
+⏳ Esperando 10s a que CoreDNS se estabilice...
+  ├─ [nitro5:sd] start 23:02:53
+  ├─ [nitro5:ram] start 23:02:54
+  ├─ [nitro5:nic] start 23:02:54
+[⏱ 23:02:54] Iniciando ecofloc en aspire por 50s (fase: fase2_preparacion_high_iter1)
+  ├─ [nitro5:cpu] start 23:02:54
+  ├─ [aspire:sd] start 23:02:54
+  ├─ [aspire:ram] start 23:02:54
+  ├─ [aspire:nic] start 23:02:54
+[⏱ 23:02:54] Iniciando ecofloc en scorpius por 50s (fase: fase2_preparacion_high_iter1)
+  ├─ [aspire:cpu] start 23:02:54
+  ├─ [scorpius:sd] start 23:02:54
+  ├─ [scorpius:ram] start 23:02:54
+  ├─ [scorpius:nic] start 23:02:54
+[⏱ 23:02:54] Iniciando ecofloc en leo por 50s (fase: fase2_preparacion_high_iter1)
+  ├─ [scorpius:cpu] start 23:02:54
+  ├─ [leo:sd] start 23:02:54
+  ├─ [leo:ram] start 23:02:54
+  ├─ [leo:nic] start 23:02:54
+  ├─ [leo:cpu] start 23:02:54
+➡️ Pod WebUI: teastore-webui-558b54cc77-c569w
+➡️ Está en el nodo: luish-aspire-a315-55g
+🌐 IP del nodo WebUI: 192.168.18.37
+⏳ Verificando estado del TeaStore en http://192.168.18.37:30080/tools.descartes.teastore.webui/status ...
+   ➤ Estado actual: 4 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 5 / 5 servicios OK
+✔ TODOS los servicios del TeaStore están OK. Continuando...
+⏳ [23:03:20] Esperando que termine medición: fase2_preparacion_high_iter1 (PID: 716696)
+  └─ [nitro5:sd] end 23:03:43
+  └─ [nitro5:ram] end 23:03:44
+  └─ [nitro5:nic] end 23:03:44
+  └─ [nitro5:cpu] end 23:03:44
+  └─ [aspire:sd] end 23:03:45
+  └─ [aspire:cpu] end 23:03:45
+  └─ [leo:cpu] end 23:03:46
+  └─ [aspire:nic] end 23:03:46
+  └─ [leo:sd] end 23:03:47
+  └─ [scorpius:nic] end 23:03:47
+  └─ [scorpius:sd] end 23:03:47
+  └─ [scorpius:cpu] end 23:03:48
+  └─ [leo:nic] end 23:03:48
+  └─ [leo:ram] end 23:03:48
+  └─ [aspire:ram] end 23:03:49
+  └─ [scorpius:ram] end 23:03:49
+=== Bloque 50s terminado - Fase: fase2_preparacion_high_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase2_preparacion_high_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase2_preparacion_high_iter1
+========================================
+✔️ [23:03:54] Medición fase2_preparacion_high_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:03:59)_fase2_high_iter1
+[✔] Archivado: ./historyexecutions/exp(23:03:59)_fase2_high_iter1
+========================================
+🔋 FASE 3: Ejecución de carga (high, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:04:20] Iniciando medición de energía: fase3_carga_high_iter1 (145s)
+   PID de medición: 843266
+=== Escenario high (iter 1) ===
+🚀 Iniciando LIMBO con profile=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/increasingHighIntensity.csv y script=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+========================================
+🔋 MEASURE ENERGY - Fase: fase3_carga_high_iter1
+   Duración: 145s
+   PID: 843266
+========================================
+=== Medición bloque 145s - Fase: fase3_carga_high_iter1 ===
+[⏱ 23:04:20] Iniciando ecofloc en nitro5 por 145s (fase: fase3_carga_high_iter1)
+Feb 18, 2026 11:04:20 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+WARNING: No power measurements
+Feb 18, 2026 11:04:20 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Load Generator Thread Count set to 128
+Feb 18, 2026 11:04:20 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: URL connection timout set to 10000 ms
+Feb 18, 2026 11:04:20 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Using Lua Script: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 11:04:20 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Read 120 Arrival Rate Tuples
+Load Generator sent: ok
+Feb 18, 2026 11:04:20 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Arrival Rates sent to Load Generator(s).
+Load Generator sent: ok
+Feb 18, 2026 11:04:20 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Thread Count sent to Load Generator(s): 128
+Load Generator sent: ok
+Feb 18, 2026 11:04:20 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: URL connection timeout sent to Load Generator(s): 10000
+Load Generator sent: ok
+Feb 18, 2026 11:04:20 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Contents of script sent to Load Generator: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 11:04:20 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Starting Load Generation
+Beginning Run @1771473860555(18.02.2026;23:04:20555)
+  ├─ [nitro5:sd] start 23:04:20
+Target Time = 0.5; Load Intensity = 16.0; #Success = 0; #Failed = 0; #Dropped = 0
+  ├─ [nitro5:ram] start 23:04:21
+  ├─ [nitro5:nic] start 23:04:21
+[⏱ 23:04:21] Iniciando ecofloc en aspire por 145s (fase: fase3_carga_high_iter1)
+  ├─ [nitro5:cpu] start 23:04:21
+  ├─ [aspire:sd] start 23:04:21
+  ├─ [aspire:ram] start 23:04:21
+[⏱ 23:04:21] Iniciando ecofloc en scorpius por 145s (fase: fase3_carga_high_iter1)
+  ├─ [aspire:nic] start 23:04:21
+  ├─ [aspire:cpu] start 23:04:21
+  ├─ [scorpius:sd] start 23:04:21
+  ├─ [scorpius:ram] start 23:04:21
+[⏱ 23:04:21] Iniciando ecofloc en leo por 145s (fase: fase3_carga_high_iter1)
+  ├─ [scorpius:nic] start 23:04:21
+  ├─ [scorpius:cpu] start 23:04:21
+  ├─ [leo:sd] start 23:04:22
+  ├─ [leo:ram] start 23:04:22
+  ├─ [leo:nic] start 23:04:22
+  ├─ [leo:cpu] start 23:04:22
+Target Time = 1.5; Load Intensity = 33.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 2.5; Load Intensity = 50.0; #Success = 25; #Failed = 1; #Dropped = 0
+Target Time = 3.5; Load Intensity = 66.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 4.5; Load Intensity = 83.0; #Success = 5; #Failed = 0; #Dropped = 0
+Target Time = 5.5; Load Intensity = 100.0; #Success = 10; #Failed = 0; #Dropped = 0
+Target Time = 6.5; Load Intensity = 116.0; #Success = 5; #Failed = 0; #Dropped = 0
+Target Time = 7.5; Load Intensity = 133.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 8.5; Load Intensity = 150.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 9.5; Load Intensity = 166.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 10.5; Load Intensity = 183.0; #Success = 3; #Failed = 0; #Dropped = 0
+Target Time = 11.5; Load Intensity = 200.0; #Success = 5; #Failed = 0; #Dropped = 0
+Target Time = 12.5; Load Intensity = 216.0; #Success = 42; #Failed = 0; #Dropped = 0
+Target Time = 13.5; Load Intensity = 233.0; #Success = 49; #Failed = 9; #Dropped = 0
+Target Time = 14.5; Load Intensity = 250.0; #Success = 4; #Failed = 1; #Dropped = 0
+Target Time = 15.5; Load Intensity = 266.0; #Success = 9; #Failed = 0; #Dropped = 39
+Target Time = 16.5; Load Intensity = 283.0; #Success = 2; #Failed = 3; #Dropped = 80
+Target Time = 17.5; Load Intensity = 300.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 18.5; Load Intensity = 316.0; #Success = 1; #Failed = 0; #Dropped = 198
+Target Time = 19.5; Load Intensity = 333.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 20.5; Load Intensity = 350.0; #Success = 3; #Failed = 0; #Dropped = 442
+Target Time = 21.5; Load Intensity = 366.0; #Success = 5; #Failed = 0; #Dropped = 213
+Target Time = 22.5; Load Intensity = 383.0; #Success = 42; #Failed = 13; #Dropped = 171
+Target Time = 23.5; Load Intensity = 400.0; #Success = 58; #Failed = 2; #Dropped = 159
+Target Time = 24.5; Load Intensity = 416.0; #Success = 3; #Failed = 0; #Dropped = 113
+Target Time = 25.5; Load Intensity = 433.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 26.5; Load Intensity = 450.0; #Success = 1; #Failed = 11; #Dropped = 665
+Target Time = 27.5; Load Intensity = 466.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 28.5; Load Intensity = 483.0; #Success = 1; #Failed = 1; #Dropped = 420
+Target Time = 29.5; Load Intensity = 500.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 30.5; Load Intensity = 516.0; #Success = 3; #Failed = 0; #Dropped = 876
+Target Time = 31.5; Load Intensity = 533.0; #Success = 5; #Failed = 2; #Dropped = 348
+Target Time = 32.5; Load Intensity = 550.0; #Success = 55; #Failed = 7; #Dropped = 340
+Target Time = 33.5; Load Intensity = 566.0; #Success = 39; #Failed = 0; #Dropped = 316
+Target Time = 34.5; Load Intensity = 583.0; #Success = 3; #Failed = 0; #Dropped = 241
+Target Time = 35.5; Load Intensity = 600.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 36.5; Load Intensity = 616.0; #Success = 12; #Failed = 0; #Dropped = 1059
+Target Time = 37.5; Load Intensity = 633.0; #Success = 0; #Failed = 9; #Dropped = 254
+Target Time = 38.5; Load Intensity = 650.0; #Success = 2; #Failed = 9; #Dropped = 476
+Target Time = 39.5; Load Intensity = 666.0; #Success = 0; #Failed = 1; #Dropped = 553
+Target Time = 40.5; Load Intensity = 683.0; #Success = 3; #Failed = 0; #Dropped = 637
+Target Time = 41.5; Load Intensity = 700.0; #Success = 8; #Failed = 0; #Dropped = 660
+Target Time = 42.5; Load Intensity = 716.0; #Success = 58; #Failed = 3; #Dropped = 414
+Target Time = 43.5; Load Intensity = 733.0; #Success = 20; #Failed = 0; #Dropped = 458
+Target Time = 44.5; Load Intensity = 750.0; #Success = 3; #Failed = 0; #Dropped = 289
+Target Time = 45.5; Load Intensity = 766.0; #Success = 7; #Failed = 2; #Dropped = 1028
+Target Time = 46.5; Load Intensity = 783.0; #Success = 12; #Failed = 4; #Dropped = 468
+Target Time = 47.5; Load Intensity = 800.0; #Success = 7; #Failed = 0; #Dropped = 348
+Target Time = 48.5; Load Intensity = 816.0; #Success = 6; #Failed = 0; #Dropped = 669
+Target Time = 49.5; Load Intensity = 833.0; #Success = 10; #Failed = 0; #Dropped = 829
+Target Time = 50.5; Load Intensity = 850.0; #Success = 9; #Failed = 1; #Dropped = 827
+Target Time = 51.5; Load Intensity = 866.0; #Success = 10; #Failed = 0; #Dropped = 618
+Target Time = 52.5; Load Intensity = 883.0; #Success = 37; #Failed = 0; #Dropped = 721
+Target Time = 53.5; Load Intensity = 900.0; #Success = 20; #Failed = 0; #Dropped = 599
+Target Time = 54.5; Load Intensity = 916.0; #Success = 3; #Failed = 2; #Dropped = 400
+Target Time = 55.5; Load Intensity = 933.0; #Success = 7; #Failed = 0; #Dropped = 1225
+Target Time = 56.5; Load Intensity = 950.0; #Success = 16; #Failed = 0; #Dropped = 691
+Target Time = 57.5; Load Intensity = 966.0; #Success = 7; #Failed = 0; #Dropped = 562
+Target Time = 58.5; Load Intensity = 983.0; #Success = 6; #Failed = 0; #Dropped = 668
+Target Time = 59.5; Load Intensity = 1000.0; #Success = 15; #Failed = 0; #Dropped = 1404
+Target Time = 60.5; Load Intensity = 1016.0; #Success = 9; #Failed = 0; #Dropped = 809
+Target Time = 61.5; Load Intensity = 1033.0; #Success = 8; #Failed = 0; #Dropped = 701
+Target Time = 62.5; Load Intensity = 1050.0; #Success = 38; #Failed = 0; #Dropped = 967
+Target Time = 63.5; Load Intensity = 1066.0; #Success = 18; #Failed = 0; #Dropped = 880
+Target Time = 64.5; Load Intensity = 1083.0; #Success = 4; #Failed = 0; #Dropped = 185
+Target Time = 65.5; Load Intensity = 1100.0; #Success = 7; #Failed = 0; #Dropped = 1598
+Target Time = 66.5; Load Intensity = 1116.0; #Success = 17; #Failed = 0; #Dropped = 1036
+Target Time = 67.5; Load Intensity = 1133.0; #Success = 6; #Failed = 0; #Dropped = 460
+Target Time = 68.5; Load Intensity = 1150.0; #Success = 6; #Failed = 0; #Dropped = 938
+Target Time = 69.5; Load Intensity = 1166.0; #Success = 14; #Failed = 0; #Dropped = 917
+Target Time = 70.5; Load Intensity = 1183.0; #Success = 10; #Failed = 0; #Dropped = 1521
+Target Time = 71.5; Load Intensity = 1200.0; #Success = 8; #Failed = 0; #Dropped = 898
+Target Time = 72.5; Load Intensity = 1216.0; #Success = 38; #Failed = 0; #Dropped = 1141
+Target Time = 73.5; Load Intensity = 1233.0; #Success = 17; #Failed = 0; #Dropped = 843
+Target Time = 74.5; Load Intensity = 1250.0; #Success = 5; #Failed = 0; #Dropped = 574
+Target Time = 75.5; Load Intensity = 1266.0; #Success = 7; #Failed = 0; #Dropped = 1766
+Target Time = 76.5; Load Intensity = 1283.0; #Success = 16; #Failed = 0; #Dropped = 1019
+Target Time = 77.5; Load Intensity = 1300.0; #Success = 7; #Failed = 0; #Dropped = 670
+Target Time = 78.5; Load Intensity = 1316.0; #Success = 6; #Failed = 0; #Dropped = 1089
+Target Time = 79.5; Load Intensity = 1333.0; #Success = 15; #Failed = 0; #Dropped = 1749
+Target Time = 80.5; Load Intensity = 1350.0; #Success = 14; #Failed = 0; #Dropped = 1198
+Target Time = 81.5; Load Intensity = 1366.0; #Success = 9; #Failed = 0; #Dropped = 1061
+Target Time = 82.5; Load Intensity = 1383.0; #Success = 19; #Failed = 9; #Dropped = 1260
+Target Time = 83.5; Load Intensity = 1400.0; #Success = 23; #Failed = 0; #Dropped = 1196
+Target Time = 84.5; Load Intensity = 1416.0; #Success = 3; #Failed = 3; #Dropped = 938
+Target Time = 85.5; Load Intensity = 1433.0; #Success = 7; #Failed = 2; #Dropped = 1400
+Target Time = 86.5; Load Intensity = 1450.0; #Success = 11; #Failed = 0; #Dropped = 1384
+Target Time = 87.5; Load Intensity = 1466.0; #Success = 7; #Failed = 0; #Dropped = 734
+Target Time = 88.5; Load Intensity = 1483.0; #Success = 10; #Failed = 0; #Dropped = 1931
+Target Time = 89.5; Load Intensity = 1500.0; #Success = 19; #Failed = 0; #Dropped = 1328
+Target Time = 90.5; Load Intensity = 1516.0; #Success = 12; #Failed = 0; #Dropped = 1303
+Target Time = 91.5; Load Intensity = 1533.0; #Success = 11; #Failed = 0; #Dropped = 1299
+Target Time = 92.5; Load Intensity = 1550.0; #Success = 21; #Failed = 0; #Dropped = 1562
+Target Time = 93.5; Load Intensity = 1566.0; #Success = 22; #Failed = 0; #Dropped = 1186
+Target Time = 94.5; Load Intensity = 1583.0; #Success = 6; #Failed = 1; #Dropped = 1411
+Target Time = 95.5; Load Intensity = 1600.0; #Success = 13; #Failed = 0; #Dropped = 1613
+Target Time = 96.5; Load Intensity = 1616.0; #Success = 7; #Failed = 1; #Dropped = 1299
+Target Time = 97.5; Load Intensity = 1633.0; #Success = 8; #Failed = 0; #Dropped = 1532
+Target Time = 98.5; Load Intensity = 1650.0; #Success = 9; #Failed = 0; #Dropped = 1424
+Target Time = 99.5; Load Intensity = 1666.0; #Success = 22; #Failed = 0; #Dropped = 1509
+Target Time = 100.5; Load Intensity = 1683.0; #Success = 14; #Failed = 0; #Dropped = 1432
+Target Time = 101.5; Load Intensity = 1700.0; #Success = 9; #Failed = 0; #Dropped = 1394
+Target Time = 102.5; Load Intensity = 1716.0; #Success = 16; #Failed = 0; #Dropped = 1753
+Target Time = 103.5; Load Intensity = 1733.0; #Success = 22; #Failed = 0; #Dropped = 1375
+Target Time = 104.5; Load Intensity = 1750.0; #Success = 7; #Failed = 0; #Dropped = 1534
+Target Time = 105.5; Load Intensity = 1766.0; #Success = 12; #Failed = 0; #Dropped = 1537
+Target Time = 106.5; Load Intensity = 1783.0; #Success = 9; #Failed = 0; #Dropped = 1614
+Target Time = 107.5; Load Intensity = 1800.0; #Success = 8; #Failed = 0; #Dropped = 1804
+Target Time = 108.5; Load Intensity = 1816.0; #Success = 9; #Failed = 0; #Dropped = 1486
+Target Time = 109.5; Load Intensity = 1833.0; #Success = 22; #Failed = 0; #Dropped = 1818
+Target Time = 110.5; Load Intensity = 1850.0; #Success = 15; #Failed = 0; #Dropped = 1805
+Target Time = 111.5; Load Intensity = 1866.0; #Success = 8; #Failed = 0; #Dropped = 1270
+Target Time = 112.5; Load Intensity = 1883.0; #Success = 16; #Failed = 0; #Dropped = 2001
+Target Time = 113.5; Load Intensity = 1900.0; #Success = 22; #Failed = 0; #Dropped = 1641
+Target Time = 114.5; Load Intensity = 1916.0; #Success = 7; #Failed = 0; #Dropped = 1528
+Target Time = 115.5; Load Intensity = 1933.0; #Success = 13; #Failed = 0; #Dropped = 2539
+Target Time = 116.5; Load Intensity = 1950.0; #Success = 8; #Failed = 0; #Dropped = 1151
+Target Time = 117.5; Load Intensity = 1966.0; #Success = 8; #Failed = 5; #Dropped = 1951
+Target Time = 118.5; Load Intensity = 1983.0; #Success = 9; #Failed = 4; #Dropped = 1691
+Target Time = 119.5; Load Intensity = 2000.0; #Success = 20; #Failed = 3; #Dropped = 2010
+Target Time = 120.5; Load Intensity = 0.0; #Success = 5; #Failed = 4; #Dropped = 1753
+Target Time = 121.5; Load Intensity = 0.0; #Success = 8; #Failed = 0; #Dropped = 1541
+Target Time = 122.5; Load Intensity = 0.0; #Success = 16; #Failed = 0; #Dropped = 2184
+Target Time = 123.5; Load Intensity = 0.0; #Success = 22; #Failed = 0; #Dropped = 1680
+Target Time = 124.5; Load Intensity = 0.0; #Success = 7; #Failed = 3; #Dropped = 1913
+Target Time = 125.5; Load Intensity = 0.0; #Success = 7; #Failed = 2; #Dropped = 1971
+Target Time = 126.5; Load Intensity = 0.0; #Success = 7; #Failed = 0; #Dropped = 1989
+Target Time = 127.5; Load Intensity = 0.0; #Success = 12; #Failed = 2; #Dropped = 1983
+Target Time = 128.5; Load Intensity = 0.0; #Success = 12; #Failed = 27; #Dropped = 1864
+Target Time = 129.5; Load Intensity = 0.0; #Success = 22; #Failed = 7; #Dropped = 1879
+Target Time = 130.5; Load Intensity = 0.0; #Success = 8; #Failed = 0; #Dropped = 238
+Target Time = 131.5; Load Intensity = 0.0; #Success = 8; #Failed = 0; #Dropped = 0
+Target Time = 132.5; Load Intensity = 0.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 133.5; Load Intensity = 0.0; #Success = 5; #Failed = 0; #Dropped = 0
+Target Time = 134.5; Load Intensity = 0.0; #Success = 8; #Failed = 0; #Dropped = 0
+Target Time = 135.5; Load Intensity = 0.0; #Success = 9; #Failed = 0; #Dropped = 0
+Target Time = 136.5; Load Intensity = 0.0; #Success = 7; #Failed = 0; #Dropped = 0
+Target Time = 137.5; Load Intensity = 0.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 138.5; Load Intensity = 0.0; #Success = 39; #Failed = 0; #Dropped = 0
+Target Time = 139.5; Load Intensity = 0.0; #Success = 29; #Failed = 0; #Dropped = 0
+Workload finished.
+Log finished.
+📄 LIMBO finalizado para scenario=high
+⏳ [23:06:45] Esperando que termine medición: fase3_carga_high_iter1 (PID: 843266)
+  └─ [nitro5:sd] end 23:06:45
+  └─ [nitro5:cpu] end 23:06:46
+  └─ [nitro5:ram] end 23:06:46
+  └─ [nitro5:nic] end 23:06:46
+  └─ [leo:sd] end 23:06:51
+  └─ [scorpius:cpu] end 23:06:52
+  └─ [scorpius:sd] end 23:06:52
+  └─ [scorpius:nic] end 23:06:52
+  └─ [scorpius:ram] end 23:06:55
+  └─ [leo:nic] end 23:06:55
+  └─ [leo:ram] end 23:06:55
+  └─ [leo:cpu] end 23:06:56
+  └─ [aspire:nic] end 23:06:57
+  └─ [aspire:ram] end 23:06:57
+  └─ [aspire:cpu] end 23:06:57
+  └─ [aspire:sd] end 23:06:57
+=== Bloque 145s terminado - Fase: fase3_carga_high_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase3_carga_high_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase3_carga_high_iter1
+========================================
+✔️ [23:07:02] Medición fase3_carga_high_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:07:07)_fase3_high_iter1
+[✔] Archivado: ./historyexecutions/exp(23:07:07)_fase3_high_iter1
+🧹 Limpiando TeaStore (iter 1)...
+⏸ Esperando 15s para limpieza completa...
+✅ Iteración 1 / 1 del escenario high completada.
+
+🏁 Escenario high finalizado (1 iteraciones).
+
+========================================
+🏆 EXPERIMENTO COMPLETO
+   Fin: 2026-02-18 23:07:56
+   Total iteraciones ejecutadas: 3
+========================================
+========================================
+🔬 EXPERIMENTO: 3 iteraciones por escenario
+   Escenarios: 3
+   Total ejecuciones: 9
+   Inicio: 2026-02-18 23:08:48
+========================================
+
+########################################################
+🔄 ESCENARIO: low | ITERACIÓN: 1 / 3
+   Hora: 23:08:48
+########################################################
+========================================
+🔋 FASE 1: Descarga de imágenes (low, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:09:09] Iniciando medición de energía: fase1_descarga_low_iter1 (25s)
+   PID de medición: 1193955
+🚀 Desplegando TeaStore desde GitHub...
+========================================
+🔋 MEASURE ENERGY - Fase: fase1_descarga_low_iter1
+   Duración: 25s
+   PID: 1193955
+========================================
+=== Medición bloque 25s - Fase: fase1_descarga_low_iter1 ===
+[⏱ 23:09:09] Iniciando ecofloc en nitro5 por 25s (fase: fase1_descarga_low_iter1)
+⏳ Esperando a que todos los pods de TeaStore estén Running y Ready...
+  ├─ [nitro5:sd] start 23:09:09
+  ├─ [nitro5:ram] start 23:09:10
+  ├─ [nitro5:nic] start 23:09:10
+[⏱ 23:09:10] Iniciando ecofloc en aspire por 25s (fase: fase1_descarga_low_iter1)
+  ├─ [nitro5:cpu] start 23:09:10
+  ├─ [aspire:sd] start 23:09:10
+  ├─ [aspire:ram] start 23:09:10
+  ├─ [aspire:nic] start 23:09:10
+[⏱ 23:09:10] Iniciando ecofloc en scorpius por 25s (fase: fase1_descarga_low_iter1)
+  ├─ [aspire:cpu] start 23:09:10
+  ├─ [scorpius:sd] start 23:09:10
+  ├─ [scorpius:ram] start 23:09:10
+[⏱ 23:09:10] Iniciando ecofloc en leo por 25s (fase: fase1_descarga_low_iter1)
+  ├─ [scorpius:nic] start 23:09:10
+  ├─ [scorpius:cpu] start 23:09:10
+  ├─ [leo:sd] start 23:09:10
+  ├─ [leo:ram] start 23:09:10
+  ├─ [leo:nic] start 23:09:10
+  ├─ [leo:cpu] start 23:09:10
+✅ Pods listos.
+⏳ [23:09:18] Esperando que termine medición: fase1_descarga_low_iter1 (PID: 1193955)
+  └─ [nitro5:sd] end 23:09:34
+  └─ [nitro5:ram] end 23:09:35
+  └─ [nitro5:nic] end 23:09:35
+  └─ [nitro5:cpu] end 23:09:35
+  └─ [aspire:sd] end 23:09:37
+  └─ [leo:sd] end 23:09:37
+  └─ [scorpius:cpu] end 23:09:37
+  └─ [aspire:cpu] end 23:09:37
+  └─ [leo:cpu] end 23:09:38
+  └─ [aspire:nic] end 23:09:38
+  └─ [scorpius:nic] end 23:09:38
+  └─ [aspire:ram] end 23:09:38
+  └─ [scorpius:sd] end 23:09:38
+  └─ [leo:nic] end 23:09:38
+  └─ [leo:ram] end 23:09:38
+  └─ [scorpius:ram] end 23:09:39
+=== Bloque 25s terminado - Fase: fase1_descarga_low_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase1_descarga_low_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase1_descarga_low_iter1
+========================================
+✔️ [23:09:44] Medición fase1_descarga_low_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:09:49)_fase1_low_iter1
+[✔] Archivado: ./historyexecutions/exp(23:09:49)_fase1_low_iter1
+========================================
+🔋 FASE 2: Preparación de servicios (low, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:10:06] Iniciando medición de energía: fase2_preparacion_low_iter1 (50s)
+   PID de medición: 1256551
+========================================
+🔋 MEASURE ENERGY - Fase: fase2_preparacion_low_iter1
+   Duración: 50s
+   PID: 1256551
+========================================
+=== Medición bloque 50s - Fase: fase2_preparacion_low_iter1 ===
+[⏱ 23:10:06] Iniciando ecofloc en nitro5 por 50s (fase: fase2_preparacion_low_iter1)
+⏳ Esperando 10s a que CoreDNS se estabilice...
+  ├─ [nitro5:sd] start 23:10:06
+  ├─ [nitro5:ram] start 23:10:07
+  ├─ [nitro5:nic] start 23:10:07
+[⏱ 23:10:07] Iniciando ecofloc en aspire por 50s (fase: fase2_preparacion_low_iter1)
+  ├─ [nitro5:cpu] start 23:10:07
+  ├─ [aspire:sd] start 23:10:07
+  ├─ [aspire:ram] start 23:10:07
+  ├─ [aspire:nic] start 23:10:07
+[⏱ 23:10:07] Iniciando ecofloc en scorpius por 50s (fase: fase2_preparacion_low_iter1)
+  ├─ [aspire:cpu] start 23:10:07
+  ├─ [scorpius:sd] start 23:10:07
+  ├─ [scorpius:ram] start 23:10:07
+[⏱ 23:10:07] Iniciando ecofloc en leo por 50s (fase: fase2_preparacion_low_iter1)
+  ├─ [scorpius:nic] start 23:10:07
+  ├─ [scorpius:cpu] start 23:10:07
+  ├─ [leo:sd] start 23:10:07
+  ├─ [leo:ram] start 23:10:07
+  ├─ [leo:nic] start 23:10:07
+  ├─ [leo:cpu] start 23:10:07
+➡️ Pod WebUI: teastore-webui-558b54cc77-llf7d
+➡️ Está en el nodo: luish-aspire-a315-55g
+🌐 IP del nodo WebUI: 192.168.18.37
+⏳ Verificando estado del TeaStore en http://192.168.18.37:30080/tools.descartes.teastore.webui/status ...
+   ➤ Estado actual: 5 / 5 servicios OK
+✔ TODOS los servicios del TeaStore están OK. Continuando...
+⏳ [23:10:25] Esperando que termine medición: fase2_preparacion_low_iter1 (PID: 1256551)
+  └─ [nitro5:sd] end 23:10:56
+  └─ [nitro5:ram] end 23:10:57
+  └─ [nitro5:nic] end 23:10:57
+  └─ [nitro5:cpu] end 23:10:57
+  └─ [aspire:cpu] end 23:10:58
+  └─ [aspire:sd] end 23:10:59
+  └─ [aspire:nic] end 23:10:59
+  └─ [scorpius:cpu] end 23:11:00
+  └─ [scorpius:sd] end 23:11:00
+  └─ [leo:cpu] end 23:11:00
+  └─ [aspire:ram] end 23:11:01
+  └─ [leo:sd] end 23:11:01
+  └─ [scorpius:nic] end 23:11:01
+  └─ [scorpius:ram] end 23:11:01
+  └─ [leo:ram] end 23:11:01
+  └─ [leo:nic] end 23:11:03
+=== Bloque 50s terminado - Fase: fase2_preparacion_low_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase2_preparacion_low_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase2_preparacion_low_iter1
+========================================
+✔️ [23:11:08] Medición fase2_preparacion_low_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:11:13)_fase2_low_iter1
+[✔] Archivado: ./historyexecutions/exp(23:11:13)_fase2_low_iter1
+========================================
+🔋 FASE 3: Ejecución de carga (low, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:11:32] Iniciando medición de energía: fase3_carga_low_iter1 (145s)
+   PID de medición: 1384492
+=== Escenario low (iter 1) ===
+========================================
+🔋 MEASURE ENERGY - Fase: fase3_carga_low_iter1
+   Duración: 145s
+   PID: 1384492
+========================================
+=== Medición bloque 145s - Fase: fase3_carga_low_iter1 ===
+🚀 Iniciando LIMBO con profile=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/increasingLowIntensity.csv y script=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+[⏱ 23:11:32] Iniciando ecofloc en nitro5 por 145s (fase: fase3_carga_low_iter1)
+Feb 18, 2026 11:11:32 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+WARNING: No power measurements
+Feb 18, 2026 11:11:32 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Load Generator Thread Count set to 128
+Feb 18, 2026 11:11:32 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: URL connection timout set to 10000 ms
+Feb 18, 2026 11:11:32 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Using Lua Script: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 11:11:32 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Read 120 Arrival Rate Tuples
+Load Generator sent: ok
+Feb 18, 2026 11:11:32 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Arrival Rates sent to Load Generator(s).
+Load Generator sent: ok
+Feb 18, 2026 11:11:32 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Thread Count sent to Load Generator(s): 128
+Load Generator sent: ok
+Feb 18, 2026 11:11:32 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: URL connection timeout sent to Load Generator(s): 10000
+Load Generator sent: ok
+Feb 18, 2026 11:11:32 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Contents of script sent to Load Generator: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 11:11:32 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Starting Load Generation
+Beginning Run @1771474292654(18.02.2026;23:11:32654)
+Target Time = 0.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+  ├─ [nitro5:sd] start 23:11:32
+  ├─ [nitro5:ram] start 23:11:33
+  ├─ [nitro5:nic] start 23:11:33
+[⏱ 23:11:34] Iniciando ecofloc en aspire por 145s (fase: fase3_carga_low_iter1)
+  ├─ [nitro5:cpu] start 23:11:34
+  ├─ [aspire:sd] start 23:11:34
+  ├─ [aspire:ram] start 23:11:34
+  ├─ [aspire:nic] start 23:11:34
+[⏱ 23:11:34] Iniciando ecofloc en scorpius por 145s (fase: fase3_carga_low_iter1)
+  ├─ [aspire:cpu] start 23:11:34
+  ├─ [scorpius:sd] start 23:11:34
+  ├─ [scorpius:ram] start 23:11:34
+[⏱ 23:11:34] Iniciando ecofloc en leo por 145s (fase: fase3_carga_low_iter1)
+  ├─ [scorpius:nic] start 23:11:34
+  ├─ [scorpius:cpu] start 23:11:34
+  ├─ [leo:sd] start 23:11:34
+  ├─ [leo:nic] start 23:11:34
+  ├─ [leo:ram] start 23:11:34
+  ├─ [leo:cpu] start 23:11:34
+Target Time = 1.5; Load Intensity = 1.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 2.5; Load Intensity = 2.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 3.5; Load Intensity = 2.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 4.5; Load Intensity = 3.0; #Success = 8; #Failed = 0; #Dropped = 0
+Target Time = 5.5; Load Intensity = 4.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 6.5; Load Intensity = 5.0; #Success = 3; #Failed = 0; #Dropped = 0
+Target Time = 7.5; Load Intensity = 6.0; #Success = 8; #Failed = 0; #Dropped = 0
+Target Time = 8.5; Load Intensity = 7.0; #Success = 7; #Failed = 0; #Dropped = 0
+Target Time = 9.5; Load Intensity = 7.0; #Success = 7; #Failed = 0; #Dropped = 0
+Target Time = 10.5; Load Intensity = 8.0; #Success = 7; #Failed = 0; #Dropped = 0
+Target Time = 11.5; Load Intensity = 9.0; #Success = 10; #Failed = 0; #Dropped = 0
+Target Time = 12.5; Load Intensity = 10.0; #Success = 10; #Failed = 0; #Dropped = 0
+Target Time = 13.5; Load Intensity = 11.0; #Success = 8; #Failed = 0; #Dropped = 0
+Target Time = 14.5; Load Intensity = 12.0; #Success = 11; #Failed = 0; #Dropped = 0
+Target Time = 15.5; Load Intensity = 12.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 16.5; Load Intensity = 13.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 17.5; Load Intensity = 14.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 18.5; Load Intensity = 15.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 19.5; Load Intensity = 16.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 20.5; Load Intensity = 17.0; #Success = 42; #Failed = 0; #Dropped = 0
+Target Time = 21.5; Load Intensity = 17.0; #Success = 19; #Failed = 0; #Dropped = 0
+Target Time = 22.5; Load Intensity = 18.0; #Success = 18; #Failed = 0; #Dropped = 0
+Target Time = 23.5; Load Intensity = 19.0; #Success = 19; #Failed = 0; #Dropped = 0
+Target Time = 24.5; Load Intensity = 20.0; #Success = 21; #Failed = 0; #Dropped = 0
+Target Time = 25.5; Load Intensity = 21.0; #Success = 9; #Failed = 0; #Dropped = 0
+Target Time = 26.5; Load Intensity = 22.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 27.5; Load Intensity = 22.0; #Success = 35; #Failed = 0; #Dropped = 0
+Target Time = 28.5; Load Intensity = 23.0; #Success = 24; #Failed = 0; #Dropped = 0
+Target Time = 29.5; Load Intensity = 24.0; #Success = 35; #Failed = 0; #Dropped = 0
+Target Time = 30.5; Load Intensity = 25.0; #Success = 20; #Failed = 0; #Dropped = 0
+Target Time = 31.5; Load Intensity = 26.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 32.5; Load Intensity = 27.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 33.5; Load Intensity = 27.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 34.5; Load Intensity = 28.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 35.5; Load Intensity = 29.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 36.5; Load Intensity = 30.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 37.5; Load Intensity = 31.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 38.5; Load Intensity = 32.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 39.5; Load Intensity = 32.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 40.5; Load Intensity = 33.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 41.5; Load Intensity = 34.0; #Success = 25; #Failed = 0; #Dropped = 0
+Target Time = 42.5; Load Intensity = 35.0; #Success = 28; #Failed = 0; #Dropped = 0
+Target Time = 43.5; Load Intensity = 36.0; #Success = 26; #Failed = 0; #Dropped = 0
+Target Time = 44.5; Load Intensity = 37.0; #Success = 28; #Failed = 0; #Dropped = 0
+Target Time = 45.5; Load Intensity = 37.0; #Success = 19; #Failed = 0; #Dropped = 0
+Target Time = 46.5; Load Intensity = 38.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 47.5; Load Intensity = 39.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 48.5; Load Intensity = 40.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 49.5; Load Intensity = 41.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 50.5; Load Intensity = 42.0; #Success = 1; #Failed = 1; #Dropped = 38
+Target Time = 51.5; Load Intensity = 42.0; #Success = 26; #Failed = 19; #Dropped = 0
+Target Time = 52.5; Load Intensity = 43.0; #Success = 27; #Failed = 0; #Dropped = 0
+Target Time = 53.5; Load Intensity = 44.0; #Success = 27; #Failed = 0; #Dropped = 7
+Target Time = 54.5; Load Intensity = 45.0; #Success = 22; #Failed = 0; #Dropped = 15
+Target Time = 55.5; Load Intensity = 46.0; #Success = 5; #Failed = 0; #Dropped = 0
+Target Time = 56.5; Load Intensity = 47.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 57.5; Load Intensity = 47.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 58.5; Load Intensity = 48.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 59.5; Load Intensity = 49.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 60.5; Load Intensity = 50.0; #Success = 2; #Failed = 1; #Dropped = 226
+Target Time = 61.5; Load Intensity = 51.0; #Success = 44; #Failed = 0; #Dropped = 2
+Target Time = 62.5; Load Intensity = 52.0; #Success = 26; #Failed = 5; #Dropped = 9
+Target Time = 63.5; Load Intensity = 52.0; #Success = 23; #Failed = 0; #Dropped = 22
+Target Time = 64.5; Load Intensity = 53.0; #Success = 21; #Failed = 0; #Dropped = 22
+Target Time = 65.5; Load Intensity = 54.0; #Success = 6; #Failed = 0; #Dropped = 4
+Target Time = 66.5; Load Intensity = 55.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 67.5; Load Intensity = 56.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 68.5; Load Intensity = 57.0; #Success = 0; #Failed = 5; #Dropped = 168
+Target Time = 69.5; Load Intensity = 57.0; #Success = 0; #Failed = 2; #Dropped = 46
+Target Time = 70.5; Load Intensity = 58.0; #Success = 3; #Failed = 0; #Dropped = 56
+Target Time = 71.5; Load Intensity = 59.0; #Success = 45; #Failed = 0; #Dropped = 8
+Target Time = 72.5; Load Intensity = 60.0; #Success = 28; #Failed = 0; #Dropped = 19
+Target Time = 73.5; Load Intensity = 61.0; #Success = 25; #Failed = 0; #Dropped = 31
+Target Time = 74.5; Load Intensity = 62.0; #Success = 14; #Failed = 0; #Dropped = 34
+Target Time = 75.5; Load Intensity = 62.0; #Success = 6; #Failed = 0; #Dropped = 16
+Target Time = 76.5; Load Intensity = 63.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 77.5; Load Intensity = 64.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 78.5; Load Intensity = 65.0; #Success = 5; #Failed = 0; #Dropped = 190
+Target Time = 79.5; Load Intensity = 66.0; #Success = 2; #Failed = 0; #Dropped = 57
+Target Time = 80.5; Load Intensity = 67.0; #Success = 8; #Failed = 0; #Dropped = 65
+Target Time = 81.5; Load Intensity = 67.0; #Success = 40; #Failed = 0; #Dropped = 11
+Target Time = 82.5; Load Intensity = 68.0; #Success = 30; #Failed = 0; #Dropped = 33
+Target Time = 83.5; Load Intensity = 69.0; #Success = 23; #Failed = 5; #Dropped = 36
+Target Time = 84.5; Load Intensity = 70.0; #Success = 12; #Failed = 0; #Dropped = 44
+Target Time = 85.5; Load Intensity = 71.0; #Success = 3; #Failed = 0; #Dropped = 11
+Target Time = 86.5; Load Intensity = 72.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 87.5; Load Intensity = 72.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 88.5; Load Intensity = 73.0; #Success = 5; #Failed = 0; #Dropped = 230
+Target Time = 89.5; Load Intensity = 74.0; #Success = 2; #Failed = 0; #Dropped = 58
+Target Time = 90.5; Load Intensity = 75.0; #Success = 3; #Failed = 0; #Dropped = 72
+Target Time = 91.5; Load Intensity = 76.0; #Success = 44; #Failed = 0; #Dropped = 26
+Target Time = 92.5; Load Intensity = 77.0; #Success = 34; #Failed = 0; #Dropped = 40
+Target Time = 93.5; Load Intensity = 77.0; #Success = 18; #Failed = 0; #Dropped = 44
+Target Time = 94.5; Load Intensity = 78.0; #Success = 19; #Failed = 0; #Dropped = 48
+Target Time = 95.5; Load Intensity = 79.0; #Success = 3; #Failed = 0; #Dropped = 16
+Target Time = 96.5; Load Intensity = 80.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 97.5; Load Intensity = 81.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 98.5; Load Intensity = 82.0; #Success = 5; #Failed = 0; #Dropped = 259
+Target Time = 99.5; Load Intensity = 82.0; #Success = 2; #Failed = 0; #Dropped = 67
+Target Time = 100.5; Load Intensity = 83.0; #Success = 2; #Failed = 0; #Dropped = 78
+Target Time = 101.5; Load Intensity = 84.0; #Success = 45; #Failed = 0; #Dropped = 40
+Target Time = 102.5; Load Intensity = 85.0; #Success = 33; #Failed = 0; #Dropped = 45
+Target Time = 103.5; Load Intensity = 86.0; #Success = 26; #Failed = 0; #Dropped = 61
+Target Time = 104.5; Load Intensity = 87.0; #Success = 14; #Failed = 0; #Dropped = 57
+Target Time = 105.5; Load Intensity = 87.0; #Success = 1; #Failed = 0; #Dropped = 5
+Target Time = 106.5; Load Intensity = 88.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 107.5; Load Intensity = 89.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 108.5; Load Intensity = 90.0; #Success = 5; #Failed = 0; #Dropped = 298
+Target Time = 109.5; Load Intensity = 91.0; #Success = 2; #Failed = 0; #Dropped = 84
+Target Time = 110.5; Load Intensity = 92.0; #Success = 9; #Failed = 0; #Dropped = 97
+Target Time = 111.5; Load Intensity = 92.0; #Success = 38; #Failed = 0; #Dropped = 28
+Target Time = 112.5; Load Intensity = 93.0; #Success = 32; #Failed = 14; #Dropped = 39
+Target Time = 113.5; Load Intensity = 94.0; #Success = 19; #Failed = 7; #Dropped = 55
+Target Time = 114.5; Load Intensity = 95.0; #Success = 1; #Failed = 1; #Dropped = 46
+Target Time = 115.5; Load Intensity = 96.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 116.5; Load Intensity = 97.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 117.5; Load Intensity = 97.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 118.5; Load Intensity = 98.0; #Success = 5; #Failed = 0; #Dropped = 381
+Target Time = 119.5; Load Intensity = 99.0; #Success = 2; #Failed = 0; #Dropped = 95
+Target Time = 120.5; Load Intensity = 0.0; #Success = 3; #Failed = 0; #Dropped = 91
+Target Time = 121.5; Load Intensity = 0.0; #Success = 45; #Failed = 0; #Dropped = 55
+Target Time = 122.5; Load Intensity = 0.0; #Success = 45; #Failed = 0; #Dropped = 40
+Target Time = 123.5; Load Intensity = 0.0; #Success = 26; #Failed = 0; #Dropped = 72
+Target Time = 124.5; Load Intensity = 0.0; #Success = 2; #Failed = 0; #Dropped = 51
+Target Time = 125.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 126.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 127.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 128.5; Load Intensity = 0.0; #Success = 5; #Failed = 0; #Dropped = 417
+Target Time = 129.5; Load Intensity = 0.0; #Success = 2; #Failed = 0; #Dropped = 95
+Target Time = 130.5; Load Intensity = 0.0; #Success = 3; #Failed = 0; #Dropped = 9
+Target Time = 131.5; Load Intensity = 0.0; #Success = 45; #Failed = 0; #Dropped = 0
+Target Time = 132.5; Load Intensity = 0.0; #Success = 46; #Failed = 0; #Dropped = 0
+Target Time = 133.5; Load Intensity = 0.0; #Success = 25; #Failed = 0; #Dropped = 0
+Target Time = 134.5; Load Intensity = 0.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 135.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 136.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 137.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 138.5; Load Intensity = 0.0; #Success = 5; #Failed = 0; #Dropped = 0
+Target Time = 139.5; Load Intensity = 0.0; #Success = 2; #Failed = 0; #Dropped = 0
+Workload finished.
+Log finished.
+📄 LIMBO finalizado para scenario=low
+⏳ [23:13:57] Esperando que termine medición: fase3_carga_low_iter1 (PID: 1384492)
+  └─ [nitro5:sd] end 23:13:57
+  └─ [nitro5:ram] end 23:13:58
+  └─ [nitro5:nic] end 23:13:58
+  └─ [nitro5:cpu] end 23:13:59
+  └─ [scorpius:cpu] end 23:14:02
+  └─ [leo:cpu] end 23:14:03
+  └─ [leo:sd] end 23:14:03
+  └─ [scorpius:sd] end 23:14:05
+  └─ [aspire:nic] end 23:14:07
+  └─ [scorpius:ram] end 23:14:08
+  └─ [leo:ram] end 23:14:08
+  └─ [scorpius:nic] end 23:14:09
+  └─ [aspire:cpu] end 23:14:09
+  └─ [aspire:sd] end 23:14:09
+  └─ [aspire:ram] end 23:14:09
+=== Bloque 145s terminado - Fase: fase3_carga_low_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase3_carga_low_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase3_carga_low_iter1
+========================================
+✔️ [23:14:13] Medición fase3_carga_low_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:14:18)_fase3_low_iter1
+[✔] Archivado: ./historyexecutions/exp(23:14:18)_fase3_low_iter1
+🧹 Limpiando TeaStore (iter 1)...
+⏸ Esperando 15s para limpieza completa...
+✅ Iteración 1 / 3 del escenario low completada.
+
+########################################################
+🔄 ESCENARIO: low | ITERACIÓN: 2 / 3
+   Hora: 23:15:08
+########################################################
+========================================
+🔋 FASE 1: Descarga de imágenes (low, iter 2)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:15:27] Iniciando medición de energía: fase1_descarga_low_iter2 (25s)
+   PID de medición: 1756482
+🚀 Desplegando TeaStore desde GitHub...
+========================================
+🔋 MEASURE ENERGY - Fase: fase1_descarga_low_iter2
+   Duración: 25s
+   PID: 1756482
+========================================
+=== Medición bloque 25s - Fase: fase1_descarga_low_iter2 ===
+[⏱ 23:15:27] Iniciando ecofloc en nitro5 por 25s (fase: fase1_descarga_low_iter2)
+⏳ Esperando a que todos los pods de TeaStore estén Running y Ready...
+  ├─ [nitro5:sd] start 23:15:27
+  ├─ [nitro5:ram] start 23:15:28
+  ├─ [nitro5:nic] start 23:15:28
+[⏱ 23:15:29] Iniciando ecofloc en aspire por 25s (fase: fase1_descarga_low_iter2)
+  ├─ [nitro5:cpu] start 23:15:29
+  ├─ [aspire:sd] start 23:15:29
+  ├─ [aspire:ram] start 23:15:29
+  ├─ [aspire:nic] start 23:15:29
+[⏱ 23:15:29] Iniciando ecofloc en scorpius por 25s (fase: fase1_descarga_low_iter2)
+  ├─ [aspire:cpu] start 23:15:29
+  ├─ [scorpius:sd] start 23:15:29
+  ├─ [scorpius:ram] start 23:15:29
+  ├─ [scorpius:nic] start 23:15:29
+[⏱ 23:15:29] Iniciando ecofloc en leo por 25s (fase: fase1_descarga_low_iter2)
+  ├─ [scorpius:cpu] start 23:15:29
+  ├─ [leo:sd] start 23:15:29
+  ├─ [leo:ram] start 23:15:29
+  ├─ [leo:nic] start 23:15:29
+  ├─ [leo:cpu] start 23:15:29
+✅ Pods listos.
+⏳ [23:15:36] Esperando que termine medición: fase1_descarga_low_iter2 (PID: 1756482)
+/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/measure_energy.sh: line 104: 1756564 Segmentation fault      timeout $((real_duration+5)) sudo "$path/ecofloc-$comp/ecofloc-$comp.out" -n text -i $ECO_INTERVAL -t $real_duration -f "$path/ecofloc-$comp/" > "$tmpfile" 2> /dev/null
+  └─ [nitro5:ram] end 23:15:53
+  └─ [nitro5:nic] end 23:15:53
+  └─ [nitro5:cpu] end 23:15:54
+  └─ [aspire:sd] end 23:15:54
+  └─ [scorpius:sd] end 23:15:55
+  └─ [aspire:cpu] end 23:15:55
+  └─ [scorpius:nic] end 23:15:55
+  └─ [aspire:nic] end 23:15:55
+  └─ [aspire:ram] end 23:15:56
+  └─ [scorpius:cpu] end 23:15:56
+  └─ [scorpius:ram] end 23:15:56
+  └─ [leo:cpu] end 23:15:56
+  └─ [leo:sd] end 23:15:56
+  └─ [leo:nic] end 23:15:57
+  └─ [leo:ram] end 23:15:57
+=== Bloque 25s terminado - Fase: fase1_descarga_low_iter2 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase1_descarga_low_iter2)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase1_descarga_low_iter2
+========================================
+✔️ [23:16:03] Medición fase1_descarga_low_iter2 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:16:08)_fase1_low_iter2
+[✔] Archivado: ./historyexecutions/exp(23:16:08)_fase1_low_iter2
+========================================
+🔋 FASE 2: Preparación de servicios (low, iter 2)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:16:26] Iniciando medición de energía: fase2_preparacion_low_iter2 (50s)
+   PID de medición: 1823152
+========================================
+🔋 MEASURE ENERGY - Fase: fase2_preparacion_low_iter2
+   Duración: 50s
+   PID: 1823152
+========================================
+=== Medición bloque 50s - Fase: fase2_preparacion_low_iter2 ===
+[⏱ 23:16:26] Iniciando ecofloc en nitro5 por 50s (fase: fase2_preparacion_low_iter2)
+⏳ Esperando 10s a que CoreDNS se estabilice...
+  ├─ [nitro5:sd] start 23:16:26
+  ├─ [nitro5:ram] start 23:16:27
+  ├─ [nitro5:nic] start 23:16:27
+[⏱ 23:16:27] Iniciando ecofloc en aspire por 50s (fase: fase2_preparacion_low_iter2)
+  ├─ [nitro5:cpu] start 23:16:27
+  ├─ [aspire:sd] start 23:16:27
+  ├─ [aspire:ram] start 23:16:27
+  ├─ [aspire:nic] start 23:16:27
+[⏱ 23:16:27] Iniciando ecofloc en scorpius por 50s (fase: fase2_preparacion_low_iter2)
+  ├─ [aspire:cpu] start 23:16:27
+  ├─ [scorpius:sd] start 23:16:27
+  ├─ [scorpius:ram] start 23:16:27
+[⏱ 23:16:27] Iniciando ecofloc en leo por 50s (fase: fase2_preparacion_low_iter2)
+  ├─ [scorpius:nic] start 23:16:27
+  ├─ [scorpius:cpu] start 23:16:27
+  ├─ [leo:sd] start 23:16:27
+  ├─ [leo:ram] start 23:16:27
+  ├─ [leo:nic] start 23:16:27
+  ├─ [leo:cpu] start 23:16:27
+➡️ Pod WebUI: teastore-webui-558b54cc77-q4d2q
+➡️ Está en el nodo: leo02
+🌐 IP del nodo WebUI: 192.168.18.36
+⏳ Verificando estado del TeaStore en http://192.168.18.36:30080/tools.descartes.teastore.webui/status ...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+  └─ [nitro5:sd] end 23:17:16
+  └─ [nitro5:ram] end 23:17:17
+  └─ [nitro5:nic] end 23:17:17
+  └─ [nitro5:cpu] end 23:17:17
+  └─ [aspire:sd] end 23:17:18
+  └─ [aspire:cpu] end 23:17:18
+  └─ [aspire:nic] end 23:17:19
+  └─ [aspire:ram] end 23:17:20
+  └─ [leo:cpu] end 23:17:20
+  └─ [leo:sd] end 23:17:20
+  └─ [leo:nic] end 23:17:20
+  └─ [leo:ram] end 23:17:21
+  └─ [scorpius:cpu] end 23:17:25
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+  └─ [scorpius:sd] end 23:17:28
+  └─ [scorpius:nic] end 23:17:29
+  └─ [scorpius:ram] end 23:17:30
+=== Bloque 50s terminado - Fase: fase2_preparacion_low_iter2 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase2_preparacion_low_iter2)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase2_preparacion_low_iter2
+========================================
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 5 / 5 servicios OK
+✔ TODOS los servicios del TeaStore están OK. Continuando...
+⏳ [23:18:51] Esperando que termine medición: fase2_preparacion_low_iter2 (PID: 1823152)
+✔️ [23:18:51] Medición fase2_preparacion_low_iter2 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:18:56)_fase2_low_iter2
+[✔] Archivado: ./historyexecutions/exp(23:18:56)_fase2_low_iter2
+========================================
+🔋 FASE 3: Ejecución de carga (low, iter 2)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:19:14] Iniciando medición de energía: fase3_carga_low_iter2 (145s)
+   PID de medición: 1954198
+=== Escenario low (iter 2) ===
+========================================
+🔋 MEASURE ENERGY - Fase: fase3_carga_low_iter2
+   Duración: 145s
+   PID: 1954198
+========================================
+=== Medición bloque 145s - Fase: fase3_carga_low_iter2 ===
+🚀 Iniciando LIMBO con profile=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/increasingLowIntensity.csv y script=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+[⏱ 23:19:14] Iniciando ecofloc en nitro5 por 145s (fase: fase3_carga_low_iter2)
+Feb 18, 2026 11:19:14 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+WARNING: No power measurements
+Feb 18, 2026 11:19:15 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Load Generator Thread Count set to 128
+Feb 18, 2026 11:19:15 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: URL connection timout set to 10000 ms
+Feb 18, 2026 11:19:15 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Using Lua Script: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 11:19:15 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Read 120 Arrival Rate Tuples
+Load Generator sent: ok
+Feb 18, 2026 11:19:15 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Arrival Rates sent to Load Generator(s).
+Load Generator sent: ok
+Feb 18, 2026 11:19:15 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Thread Count sent to Load Generator(s): 128
+Load Generator sent: ok
+Feb 18, 2026 11:19:15 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: URL connection timeout sent to Load Generator(s): 10000
+Load Generator sent: ok
+Feb 18, 2026 11:19:15 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Contents of script sent to Load Generator: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 11:19:15 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Starting Load Generation
+Beginning Run @1771474755074(18.02.2026;23:19:15074)
+Target Time = 0.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+  ├─ [nitro5:sd] start 23:19:15
+  ├─ [nitro5:ram] start 23:19:15
+  ├─ [nitro5:nic] start 23:19:16
+[⏱ 23:19:16] Iniciando ecofloc en aspire por 145s (fase: fase3_carga_low_iter2)
+  ├─ [nitro5:cpu] start 23:19:16
+  ├─ [aspire:sd] start 23:19:16
+  ├─ [aspire:ram] start 23:19:16
+[⏱ 23:19:16] Iniciando ecofloc en scorpius por 145s (fase: fase3_carga_low_iter2)
+  ├─ [aspire:nic] start 23:19:16
+  ├─ [aspire:cpu] start 23:19:16
+  ├─ [scorpius:sd] start 23:19:16
+  ├─ [scorpius:ram] start 23:19:16
+  ├─ [scorpius:nic] start 23:19:16
+[⏱ 23:19:16] Iniciando ecofloc en leo por 145s (fase: fase3_carga_low_iter2)
+  ├─ [scorpius:cpu] start 23:19:16
+  ├─ [leo:sd] start 23:19:16
+  ├─ [leo:nic] start 23:19:16
+  ├─ [leo:ram] start 23:19:16
+  ├─ [leo:cpu] start 23:19:16
+Target Time = 1.5; Load Intensity = 1.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 2.5; Load Intensity = 2.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 3.5; Load Intensity = 2.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 4.5; Load Intensity = 3.0; #Success = 8; #Failed = 0; #Dropped = 0
+Target Time = 5.5; Load Intensity = 4.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 6.5; Load Intensity = 5.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 7.5; Load Intensity = 6.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 8.5; Load Intensity = 7.0; #Success = 3; #Failed = 0; #Dropped = 0
+Target Time = 9.5; Load Intensity = 7.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 10.5; Load Intensity = 8.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 11.5; Load Intensity = 9.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 12.5; Load Intensity = 10.0; #Success = 6; #Failed = 0; #Dropped = 0
+Target Time = 13.5; Load Intensity = 11.0; #Success = 3; #Failed = 0; #Dropped = 0
+Target Time = 14.5; Load Intensity = 12.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 15.5; Load Intensity = 12.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 16.5; Load Intensity = 13.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 17.5; Load Intensity = 14.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 18.5; Load Intensity = 15.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 19.5; Load Intensity = 16.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 20.5; Load Intensity = 17.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 21.5; Load Intensity = 17.0; #Success = 12; #Failed = 0; #Dropped = 0
+Target Time = 22.5; Load Intensity = 18.0; #Success = 12; #Failed = 0; #Dropped = 0
+Target Time = 23.5; Load Intensity = 19.0; #Success = 16; #Failed = 0; #Dropped = 0
+Target Time = 24.5; Load Intensity = 20.0; #Success = 16; #Failed = 0; #Dropped = 0
+Target Time = 25.5; Load Intensity = 21.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 26.5; Load Intensity = 22.0; #Success = 9; #Failed = 0; #Dropped = 0
+Target Time = 27.5; Load Intensity = 22.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 28.5; Load Intensity = 23.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 29.5; Load Intensity = 24.0; #Success = 15; #Failed = 1; #Dropped = 0
+Target Time = 30.5; Load Intensity = 25.0; #Success = 15; #Failed = 2; #Dropped = 0
+Target Time = 31.5; Load Intensity = 26.0; #Success = 10; #Failed = 1; #Dropped = 0
+Target Time = 32.5; Load Intensity = 27.0; #Success = 11; #Failed = 1; #Dropped = 0
+Target Time = 33.5; Load Intensity = 27.0; #Success = 16; #Failed = 0; #Dropped = 0
+Target Time = 34.5; Load Intensity = 28.0; #Success = 14; #Failed = 2; #Dropped = 0
+Target Time = 35.5; Load Intensity = 29.0; #Success = 12; #Failed = 0; #Dropped = 0
+Target Time = 36.5; Load Intensity = 30.0; #Success = 10; #Failed = 0; #Dropped = 0
+Target Time = 37.5; Load Intensity = 31.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 38.5; Load Intensity = 32.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 39.5; Load Intensity = 32.0; #Success = 16; #Failed = 0; #Dropped = 0
+Target Time = 40.5; Load Intensity = 33.0; #Success = 17; #Failed = 0; #Dropped = 0
+Target Time = 41.5; Load Intensity = 34.0; #Success = 12; #Failed = 0; #Dropped = 0
+Target Time = 42.5; Load Intensity = 35.0; #Success = 11; #Failed = 0; #Dropped = 0
+Target Time = 43.5; Load Intensity = 36.0; #Success = 18; #Failed = 0; #Dropped = 0
+Target Time = 44.5; Load Intensity = 37.0; #Success = 15; #Failed = 0; #Dropped = 8
+Target Time = 45.5; Load Intensity = 37.0; #Success = 11; #Failed = 0; #Dropped = 16
+Target Time = 46.5; Load Intensity = 38.0; #Success = 10; #Failed = 0; #Dropped = 16
+Target Time = 47.5; Load Intensity = 39.0; #Success = 14; #Failed = 0; #Dropped = 21
+Target Time = 48.5; Load Intensity = 40.0; #Success = 4; #Failed = 0; #Dropped = 24
+Target Time = 49.5; Load Intensity = 41.0; #Success = 16; #Failed = 0; #Dropped = 21
+Target Time = 50.5; Load Intensity = 42.0; #Success = 17; #Failed = 0; #Dropped = 15
+Target Time = 51.5; Load Intensity = 42.0; #Success = 12; #Failed = 0; #Dropped = 23
+Target Time = 52.5; Load Intensity = 43.0; #Success = 11; #Failed = 0; #Dropped = 18
+Target Time = 53.5; Load Intensity = 44.0; #Success = 18; #Failed = 0; #Dropped = 24
+Target Time = 54.5; Load Intensity = 45.0; #Success = 14; #Failed = 0; #Dropped = 21
+Target Time = 55.5; Load Intensity = 46.0; #Success = 12; #Failed = 0; #Dropped = 23
+Target Time = 56.5; Load Intensity = 47.0; #Success = 10; #Failed = 0; #Dropped = 24
+Target Time = 57.5; Load Intensity = 47.0; #Success = 14; #Failed = 0; #Dropped = 31
+Target Time = 58.5; Load Intensity = 48.0; #Success = 4; #Failed = 0; #Dropped = 34
+Target Time = 59.5; Load Intensity = 49.0; #Success = 16; #Failed = 0; #Dropped = 29
+Target Time = 60.5; Load Intensity = 50.0; #Success = 16; #Failed = 0; #Dropped = 23
+Target Time = 61.5; Load Intensity = 51.0; #Success = 13; #Failed = 0; #Dropped = 32
+Target Time = 62.5; Load Intensity = 52.0; #Success = 10; #Failed = 7; #Dropped = 18
+Target Time = 63.5; Load Intensity = 52.0; #Success = 13; #Failed = 1; #Dropped = 38
+Target Time = 64.5; Load Intensity = 53.0; #Success = 12; #Failed = 0; #Dropped = 31
+Target Time = 65.5; Load Intensity = 54.0; #Success = 12; #Failed = 0; #Dropped = 31
+Target Time = 66.5; Load Intensity = 55.0; #Success = 10; #Failed = 0; #Dropped = 34
+Target Time = 67.5; Load Intensity = 56.0; #Success = 14; #Failed = 0; #Dropped = 38
+Target Time = 68.5; Load Intensity = 57.0; #Success = 4; #Failed = 0; #Dropped = 42
+Target Time = 69.5; Load Intensity = 57.0; #Success = 14; #Failed = 0; #Dropped = 35
+Target Time = 70.5; Load Intensity = 58.0; #Success = 19; #Failed = 0; #Dropped = 38
+Target Time = 71.5; Load Intensity = 59.0; #Success = 11; #Failed = 0; #Dropped = 35
+Target Time = 72.5; Load Intensity = 60.0; #Success = 18; #Failed = 0; #Dropped = 31
+Target Time = 73.5; Load Intensity = 61.0; #Success = 14; #Failed = 0; #Dropped = 45
+Target Time = 74.5; Load Intensity = 62.0; #Success = 12; #Failed = 0; #Dropped = 36
+Target Time = 75.5; Load Intensity = 62.0; #Success = 13; #Failed = 0; #Dropped = 49
+Target Time = 76.5; Load Intensity = 63.0; #Success = 9; #Failed = 0; #Dropped = 35
+Target Time = 77.5; Load Intensity = 64.0; #Success = 14; #Failed = 0; #Dropped = 50
+Target Time = 78.5; Load Intensity = 65.0; #Success = 4; #Failed = 0; #Dropped = 50
+Target Time = 79.5; Load Intensity = 66.0; #Success = 16; #Failed = 0; #Dropped = 46
+Target Time = 80.5; Load Intensity = 67.0; #Success = 17; #Failed = 0; #Dropped = 37
+Target Time = 81.5; Load Intensity = 67.0; #Success = 12; #Failed = 0; #Dropped = 51
+Target Time = 82.5; Load Intensity = 68.0; #Success = 17; #Failed = 0; #Dropped = 34
+Target Time = 83.5; Load Intensity = 69.0; #Success = 14; #Failed = 0; #Dropped = 54
+Target Time = 84.5; Load Intensity = 70.0; #Success = 12; #Failed = 0; #Dropped = 49
+Target Time = 85.5; Load Intensity = 71.0; #Success = 12; #Failed = 0; #Dropped = 47
+Target Time = 86.5; Load Intensity = 72.0; #Success = 10; #Failed = 0; #Dropped = 48
+Target Time = 87.5; Load Intensity = 72.0; #Success = 14; #Failed = 0; #Dropped = 56
+Target Time = 88.5; Load Intensity = 73.0; #Success = 4; #Failed = 0; #Dropped = 61
+Target Time = 89.5; Load Intensity = 74.0; #Success = 14; #Failed = 0; #Dropped = 50
+Target Time = 90.5; Load Intensity = 75.0; #Success = 19; #Failed = 0; #Dropped = 50
+Target Time = 91.5; Load Intensity = 76.0; #Success = 11; #Failed = 0; #Dropped = 52
+Target Time = 92.5; Load Intensity = 77.0; #Success = 18; #Failed = 0; #Dropped = 50
+Target Time = 93.5; Load Intensity = 77.0; #Success = 12; #Failed = 0; #Dropped = 60
+Target Time = 94.5; Load Intensity = 78.0; #Success = 14; #Failed = 0; #Dropped = 56
+Target Time = 95.5; Load Intensity = 79.0; #Success = 13; #Failed = 0; #Dropped = 67
+Target Time = 96.5; Load Intensity = 80.0; #Success = 9; #Failed = 0; #Dropped = 50
+Target Time = 97.5; Load Intensity = 81.0; #Success = 14; #Failed = 0; #Dropped = 58
+Target Time = 98.5; Load Intensity = 82.0; #Success = 4; #Failed = 0; #Dropped = 75
+Target Time = 99.5; Load Intensity = 82.0; #Success = 14; #Failed = 0; #Dropped = 52
+Target Time = 100.5; Load Intensity = 83.0; #Success = 18; #Failed = 0; #Dropped = 65
+Target Time = 101.5; Load Intensity = 84.0; #Success = 12; #Failed = 0; #Dropped = 63
+Target Time = 102.5; Load Intensity = 85.0; #Success = 18; #Failed = 0; #Dropped = 55
+Target Time = 103.5; Load Intensity = 86.0; #Success = 14; #Failed = 0; #Dropped = 76
+Target Time = 104.5; Load Intensity = 87.0; #Success = 13; #Failed = 0; #Dropped = 61
+Target Time = 105.5; Load Intensity = 87.0; #Success = 11; #Failed = 0; #Dropped = 64
+Target Time = 106.5; Load Intensity = 88.0; #Success = 10; #Failed = 0; #Dropped = 56
+Target Time = 107.5; Load Intensity = 89.0; #Success = 14; #Failed = 0; #Dropped = 78
+Target Time = 108.5; Load Intensity = 90.0; #Success = 4; #Failed = 0; #Dropped = 80
+Target Time = 109.5; Load Intensity = 91.0; #Success = 16; #Failed = 0; #Dropped = 80
+Target Time = 110.5; Load Intensity = 92.0; #Success = 17; #Failed = 0; #Dropped = 61
+Target Time = 111.5; Load Intensity = 92.0; #Success = 11; #Failed = 0; #Dropped = 64
+Target Time = 112.5; Load Intensity = 93.0; #Success = 18; #Failed = 0; #Dropped = 51
+Target Time = 113.5; Load Intensity = 94.0; #Success = 12; #Failed = 0; #Dropped = 84
+Target Time = 114.5; Load Intensity = 95.0; #Success = 14; #Failed = 0; #Dropped = 77
+Target Time = 115.5; Load Intensity = 96.0; #Success = 14; #Failed = 0; #Dropped = 82
+Target Time = 116.5; Load Intensity = 97.0; #Success = 8; #Failed = 0; #Dropped = 68
+Target Time = 117.5; Load Intensity = 97.0; #Success = 14; #Failed = 0; #Dropped = 79
+Target Time = 118.5; Load Intensity = 98.0; #Success = 4; #Failed = 0; #Dropped = 83
+Target Time = 119.5; Load Intensity = 99.0; #Success = 16; #Failed = 0; #Dropped = 82
+Target Time = 120.5; Load Intensity = 0.0; #Success = 17; #Failed = 0; #Dropped = 74
+Target Time = 121.5; Load Intensity = 0.0; #Success = 11; #Failed = 0; #Dropped = 78
+Target Time = 122.5; Load Intensity = 0.0; #Success = 18; #Failed = 0; #Dropped = 64
+Target Time = 123.5; Load Intensity = 0.0; #Success = 14; #Failed = 0; #Dropped = 102
+Target Time = 124.5; Load Intensity = 0.0; #Success = 12; #Failed = 0; #Dropped = 70
+Target Time = 125.5; Load Intensity = 0.0; #Success = 12; #Failed = 0; #Dropped = 85
+Target Time = 126.5; Load Intensity = 0.0; #Success = 10; #Failed = 0; #Dropped = 73
+Target Time = 127.5; Load Intensity = 0.0; #Success = 14; #Failed = 0; #Dropped = 102
+Target Time = 128.5; Load Intensity = 0.0; #Success = 4; #Failed = 0; #Dropped = 90
+Target Time = 129.5; Load Intensity = 0.0; #Success = 16; #Failed = 0; #Dropped = 87
+Target Time = 130.5; Load Intensity = 0.0; #Success = 17; #Failed = 0; #Dropped = 0
+Target Time = 131.5; Load Intensity = 0.0; #Success = 11; #Failed = 0; #Dropped = 0
+Target Time = 132.5; Load Intensity = 0.0; #Success = 18; #Failed = 0; #Dropped = 0
+Target Time = 133.5; Load Intensity = 0.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 134.5; Load Intensity = 0.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 135.5; Load Intensity = 0.0; #Success = 12; #Failed = 0; #Dropped = 0
+Target Time = 136.5; Load Intensity = 0.0; #Success = 10; #Failed = 0; #Dropped = 0
+Target Time = 137.5; Load Intensity = 0.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 138.5; Load Intensity = 0.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 139.5; Load Intensity = 0.0; #Success = 14; #Failed = 0; #Dropped = 0
+Workload finished.
+Log finished.
+📄 LIMBO finalizado para scenario=low
+⏳ [23:21:39] Esperando que termine medición: fase3_carga_low_iter2 (PID: 1954198)
+  └─ [nitro5:sd] end 23:21:40
+  └─ [nitro5:ram] end 23:21:40
+  └─ [nitro5:nic] end 23:21:41
+  └─ [nitro5:cpu] end 23:21:41
+  └─ [scorpius:cpu] end 23:21:49
+  └─ [scorpius:sd] end 23:21:49
+  └─ [scorpius:nic] end 23:21:50
+  └─ [scorpius:ram] end 23:21:58
+  └─ [aspire:nic] end 23:21:59
+  └─ [leo:nic] end 23:22:04
+  └─ [aspire:cpu] end 23:22:06
+  └─ [aspire:sd] end 23:22:11
+  └─ [aspire:ram] end 23:22:18
+  └─ [leo:sd] end 23:22:21
+  └─ [leo:cpu] end 23:22:21
+  └─ [leo:ram] end 23:22:28
+=== Bloque 145s terminado - Fase: fase3_carga_low_iter2 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase3_carga_low_iter2)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase3_carga_low_iter2
+========================================
+✔️ [23:22:34] Medición fase3_carga_low_iter2 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:22:39)_fase3_low_iter2
+[✔] Archivado: ./historyexecutions/exp(23:22:39)_fase3_low_iter2
+🧹 Limpiando TeaStore (iter 2)...
+⏸ Esperando 15s para limpieza completa...
+✅ Iteración 2 / 3 del escenario low completada.
+
+########################################################
+🔄 ESCENARIO: low | ITERACIÓN: 3 / 3
+   Hora: 23:23:27
+########################################################
+========================================
+🔋 FASE 1: Descarga de imágenes (low, iter 3)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:23:48] Iniciando medición de energía: fase1_descarga_low_iter3 (25s)
+   PID de medición: 2303306
+🚀 Desplegando TeaStore desde GitHub...
+========================================
+🔋 MEASURE ENERGY - Fase: fase1_descarga_low_iter3
+   Duración: 25s
+   PID: 2303306
+========================================
+=== Medición bloque 25s - Fase: fase1_descarga_low_iter3 ===
+[⏱ 23:23:48] Iniciando ecofloc en nitro5 por 25s (fase: fase1_descarga_low_iter3)
+⏳ Esperando a que todos los pods de TeaStore estén Running y Ready...
+  ├─ [nitro5:sd] start 23:23:49
+  ├─ [nitro5:ram] start 23:23:49
+  ├─ [nitro5:nic] start 23:23:50
+[⏱ 23:23:50] Iniciando ecofloc en aspire por 25s (fase: fase1_descarga_low_iter3)
+  ├─ [nitro5:cpu] start 23:23:50
+  ├─ [aspire:sd] start 23:23:50
+  ├─ [aspire:ram] start 23:23:50
+[⏱ 23:23:50] Iniciando ecofloc en scorpius por 25s (fase: fase1_descarga_low_iter3)
+  ├─ [aspire:nic] start 23:23:50
+  ├─ [aspire:cpu] start 23:23:50
+  ├─ [scorpius:sd] start 23:23:50
+  ├─ [scorpius:ram] start 23:23:50
+[⏱ 23:23:50] Iniciando ecofloc en leo por 25s (fase: fase1_descarga_low_iter3)
+  ├─ [scorpius:nic] start 23:23:50
+  ├─ [scorpius:cpu] start 23:23:50
+  ├─ [leo:sd] start 23:23:50
+  ├─ [leo:ram] start 23:23:50
+  ├─ [leo:nic] start 23:23:50
+  ├─ [leo:cpu] start 23:23:50
+✅ Pods listos.
+⏳ [23:24:07] Esperando que termine medición: fase1_descarga_low_iter3 (PID: 2303306)
+/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/measure_energy.sh: line 104: 2303387 Segmentation fault      timeout $((real_duration+5)) sudo "$path/ecofloc-$comp/ecofloc-$comp.out" -n text -i $ECO_INTERVAL -t $real_duration -f "$path/ecofloc-$comp/" > "$tmpfile" 2> /dev/null
+  └─ [nitro5:ram] end 23:24:14
+  └─ [nitro5:nic] end 23:24:15
+  └─ [nitro5:cpu] end 23:24:15
+  └─ [leo:cpu] end 23:24:15
+  └─ [leo:sd] end 23:24:16
+  └─ [aspire:cpu] end 23:24:16
+  └─ [aspire:sd] end 23:24:16
+  └─ [scorpius:sd] end 23:24:17
+  └─ [leo:ram] end 23:24:17
+  └─ [scorpius:cpu] end 23:24:17
+  └─ [leo:nic] end 23:24:17
+  └─ [aspire:ram] end 23:24:18
+  └─ [aspire:nic] end 23:24:18
+  └─ [scorpius:ram] end 23:24:18
+  └─ [scorpius:nic] end 23:24:18
+=== Bloque 25s terminado - Fase: fase1_descarga_low_iter3 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase1_descarga_low_iter3)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase1_descarga_low_iter3
+========================================
+✔️ [23:24:23] Medición fase1_descarga_low_iter3 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:24:28)_fase1_low_iter3
+[✔] Archivado: ./historyexecutions/exp(23:24:28)_fase1_low_iter3
+========================================
+🔋 FASE 2: Preparación de servicios (low, iter 3)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:24:46] Iniciando medición de energía: fase2_preparacion_low_iter3 (50s)
+   PID de medición: 2368650
+========================================
+🔋 MEASURE ENERGY - Fase: fase2_preparacion_low_iter3
+   Duración: 50s
+   PID: 2368650
+========================================
+=== Medición bloque 50s - Fase: fase2_preparacion_low_iter3 ===
+[⏱ 23:24:46] Iniciando ecofloc en nitro5 por 50s (fase: fase2_preparacion_low_iter3)
+⏳ Esperando 10s a que CoreDNS se estabilice...
+  ├─ [nitro5:sd] start 23:24:46
+  ├─ [nitro5:ram] start 23:24:46
+  ├─ [nitro5:nic] start 23:24:47
+[⏱ 23:24:47] Iniciando ecofloc en aspire por 50s (fase: fase2_preparacion_low_iter3)
+  ├─ [nitro5:cpu] start 23:24:47
+  ├─ [aspire:sd] start 23:24:47
+  ├─ [aspire:ram] start 23:24:47
+[⏱ 23:24:47] Iniciando ecofloc en scorpius por 50s (fase: fase2_preparacion_low_iter3)
+  ├─ [aspire:nic] start 23:24:47
+  ├─ [aspire:cpu] start 23:24:47
+  ├─ [scorpius:sd] start 23:24:47
+  ├─ [scorpius:ram] start 23:24:47
+[⏱ 23:24:47] Iniciando ecofloc en leo por 50s (fase: fase2_preparacion_low_iter3)
+  ├─ [scorpius:cpu] start 23:24:47
+  ├─ [scorpius:nic] start 23:24:47
+  ├─ [leo:ram] start 23:24:47
+  ├─ [leo:nic] start 23:24:47
+  ├─ [leo:sd] start 23:24:47
+  ├─ [leo:cpu] start 23:24:47
+➡️ Pod WebUI: teastore-webui-558b54cc77-kmxws
+➡️ Está en el nodo: scorpius03
+🌐 IP del nodo WebUI: 192.168.18.34
+⏳ Verificando estado del TeaStore en http://192.168.18.34:30080/tools.descartes.teastore.webui/status ...
+   ➤ Estado actual: 5 / 5 servicios OK
+✔ TODOS los servicios del TeaStore están OK. Continuando...
+⏳ [23:25:02] Esperando que termine medición: fase2_preparacion_low_iter3 (PID: 2368650)
+  └─ [nitro5:sd] end 23:25:36
+  └─ [nitro5:ram] end 23:25:36
+  └─ [nitro5:nic] end 23:25:37
+  └─ [nitro5:cpu] end 23:25:37
+  └─ [aspire:cpu] end 23:25:38
+  └─ [aspire:sd] end 23:25:38
+  └─ [scorpius:sd] end 23:25:40
+  └─ [leo:cpu] end 23:25:40
+  └─ [aspire:nic] end 23:25:40
+  └─ [scorpius:cpu] end 23:25:40
+  └─ [leo:sd] end 23:25:40
+  └─ [scorpius:nic] end 23:25:41
+  └─ [leo:nic] end 23:25:41
+  └─ [scorpius:ram] end 23:25:41
+  └─ [leo:ram] end 23:25:41
+=== Bloque 50s terminado - Fase: fase2_preparacion_low_iter3 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase2_preparacion_low_iter3)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase2_preparacion_low_iter3
+========================================
+✔️ [23:25:46] Medición fase2_preparacion_low_iter3 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:25:51)_fase2_low_iter3
+[✔] Archivado: ./historyexecutions/exp(23:25:51)_fase2_low_iter3
+========================================
+🔋 FASE 3: Ejecución de carga (low, iter 3)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:26:08] Iniciando medición de energía: fase3_carga_low_iter3 (145s)
+   PID de medición: 2495817
+=== Escenario low (iter 3) ===
+========================================
+🔋 MEASURE ENERGY - Fase: fase3_carga_low_iter3
+   Duración: 145s
+   PID: 2495817
+========================================
+=== Medición bloque 145s - Fase: fase3_carga_low_iter3 ===
+🚀 Iniciando LIMBO con profile=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/increasingLowIntensity.csv y script=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+[⏱ 23:26:08] Iniciando ecofloc en nitro5 por 145s (fase: fase3_carga_low_iter3)
+Feb 18, 2026 11:26:08 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+WARNING: No power measurements
+Feb 18, 2026 11:26:08 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Load Generator Thread Count set to 128
+Feb 18, 2026 11:26:08 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: URL connection timout set to 10000 ms
+Feb 18, 2026 11:26:08 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Using Lua Script: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 11:26:08 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Read 120 Arrival Rate Tuples
+Load Generator sent: ok
+Feb 18, 2026 11:26:08 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Arrival Rates sent to Load Generator(s).
+Load Generator sent: ok
+Feb 18, 2026 11:26:08 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Thread Count sent to Load Generator(s): 128
+Load Generator sent: ok
+Feb 18, 2026 11:26:08 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: URL connection timeout sent to Load Generator(s): 10000
+Load Generator sent: ok
+Feb 18, 2026 11:26:08 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Contents of script sent to Load Generator: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 11:26:08 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Starting Load Generation
+Beginning Run @1771475168981(18.02.2026;23:26:08981)
+Target Time = 0.5; Load Intensity = 0.0; #Success = 0; #Failed = 0; #Dropped = 0
+  ├─ [nitro5:sd] start 23:26:09
+  ├─ [nitro5:ram] start 23:26:09
+  ├─ [nitro5:nic] start 23:26:10
+[⏱ 23:26:10] Iniciando ecofloc en aspire por 145s (fase: fase3_carga_low_iter3)
+  ├─ [nitro5:cpu] start 23:26:10
+  ├─ [aspire:sd] start 23:26:10
+  ├─ [aspire:ram] start 23:26:10
+[⏱ 23:26:10] Iniciando ecofloc en scorpius por 145s (fase: fase3_carga_low_iter3)
+  ├─ [aspire:nic] start 23:26:10
+  ├─ [aspire:cpu] start 23:26:10
+  ├─ [scorpius:sd] start 23:26:10
+  ├─ [scorpius:ram] start 23:26:10
+  ├─ [scorpius:nic] start 23:26:10
+[⏱ 23:26:10] Iniciando ecofloc en leo por 145s (fase: fase3_carga_low_iter3)
+  ├─ [scorpius:cpu] start 23:26:10
+  ├─ [leo:sd] start 23:26:10
+  ├─ [leo:ram] start 23:26:10
+  ├─ [leo:cpu] start 23:26:10
+  ├─ [leo:nic] start 23:26:10
+Target Time = 1.5; Load Intensity = 1.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 2.5; Load Intensity = 2.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 3.5; Load Intensity = 2.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 4.5; Load Intensity = 3.0; #Success = 6; #Failed = 0; #Dropped = 0
+Target Time = 5.5; Load Intensity = 4.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 6.5; Load Intensity = 5.0; #Success = 3; #Failed = 0; #Dropped = 0
+Target Time = 7.5; Load Intensity = 6.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 8.5; Load Intensity = 7.0; #Success = 5; #Failed = 0; #Dropped = 0
+Target Time = 9.5; Load Intensity = 7.0; #Success = 3; #Failed = 0; #Dropped = 0
+Target Time = 10.5; Load Intensity = 8.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 11.5; Load Intensity = 9.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 12.5; Load Intensity = 10.0; #Success = 3; #Failed = 0; #Dropped = 0
+Target Time = 13.5; Load Intensity = 11.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 14.5; Load Intensity = 12.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 15.5; Load Intensity = 12.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 16.5; Load Intensity = 13.0; #Success = 2; #Failed = 0; #Dropped = 0
+Target Time = 17.5; Load Intensity = 14.0; #Success = 5; #Failed = 0; #Dropped = 0
+Target Time = 18.5; Load Intensity = 15.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 19.5; Load Intensity = 16.0; #Success = 1; #Failed = 5; #Dropped = 0
+Target Time = 20.5; Load Intensity = 17.0; #Success = 2; #Failed = 3; #Dropped = 0
+Target Time = 21.5; Load Intensity = 17.0; #Success = 7; #Failed = 1; #Dropped = 0
+Target Time = 22.5; Load Intensity = 18.0; #Success = 7; #Failed = 6; #Dropped = 0
+Target Time = 23.5; Load Intensity = 19.0; #Success = 7; #Failed = 0; #Dropped = 0
+Target Time = 24.5; Load Intensity = 20.0; #Success = 6; #Failed = 0; #Dropped = 0
+Target Time = 25.5; Load Intensity = 21.0; #Success = 11; #Failed = 0; #Dropped = 0
+Target Time = 26.5; Load Intensity = 22.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 27.5; Load Intensity = 22.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 28.5; Load Intensity = 23.0; #Success = 15; #Failed = 0; #Dropped = 0
+Target Time = 29.5; Load Intensity = 24.0; #Success = 17; #Failed = 0; #Dropped = 0
+Target Time = 30.5; Load Intensity = 25.0; #Success = 15; #Failed = 2; #Dropped = 0
+Target Time = 31.5; Load Intensity = 26.0; #Success = 15; #Failed = 0; #Dropped = 0
+Target Time = 32.5; Load Intensity = 27.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 33.5; Load Intensity = 27.0; #Success = 7; #Failed = 0; #Dropped = 0
+Target Time = 34.5; Load Intensity = 28.0; #Success = 6; #Failed = 0; #Dropped = 0
+Target Time = 35.5; Load Intensity = 29.0; #Success = 11; #Failed = 0; #Dropped = 0
+Target Time = 36.5; Load Intensity = 30.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 37.5; Load Intensity = 31.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 38.5; Load Intensity = 32.0; #Success = 15; #Failed = 0; #Dropped = 0
+Target Time = 39.5; Load Intensity = 32.0; #Success = 17; #Failed = 0; #Dropped = 0
+Target Time = 40.5; Load Intensity = 33.0; #Success = 17; #Failed = 0; #Dropped = 0
+Target Time = 41.5; Load Intensity = 34.0; #Success = 15; #Failed = 0; #Dropped = 0
+Target Time = 42.5; Load Intensity = 35.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 43.5; Load Intensity = 36.0; #Success = 7; #Failed = 0; #Dropped = 0
+Target Time = 44.5; Load Intensity = 37.0; #Success = 6; #Failed = 0; #Dropped = 21
+Target Time = 45.5; Load Intensity = 37.0; #Success = 11; #Failed = 0; #Dropped = 17
+Target Time = 46.5; Load Intensity = 38.0; #Success = 13; #Failed = 0; #Dropped = 16
+Target Time = 47.5; Load Intensity = 39.0; #Success = 14; #Failed = 0; #Dropped = 18
+Target Time = 48.5; Load Intensity = 40.0; #Success = 15; #Failed = 0; #Dropped = 19
+Target Time = 49.5; Load Intensity = 41.0; #Success = 17; #Failed = 0; #Dropped = 15
+Target Time = 50.5; Load Intensity = 42.0; #Success = 17; #Failed = 0; #Dropped = 15
+Target Time = 51.5; Load Intensity = 42.0; #Success = 15; #Failed = 0; #Dropped = 14
+Target Time = 52.5; Load Intensity = 43.0; #Success = 13; #Failed = 0; #Dropped = 23
+Target Time = 53.5; Load Intensity = 44.0; #Success = 7; #Failed = 0; #Dropped = 30
+Target Time = 54.5; Load Intensity = 45.0; #Success = 6; #Failed = 0; #Dropped = 34
+Target Time = 55.5; Load Intensity = 46.0; #Success = 11; #Failed = 0; #Dropped = 24
+Target Time = 56.5; Load Intensity = 47.0; #Success = 13; #Failed = 0; #Dropped = 22
+Target Time = 57.5; Load Intensity = 47.0; #Success = 14; #Failed = 0; #Dropped = 29
+Target Time = 58.5; Load Intensity = 48.0; #Success = 15; #Failed = 0; #Dropped = 27
+Target Time = 59.5; Load Intensity = 49.0; #Success = 17; #Failed = 0; #Dropped = 23
+Target Time = 60.5; Load Intensity = 50.0; #Success = 16; #Failed = 0; #Dropped = 23
+Target Time = 61.5; Load Intensity = 51.0; #Success = 16; #Failed = 0; #Dropped = 24
+Target Time = 62.5; Load Intensity = 52.0; #Success = 13; #Failed = 0; #Dropped = 30
+Target Time = 63.5; Load Intensity = 52.0; #Success = 7; #Failed = 0; #Dropped = 38
+Target Time = 64.5; Load Intensity = 53.0; #Success = 6; #Failed = 0; #Dropped = 42
+Target Time = 65.5; Load Intensity = 54.0; #Success = 11; #Failed = 0; #Dropped = 33
+Target Time = 66.5; Load Intensity = 55.0; #Success = 13; #Failed = 0; #Dropped = 32
+Target Time = 67.5; Load Intensity = 56.0; #Success = 14; #Failed = 0; #Dropped = 36
+Target Time = 68.5; Load Intensity = 57.0; #Success = 14; #Failed = 0; #Dropped = 32
+Target Time = 69.5; Load Intensity = 57.0; #Success = 18; #Failed = 0; #Dropped = 35
+Target Time = 70.5; Load Intensity = 58.0; #Success = 17; #Failed = 0; #Dropped = 36
+Target Time = 71.5; Load Intensity = 59.0; #Success = 15; #Failed = 0; #Dropped = 29
+Target Time = 72.5; Load Intensity = 60.0; #Success = 13; #Failed = 0; #Dropped = 41
+Target Time = 73.5; Load Intensity = 61.0; #Success = 7; #Failed = 0; #Dropped = 45
+Target Time = 74.5; Load Intensity = 62.0; #Success = 6; #Failed = 0; #Dropped = 50
+Target Time = 75.5; Load Intensity = 62.0; #Success = 12; #Failed = 0; #Dropped = 54
+Target Time = 76.5; Load Intensity = 63.0; #Success = 12; #Failed = 0; #Dropped = 30
+Target Time = 77.5; Load Intensity = 64.0; #Success = 14; #Failed = 0; #Dropped = 40
+Target Time = 78.5; Load Intensity = 65.0; #Success = 14; #Failed = 0; #Dropped = 42
+Target Time = 79.5; Load Intensity = 66.0; #Success = 17; #Failed = 0; #Dropped = 44
+Target Time = 80.5; Load Intensity = 67.0; #Success = 19; #Failed = 0; #Dropped = 43
+Target Time = 81.5; Load Intensity = 67.0; #Success = 14; #Failed = 0; #Dropped = 37
+Target Time = 82.5; Load Intensity = 68.0; #Success = 13; #Failed = 0; #Dropped = 47
+Target Time = 83.5; Load Intensity = 69.0; #Success = 7; #Failed = 0; #Dropped = 54
+Target Time = 84.5; Load Intensity = 70.0; #Success = 6; #Failed = 0; #Dropped = 60
+Target Time = 85.5; Load Intensity = 71.0; #Success = 12; #Failed = 0; #Dropped = 51
+Target Time = 86.5; Load Intensity = 72.0; #Success = 12; #Failed = 0; #Dropped = 44
+Target Time = 87.5; Load Intensity = 72.0; #Success = 14; #Failed = 0; #Dropped = 54
+Target Time = 88.5; Load Intensity = 73.0; #Success = 14; #Failed = 0; #Dropped = 52
+Target Time = 89.5; Load Intensity = 74.0; #Success = 18; #Failed = 0; #Dropped = 52
+Target Time = 90.5; Load Intensity = 75.0; #Success = 17; #Failed = 0; #Dropped = 44
+Target Time = 91.5; Load Intensity = 76.0; #Success = 15; #Failed = 0; #Dropped = 45
+Target Time = 92.5; Load Intensity = 77.0; #Success = 13; #Failed = 0; #Dropped = 56
+Target Time = 93.5; Load Intensity = 77.0; #Success = 7; #Failed = 0; #Dropped = 68
+Target Time = 94.5; Load Intensity = 78.0; #Success = 6; #Failed = 0; #Dropped = 67
+Target Time = 95.5; Load Intensity = 79.0; #Success = 11; #Failed = 0; #Dropped = 57
+Target Time = 96.5; Load Intensity = 80.0; #Success = 13; #Failed = 0; #Dropped = 59
+Target Time = 97.5; Load Intensity = 81.0; #Success = 14; #Failed = 0; #Dropped = 60
+Target Time = 98.5; Load Intensity = 82.0; #Success = 14; #Failed = 0; #Dropped = 54
+Target Time = 99.5; Load Intensity = 82.0; #Success = 18; #Failed = 0; #Dropped = 63
+Target Time = 100.5; Load Intensity = 83.0; #Success = 17; #Failed = 0; #Dropped = 56
+Target Time = 101.5; Load Intensity = 84.0; #Success = 15; #Failed = 0; #Dropped = 56
+Target Time = 102.5; Load Intensity = 85.0; #Success = 13; #Failed = 0; #Dropped = 64
+Target Time = 103.5; Load Intensity = 86.0; #Success = 7; #Failed = 0; #Dropped = 72
+Target Time = 104.5; Load Intensity = 87.0; #Success = 6; #Failed = 0; #Dropped = 76
+Target Time = 105.5; Load Intensity = 87.0; #Success = 11; #Failed = 0; #Dropped = 67
+Target Time = 106.5; Load Intensity = 88.0; #Success = 13; #Failed = 0; #Dropped = 63
+Target Time = 107.5; Load Intensity = 89.0; #Success = 14; #Failed = 0; #Dropped = 70
+Target Time = 108.5; Load Intensity = 90.0; #Success = 15; #Failed = 0; #Dropped = 72
+Target Time = 109.5; Load Intensity = 91.0; #Success = 15; #Failed = 0; #Dropped = 62
+Target Time = 110.5; Load Intensity = 92.0; #Success = 19; #Failed = 0; #Dropped = 64
+Target Time = 111.5; Load Intensity = 92.0; #Success = 15; #Failed = 0; #Dropped = 63
+Target Time = 112.5; Load Intensity = 93.0; #Success = 13; #Failed = 0; #Dropped = 65
+Target Time = 113.5; Load Intensity = 94.0; #Success = 7; #Failed = 0; #Dropped = 87
+Target Time = 114.5; Load Intensity = 95.0; #Success = 5; #Failed = 0; #Dropped = 82
+Target Time = 115.5; Load Intensity = 96.0; #Success = 12; #Failed = 0; #Dropped = 76
+Target Time = 116.5; Load Intensity = 97.0; #Success = 13; #Failed = 0; #Dropped = 79
+Target Time = 117.5; Load Intensity = 97.0; #Success = 14; #Failed = 0; #Dropped = 78
+Target Time = 118.5; Load Intensity = 98.0; #Success = 14; #Failed = 0; #Dropped = 70
+Target Time = 119.5; Load Intensity = 99.0; #Success = 18; #Failed = 0; #Dropped = 86
+Target Time = 120.5; Load Intensity = 0.0; #Success = 17; #Failed = 0; #Dropped = 67
+Target Time = 121.5; Load Intensity = 0.0; #Success = 15; #Failed = 0; #Dropped = 70
+Target Time = 122.5; Load Intensity = 0.0; #Success = 13; #Failed = 0; #Dropped = 78
+Target Time = 123.5; Load Intensity = 0.0; #Success = 7; #Failed = 0; #Dropped = 90
+Target Time = 124.5; Load Intensity = 0.0; #Success = 6; #Failed = 0; #Dropped = 99
+Target Time = 125.5; Load Intensity = 0.0; #Success = 11; #Failed = 0; #Dropped = 71
+Target Time = 126.5; Load Intensity = 0.0; #Success = 13; #Failed = 0; #Dropped = 84
+Target Time = 127.5; Load Intensity = 0.0; #Success = 14; #Failed = 0; #Dropped = 91
+Target Time = 128.5; Load Intensity = 0.0; #Success = 15; #Failed = 0; #Dropped = 89
+Target Time = 129.5; Load Intensity = 0.0; #Success = 15; #Failed = 0; #Dropped = 77
+Target Time = 130.5; Load Intensity = 0.0; #Success = 19; #Failed = 0; #Dropped = 2
+Target Time = 131.5; Load Intensity = 0.0; #Success = 15; #Failed = 0; #Dropped = 0
+Target Time = 132.5; Load Intensity = 0.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 133.5; Load Intensity = 0.0; #Success = 7; #Failed = 0; #Dropped = 0
+Target Time = 134.5; Load Intensity = 0.0; #Success = 6; #Failed = 0; #Dropped = 0
+  └─ [leo:nic] end 23:28:24
+Target Time = 135.5; Load Intensity = 0.0; #Success = 11; #Failed = 0; #Dropped = 0
+Target Time = 136.5; Load Intensity = 0.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 137.5; Load Intensity = 0.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 138.5; Load Intensity = 0.0; #Success = 15; #Failed = 0; #Dropped = 0
+Target Time = 139.5; Load Intensity = 0.0; #Success = 15; #Failed = 0; #Dropped = 0
+Workload finished.
+Log finished.
+📄 LIMBO finalizado para scenario=low
+⏳ [23:28:33] Esperando que termine medición: fase3_carga_low_iter3 (PID: 2495817)
+  └─ [nitro5:sd] end 23:28:34
+  └─ [nitro5:ram] end 23:28:34
+  └─ [nitro5:nic] end 23:28:35
+  └─ [nitro5:cpu] end 23:28:35
+  └─ [aspire:nic] end 23:28:40
+  └─ [aspire:cpu] end 23:28:41
+  └─ [leo:cpu] end 23:28:44
+  └─ [leo:sd] end 23:28:44
+  └─ [aspire:sd] end 23:28:44
+  └─ [leo:ram] end 23:28:44
+  └─ [aspire:ram] end 23:28:44
+  └─ [scorpius:nic] end 23:28:45
+  └─ [scorpius:sd] end 23:28:48
+  └─ [scorpius:cpu] end 23:28:48
+  └─ [scorpius:ram] end 23:28:48
+=== Bloque 145s terminado - Fase: fase3_carga_low_iter3 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase3_carga_low_iter3)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase3_carga_low_iter3
+========================================
+✔️ [23:28:53] Medición fase3_carga_low_iter3 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:28:58)_fase3_low_iter3
+[✔] Archivado: ./historyexecutions/exp(23:28:58)_fase3_low_iter3
+🧹 Limpiando TeaStore (iter 3)...
+⏸ Esperando 15s para limpieza completa...
+✅ Iteración 3 / 3 del escenario low completada.
+
+🏁 Escenario low finalizado (3 iteraciones).
+
+########################################################
+🔄 ESCENARIO: medium | ITERACIÓN: 1 / 3
+   Hora: 23:29:47
+########################################################
+========================================
+🔋 FASE 1: Descarga de imágenes (medium, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:30:06] Iniciando medición de energía: fase1_descarga_medium_iter1 (25s)
+   PID de medición: 2858460
+🚀 Desplegando TeaStore desde GitHub...
+========================================
+🔋 MEASURE ENERGY - Fase: fase1_descarga_medium_iter1
+   Duración: 25s
+   PID: 2858460
+========================================
+=== Medición bloque 25s - Fase: fase1_descarga_medium_iter1 ===
+[⏱ 23:30:06] Iniciando ecofloc en nitro5 por 25s (fase: fase1_descarga_medium_iter1)
+⏳ Esperando a que todos los pods de TeaStore estén Running y Ready...
+  ├─ [nitro5:sd] start 23:30:07
+  ├─ [nitro5:ram] start 23:30:07
+  ├─ [nitro5:nic] start 23:30:08
+[⏱ 23:30:08] Iniciando ecofloc en aspire por 25s (fase: fase1_descarga_medium_iter1)
+  ├─ [nitro5:cpu] start 23:30:08
+  ├─ [aspire:sd] start 23:30:08
+  ├─ [aspire:ram] start 23:30:08
+[⏱ 23:30:08] Iniciando ecofloc en scorpius por 25s (fase: fase1_descarga_medium_iter1)
+  ├─ [aspire:nic] start 23:30:08
+  ├─ [aspire:cpu] start 23:30:08
+  ├─ [scorpius:sd] start 23:30:08
+  ├─ [scorpius:ram] start 23:30:08
+  ├─ [scorpius:nic] start 23:30:08
+[⏱ 23:30:08] Iniciando ecofloc en leo por 25s (fase: fase1_descarga_medium_iter1)
+  ├─ [scorpius:cpu] start 23:30:08
+  ├─ [leo:sd] start 23:30:08
+  ├─ [leo:ram] start 23:30:08
+  ├─ [leo:cpu] start 23:30:08
+  ├─ [leo:nic] start 23:30:08
+✅ Pods listos.
+⏳ [23:30:18] Esperando que termine medición: fase1_descarga_medium_iter1 (PID: 2858460)
+/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/measure_energy.sh: line 104: 2858584 Segmentation fault      timeout $((real_duration+5)) sudo "$path/ecofloc-$comp/ecofloc-$comp.out" -n text -i $ECO_INTERVAL -t $real_duration -f "$path/ecofloc-$comp/" > "$tmpfile" 2> /dev/null
+  └─ [nitro5:ram] end 23:30:32
+  └─ [nitro5:nic] end 23:30:33
+  └─ [nitro5:cpu] end 23:30:33
+  └─ [aspire:cpu] end 23:30:34
+  └─ [aspire:sd] end 23:30:34
+  └─ [scorpius:cpu] end 23:30:35
+  └─ [leo:cpu] end 23:30:35
+  └─ [leo:sd] end 23:30:35
+  └─ [scorpius:sd] end 23:30:36
+  └─ [aspire:nic] end 23:30:36
+  └─ [aspire:ram] end 23:30:36
+  └─ [scorpius:nic] end 23:30:36
+  └─ [scorpius:ram] end 23:30:36
+  └─ [leo:nic] end 23:30:36
+  └─ [leo:ram] end 23:30:36
+=== Bloque 25s terminado - Fase: fase1_descarga_medium_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase1_descarga_medium_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase1_descarga_medium_iter1
+========================================
+✔️ [23:30:40] Medición fase1_descarga_medium_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:30:45)_fase1_medium_iter1
+[✔] Archivado: ./historyexecutions/exp(23:30:45)_fase1_medium_iter1
+========================================
+🔋 FASE 2: Preparación de servicios (medium, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:31:02] Iniciando medición de energía: fase2_preparacion_medium_iter1 (50s)
+   PID de medición: 2924210
+========================================
+🔋 MEASURE ENERGY - Fase: fase2_preparacion_medium_iter1
+   Duración: 50s
+   PID: 2924210
+========================================
+=== Medición bloque 50s - Fase: fase2_preparacion_medium_iter1 ===
+[⏱ 23:31:02] Iniciando ecofloc en nitro5 por 50s (fase: fase2_preparacion_medium_iter1)
+⏳ Esperando 10s a que CoreDNS se estabilice...
+  ├─ [nitro5:sd] start 23:31:02
+  ├─ [nitro5:ram] start 23:31:03
+  ├─ [nitro5:nic] start 23:31:03
+[⏱ 23:31:03] Iniciando ecofloc en aspire por 50s (fase: fase2_preparacion_medium_iter1)
+  ├─ [nitro5:cpu] start 23:31:03
+  ├─ [aspire:sd] start 23:31:03
+  ├─ [aspire:ram] start 23:31:03
+  ├─ [aspire:nic] start 23:31:03
+[⏱ 23:31:03] Iniciando ecofloc en scorpius por 50s (fase: fase2_preparacion_medium_iter1)
+  ├─ [aspire:cpu] start 23:31:03
+  ├─ [scorpius:sd] start 23:31:03
+  ├─ [scorpius:ram] start 23:31:03
+[⏱ 23:31:03] Iniciando ecofloc en leo por 50s (fase: fase2_preparacion_medium_iter1)
+  ├─ [scorpius:nic] start 23:31:03
+  ├─ [scorpius:cpu] start 23:31:03
+  ├─ [leo:sd] start 23:31:03
+  ├─ [leo:ram] start 23:31:03
+  ├─ [leo:nic] start 23:31:03
+  ├─ [leo:cpu] start 23:31:03
+➡️ Pod WebUI: teastore-webui-558b54cc77-jr2nv
+➡️ Está en el nodo: luish-aspire-a315-55g
+🌐 IP del nodo WebUI: 192.168.18.37
+⏳ Verificando estado del TeaStore en http://192.168.18.37:30080/tools.descartes.teastore.webui/status ...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+  └─ [nitro5:sd] end 23:31:52
+  └─ [nitro5:ram] end 23:31:53
+  └─ [nitro5:nic] end 23:31:53
+  └─ [nitro5:cpu] end 23:31:53
+  └─ [scorpius:cpu] end 23:31:56
+  └─ [scorpius:sd] end 23:31:56
+  └─ [scorpius:ram] end 23:31:56
+  └─ [aspire:nic] end 23:31:56
+  └─ [aspire:sd] end 23:31:56
+  └─ [leo:sd] end 23:31:57
+  └─ [aspire:cpu] end 23:31:57
+  └─ [aspire:ram] end 23:31:57
+  └─ [leo:ram] end 23:31:58
+  └─ [leo:cpu] end 23:31:59
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+  └─ [leo:nic] end 23:32:00
+=== Bloque 50s terminado - Fase: fase2_preparacion_medium_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase2_preparacion_medium_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase2_preparacion_medium_iter1
+========================================
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 2 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 3 / 5 servicios OK
+❌ TeaStore aún no está listo. Reintentando en 10s...
+   ➤ Estado actual: 5 / 5 servicios OK
+✔ TODOS los servicios del TeaStore están OK. Continuando...
+⏳ [23:33:37] Esperando que termine medición: fase2_preparacion_medium_iter1 (PID: 2924210)
+✔️ [23:33:37] Medición fase2_preparacion_medium_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:33:42)_fase2_medium_iter1
+[✔] Archivado: ./historyexecutions/exp(23:33:42)_fase2_medium_iter1
+========================================
+🔋 FASE 3: Ejecución de carga (medium, iter 1)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:34:01] Iniciando medición de energía: fase3_carga_medium_iter1 (145s)
+   PID de medición: 3056631
+=== Escenario medium (iter 1) ===
+========================================
+🔋 MEASURE ENERGY - Fase: fase3_carga_medium_iter1
+   Duración: 145s
+   PID: 3056631
+========================================
+=== Medición bloque 145s - Fase: fase3_carga_medium_iter1 ===
+🚀 Iniciando LIMBO con profile=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/increasingMedIntensity.csv y script=/home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+[⏱ 23:34:01] Iniciando ecofloc en nitro5 por 145s (fase: fase3_carga_medium_iter1)
+Feb 18, 2026 11:34:01 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+WARNING: No power measurements
+Feb 18, 2026 11:34:01 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Load Generator Thread Count set to 128
+Feb 18, 2026 11:34:01 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: URL connection timout set to 10000 ms
+Feb 18, 2026 11:34:01 PM tools.descartes.dlim.httploadgenerator.runner.Director executeDirector
+INFO: Using Lua Script: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 11:34:01 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Read 120 Arrival Rate Tuples
+Load Generator sent: ok
+Feb 18, 2026 11:34:01 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Arrival Rates sent to Load Generator(s).
+Load Generator sent: ok
+Feb 18, 2026 11:34:01 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Thread Count sent to Load Generator(s): 128
+Load Generator sent: ok
+Feb 18, 2026 11:34:01 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: URL connection timeout sent to Load Generator(s): 10000
+Load Generator sent: ok
+Feb 18, 2026 11:34:01 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Contents of script sent to Load Generator: /home/luish/Documents/death/teastore/TeaStore/examples/httploadgenerator/teastore_buy.lua
+Feb 18, 2026 11:34:01 PM tools.descartes.dlim.httploadgenerator.runner.Director process
+INFO: Starting Load Generation
+Beginning Run @1771475641875(18.02.2026;23:34:01875)
+  ├─ [nitro5:sd] start 23:34:02
+Target Time = 0.5; Load Intensity = 8.0; #Success = 0; #Failed = 0; #Dropped = 0
+  ├─ [nitro5:ram] start 23:34:02
+  ├─ [nitro5:nic] start 23:34:02
+[⏱ 23:34:03] Iniciando ecofloc en aspire por 145s (fase: fase3_carga_medium_iter1)
+  ├─ [nitro5:cpu] start 23:34:03
+  ├─ [aspire:sd] start 23:34:03
+  ├─ [aspire:ram] start 23:34:03
+[⏱ 23:34:03] Iniciando ecofloc en scorpius por 145s (fase: fase3_carga_medium_iter1)
+  ├─ [aspire:nic] start 23:34:03
+  ├─ [aspire:cpu] start 23:34:03
+  ├─ [scorpius:sd] start 23:34:03
+  ├─ [scorpius:ram] start 23:34:03
+  ├─ [scorpius:nic] start 23:34:03
+[⏱ 23:34:03] Iniciando ecofloc en leo por 145s (fase: fase3_carga_medium_iter1)
+  ├─ [scorpius:cpu] start 23:34:03
+  ├─ [leo:sd] start 23:34:03
+  ├─ [leo:ram] start 23:34:03
+  ├─ [leo:nic] start 23:34:03
+  ├─ [leo:cpu] start 23:34:03
+Target Time = 1.5; Load Intensity = 16.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 2.5; Load Intensity = 25.0; #Success = 7; #Failed = 0; #Dropped = 0
+Target Time = 3.5; Load Intensity = 33.0; #Success = 9; #Failed = 0; #Dropped = 0
+Target Time = 4.5; Load Intensity = 41.0; #Success = 8; #Failed = 0; #Dropped = 0
+Target Time = 5.5; Load Intensity = 50.0; #Success = 3; #Failed = 0; #Dropped = 0
+Target Time = 6.5; Load Intensity = 58.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 7.5; Load Intensity = 66.0; #Success = 3; #Failed = 0; #Dropped = 0
+Target Time = 8.5; Load Intensity = 75.0; #Success = 1; #Failed = 0; #Dropped = 0
+Target Time = 9.5; Load Intensity = 83.0; #Success = 4; #Failed = 0; #Dropped = 0
+Target Time = 10.5; Load Intensity = 91.0; #Success = 3; #Failed = 0; #Dropped = 0
+Target Time = 11.5; Load Intensity = 100.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 12.5; Load Intensity = 108.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 13.5; Load Intensity = 116.0; #Success = 34; #Failed = 0; #Dropped = 0
+Target Time = 14.5; Load Intensity = 125.0; #Success = 33; #Failed = 0; #Dropped = 0
+Target Time = 15.5; Load Intensity = 133.0; #Success = 34; #Failed = 2; #Dropped = 0
+Target Time = 16.5; Load Intensity = 141.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 17.5; Load Intensity = 150.0; #Success = 3; #Failed = 0; #Dropped = 1
+Target Time = 18.5; Load Intensity = 158.0; #Success = 1; #Failed = 1; #Dropped = 88
+Target Time = 19.5; Load Intensity = 166.0; #Success = 1; #Failed = 1; #Dropped = 77
+Target Time = 20.5; Load Intensity = 175.0; #Success = 2; #Failed = 2; #Dropped = 33
+Target Time = 21.5; Load Intensity = 183.0; #Success = 0; #Failed = 16; #Dropped = 132
+Target Time = 22.5; Load Intensity = 191.0; #Success = 13; #Failed = 2; #Dropped = 99
+Target Time = 23.5; Load Intensity = 200.0; #Success = 36; #Failed = 2; #Dropped = 99
+Target Time = 24.5; Load Intensity = 208.0; #Success = 38; #Failed = 3; #Dropped = 89
+Target Time = 25.5; Load Intensity = 216.0; #Success = 10; #Failed = 0; #Dropped = 52
+Target Time = 26.5; Load Intensity = 225.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 27.5; Load Intensity = 233.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 28.5; Load Intensity = 241.0; #Success = 6; #Failed = 0; #Dropped = 490
+Target Time = 29.5; Load Intensity = 250.0; #Success = 2; #Failed = 0; #Dropped = 142
+Target Time = 30.5; Load Intensity = 258.0; #Success = 5; #Failed = 0; #Dropped = 173
+Target Time = 31.5; Load Intensity = 266.0; #Success = 14; #Failed = 0; #Dropped = 170
+Target Time = 32.5; Load Intensity = 275.0; #Success = 15; #Failed = 0; #Dropped = 201
+Target Time = 33.5; Load Intensity = 283.0; #Success = 33; #Failed = 0; #Dropped = 158
+Target Time = 34.5; Load Intensity = 291.0; #Success = 37; #Failed = 0; #Dropped = 172
+Target Time = 35.5; Load Intensity = 300.0; #Success = 16; #Failed = 0; #Dropped = 67
+Target Time = 36.5; Load Intensity = 308.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 37.5; Load Intensity = 316.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 38.5; Load Intensity = 325.0; #Success = 1; #Failed = 2; #Dropped = 764
+Target Time = 39.5; Load Intensity = 333.0; #Success = 5; #Failed = 0; #Dropped = 246
+Target Time = 40.5; Load Intensity = 341.0; #Success = 4; #Failed = 1; #Dropped = 288
+Target Time = 41.5; Load Intensity = 350.0; #Success = 15; #Failed = 1; #Dropped = 292
+Target Time = 42.5; Load Intensity = 358.0; #Success = 13; #Failed = 10; #Dropped = 224
+Target Time = 43.5; Load Intensity = 366.0; #Success = 34; #Failed = 18; #Dropped = 275
+Target Time = 44.5; Load Intensity = 375.0; #Success = 34; #Failed = 15; #Dropped = 214
+Target Time = 45.5; Load Intensity = 383.0; #Success = 16; #Failed = 5; #Dropped = 144
+Target Time = 46.5; Load Intensity = 391.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 47.5; Load Intensity = 400.0; #Success = 0; #Failed = 3; #Dropped = 783
+Target Time = 48.5; Load Intensity = 408.0; #Success = 4; #Failed = 22; #Dropped = 285
+Target Time = 49.5; Load Intensity = 416.0; #Success = 1; #Failed = 20; #Dropped = 281
+Target Time = 50.5; Load Intensity = 425.0; #Success = 4; #Failed = 5; #Dropped = 303
+Target Time = 51.5; Load Intensity = 433.0; #Success = 5; #Failed = 23; #Dropped = 307
+Target Time = 52.5; Load Intensity = 441.0; #Success = 10; #Failed = 14; #Dropped = 374
+Target Time = 53.5; Load Intensity = 450.0; #Success = 29; #Failed = 1; #Dropped = 356
+Target Time = 54.5; Load Intensity = 458.0; #Success = 18; #Failed = 2; #Dropped = 375
+Target Time = 55.5; Load Intensity = 466.0; #Success = 9; #Failed = 1; #Dropped = 328
+Target Time = 56.5; Load Intensity = 475.0; #Success = 3; #Failed = 1; #Dropped = 364
+Target Time = 57.5; Load Intensity = 483.0; #Success = 2; #Failed = 0; #Dropped = 300
+Target Time = 58.5; Load Intensity = 491.0; #Success = 16; #Failed = 0; #Dropped = 509
+Target Time = 59.5; Load Intensity = 500.0; #Success = 17; #Failed = 0; #Dropped = 286
+Target Time = 60.5; Load Intensity = 508.0; #Success = 3; #Failed = 0; #Dropped = 413
+Target Time = 61.5; Load Intensity = 516.0; #Success = 6; #Failed = 0; #Dropped = 432
+Target Time = 62.5; Load Intensity = 525.0; #Success = 21; #Failed = 1; #Dropped = 565
+Target Time = 63.5; Load Intensity = 533.0; #Success = 25; #Failed = 2; #Dropped = 405
+Target Time = 64.5; Load Intensity = 541.0; #Success = 17; #Failed = 2; #Dropped = 452
+Target Time = 65.5; Load Intensity = 550.0; #Success = 7; #Failed = 13; #Dropped = 372
+Target Time = 66.5; Load Intensity = 558.0; #Success = 3; #Failed = 0; #Dropped = 511
+Target Time = 67.5; Load Intensity = 566.0; #Success = 5; #Failed = 0; #Dropped = 495
+Target Time = 68.5; Load Intensity = 575.0; #Success = 9; #Failed = 0; #Dropped = 454
+Target Time = 69.5; Load Intensity = 583.0; #Success = 13; #Failed = 15; #Dropped = 524
+Target Time = 70.5; Load Intensity = 591.0; #Success = 1; #Failed = 23; #Dropped = 364
+Target Time = 71.5; Load Intensity = 600.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 72.5; Load Intensity = 608.0; #Success = 9; #Failed = 1; #Dropped = 1175
+Target Time = 73.5; Load Intensity = 616.0; #Success = 24; #Failed = 0; #Dropped = 534
+Target Time = 74.5; Load Intensity = 625.0; #Success = 11; #Failed = 0; #Dropped = 350
+Target Time = 75.5; Load Intensity = 633.0; #Success = 14; #Failed = 0; #Dropped = 540
+Target Time = 76.5; Load Intensity = 641.0; #Success = 3; #Failed = 0; #Dropped = 613
+Target Time = 77.5; Load Intensity = 650.0; #Success = 5; #Failed = 17; #Dropped = 552
+Target Time = 78.5; Load Intensity = 658.0; #Success = 10; #Failed = 0; #Dropped = 654
+Target Time = 79.5; Load Intensity = 666.0; #Success = 19; #Failed = 0; #Dropped = 593
+Target Time = 80.5; Load Intensity = 675.0; #Success = 15; #Failed = 0; #Dropped = 329
+Target Time = 81.5; Load Intensity = 683.0; #Success = 0; #Failed = 0; #Dropped = 0
+Target Time = 82.5; Load Intensity = 691.0; #Success = 11; #Failed = 1; #Dropped = 1498
+Target Time = 83.5; Load Intensity = 700.0; #Success = 20; #Failed = 21; #Dropped = 464
+Target Time = 84.5; Load Intensity = 708.0; #Success = 8; #Failed = 0; #Dropped = 502
+Target Time = 85.5; Load Intensity = 716.0; #Success = 13; #Failed = 0; #Dropped = 603
+Target Time = 86.5; Load Intensity = 725.0; #Success = 13; #Failed = 0; #Dropped = 645
+Target Time = 87.5; Load Intensity = 733.0; #Success = 17; #Failed = 0; #Dropped = 724
+Target Time = 88.5; Load Intensity = 741.0; #Success = 17; #Failed = 0; #Dropped = 760
+Target Time = 89.5; Load Intensity = 750.0; #Success = 14; #Failed = 0; #Dropped = 540
+Target Time = 90.5; Load Intensity = 758.0; #Success = 12; #Failed = 0; #Dropped = 450
+Target Time = 91.5; Load Intensity = 766.0; #Success = 1; #Failed = 0; #Dropped = 507
+Target Time = 92.5; Load Intensity = 775.0; #Success = 11; #Failed = 0; #Dropped = 1083
+Target Time = 93.5; Load Intensity = 783.0; #Success = 23; #Failed = 0; #Dropped = 672
+Target Time = 94.5; Load Intensity = 791.0; #Success = 16; #Failed = 0; #Dropped = 481
+Target Time = 95.5; Load Intensity = 800.0; #Success = 4; #Failed = 2; #Dropped = 902
+Target Time = 96.5; Load Intensity = 808.0; #Success = 8; #Failed = 8; #Dropped = 594
+Target Time = 97.5; Load Intensity = 816.0; #Success = 15; #Failed = 10; #Dropped = 813
+Target Time = 98.5; Load Intensity = 825.0; #Success = 17; #Failed = 0; #Dropped = 759
+Target Time = 99.5; Load Intensity = 833.0; #Success = 8; #Failed = 0; #Dropped = 713
+Target Time = 100.5; Load Intensity = 841.0; #Success = 5; #Failed = 0; #Dropped = 555
+Target Time = 101.5; Load Intensity = 850.0; #Success = 3; #Failed = 0; #Dropped = 496
+Target Time = 102.5; Load Intensity = 858.0; #Success = 15; #Failed = 0; #Dropped = 1368
+Target Time = 103.5; Load Intensity = 866.0; #Success = 27; #Failed = 0; #Dropped = 715
+Target Time = 104.5; Load Intensity = 875.0; #Success = 10; #Failed = 1; #Dropped = 603
+Target Time = 105.5; Load Intensity = 883.0; #Success = 9; #Failed = 0; #Dropped = 684
+Target Time = 106.5; Load Intensity = 891.0; #Success = 16; #Failed = 0; #Dropped = 1080
+Target Time = 107.5; Load Intensity = 900.0; #Success = 17; #Failed = 0; #Dropped = 686
+Target Time = 108.5; Load Intensity = 908.0; #Success = 16; #Failed = 0; #Dropped = 832
+Target Time = 109.5; Load Intensity = 916.0; #Success = 11; #Failed = 0; #Dropped = 784
+Target Time = 110.5; Load Intensity = 925.0; #Success = 5; #Failed = 0; #Dropped = 683
+Target Time = 111.5; Load Intensity = 933.0; #Success = 3; #Failed = 0; #Dropped = 490
+Target Time = 112.5; Load Intensity = 941.0; #Success = 11; #Failed = 0; #Dropped = 1361
+Target Time = 113.5; Load Intensity = 950.0; #Success = 28; #Failed = 0; #Dropped = 886
+Target Time = 114.5; Load Intensity = 958.0; #Success = 12; #Failed = 0; #Dropped = 726
+Target Time = 115.5; Load Intensity = 966.0; #Success = 8; #Failed = 1; #Dropped = 796
+Target Time = 116.5; Load Intensity = 975.0; #Success = 16; #Failed = 0; #Dropped = 1088
+Target Time = 117.5; Load Intensity = 983.0; #Success = 17; #Failed = 0; #Dropped = 794
+Target Time = 118.5; Load Intensity = 991.0; #Success = 16; #Failed = 0; #Dropped = 968
+Target Time = 119.5; Load Intensity = 1000.0; #Success = 11; #Failed = 0; #Dropped = 882
+Target Time = 120.5; Load Intensity = 0.0; #Success = 5; #Failed = 0; #Dropped = 679
+Target Time = 121.5; Load Intensity = 0.0; #Success = 3; #Failed = 0; #Dropped = 595
+Target Time = 122.5; Load Intensity = 0.0; #Success = 12; #Failed = 0; #Dropped = 1586
+Target Time = 123.5; Load Intensity = 0.0; #Success = 28; #Failed = 0; #Dropped = 924
+Target Time = 124.5; Load Intensity = 0.0; #Success = 11; #Failed = 0; #Dropped = 802
+Target Time = 125.5; Load Intensity = 0.0; #Success = 9; #Failed = 0; #Dropped = 876
+Target Time = 126.5; Load Intensity = 0.0; #Success = 15; #Failed = 0; #Dropped = 1032
+Target Time = 127.5; Load Intensity = 0.0; #Success = 18; #Failed = 1; #Dropped = 986
+Target Time = 128.5; Load Intensity = 0.0; #Success = 15; #Failed = 0; #Dropped = 1061
+Target Time = 129.5; Load Intensity = 0.0; #Success = 11; #Failed = 0; #Dropped = 958
+Target Time = 130.5; Load Intensity = 0.0; #Success = 5; #Failed = 0; #Dropped = 30
+Target Time = 131.5; Load Intensity = 0.0; #Success = 3; #Failed = 0; #Dropped = 0
+Target Time = 132.5; Load Intensity = 0.0; #Success = 11; #Failed = 7; #Dropped = 0
+Target Time = 133.5; Load Intensity = 0.0; #Success = 20; #Failed = 2; #Dropped = 0
+Target Time = 134.5; Load Intensity = 0.0; #Success = 13; #Failed = 0; #Dropped = 0
+Target Time = 135.5; Load Intensity = 0.0; #Success = 9; #Failed = 0; #Dropped = 0
+Target Time = 136.5; Load Intensity = 0.0; #Success = 16; #Failed = 0; #Dropped = 0
+Target Time = 137.5; Load Intensity = 0.0; #Success = 20; #Failed = 0; #Dropped = 0
+Target Time = 138.5; Load Intensity = 0.0; #Success = 14; #Failed = 0; #Dropped = 0
+Target Time = 139.5; Load Intensity = 0.0; #Success = 8; #Failed = 0; #Dropped = 0
+Workload finished.
+Log finished.
+📄 LIMBO finalizado para scenario=medium
+⏳ [23:36:26] Esperando que termine medición: fase3_carga_medium_iter1 (PID: 3056631)
+  └─ [nitro5:sd] end 23:36:27
+  └─ [nitro5:ram] end 23:36:27
+  └─ [nitro5:nic] end 23:36:27
+  └─ [nitro5:cpu] end 23:36:28
+  └─ [leo:sd] end 23:36:34
+  └─ [scorpius:cpu] end 23:36:34
+  └─ [leo:cpu] end 23:36:35
+  └─ [scorpius:ram] end 23:36:36
+  └─ [scorpius:nic] end 23:36:36
+  └─ [aspire:cpu] end 23:36:36
+  └─ [aspire:sd] end 23:36:36
+  └─ [aspire:nic] end 23:36:37
+  └─ [scorpius:sd] end 23:36:39
+  └─ [leo:ram] end 23:36:39
+  └─ [aspire:ram] end 23:36:40
+  └─ [leo:nic] end 23:36:42
+=== Bloque 145s terminado - Fase: fase3_carga_medium_iter1 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase3_carga_medium_iter1)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase3_carga_medium_iter1
+========================================
+✔️ [23:36:46] Medición fase3_carga_medium_iter1 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:36:51)_fase3_medium_iter1
+[✔] Archivado: ./historyexecutions/exp(23:36:51)_fase3_medium_iter1
+🧹 Limpiando TeaStore (iter 1)...
+⏸ Esperando 15s para limpieza completa...
+✅ Iteración 1 / 3 del escenario medium completada.
+
+########################################################
+🔄 ESCENARIO: medium | ITERACIÓN: 2 / 3
+   Hora: 23:37:43
+########################################################
+========================================
+🔋 FASE 1: Descarga de imágenes (medium, iter 2)
+========================================
+📋 Capturando PIDs (gepidstea.sh)...
+📋 Capturando PIDs de contenedores (kpsnodos.sh)...
+🔋 [23:38:04] Iniciando medición de energía: fase1_descarga_medium_iter2 (25s)
+   PID de medición: 3406277
+🚀 Desplegando TeaStore desde GitHub...
+========================================
+🔋 MEASURE ENERGY - Fase: fase1_descarga_medium_iter2
+   Duración: 25s
+   PID: 3406277
+========================================
+=== Medición bloque 25s - Fase: fase1_descarga_medium_iter2 ===
+[⏱ 23:38:04] Iniciando ecofloc en nitro5 por 25s (fase: fase1_descarga_medium_iter2)
+⏳ Esperando a que todos los pods de TeaStore estén Running y Ready...
+  ├─ [nitro5:sd] start 23:38:04
+  ├─ [nitro5:ram] start 23:38:05
+  ├─ [nitro5:nic] start 23:38:05
+[⏱ 23:38:05] Iniciando ecofloc en aspire por 25s (fase: fase1_descarga_medium_iter2)
+  ├─ [nitro5:cpu] start 23:38:05
+  ├─ [aspire:sd] start 23:38:05
+  ├─ [aspire:ram] start 23:38:05
+[⏱ 23:38:05] Iniciando ecofloc en scorpius por 25s (fase: fase1_descarga_medium_iter2)
+  ├─ [aspire:nic] start 23:38:05
+  ├─ [aspire:cpu] start 23:38:05
+  ├─ [scorpius:sd] start 23:38:05
+  ├─ [scorpius:ram] start 23:38:05
+  ├─ [scorpius:nic] start 23:38:05
+[⏱ 23:38:05] Iniciando ecofloc en leo por 25s (fase: fase1_descarga_medium_iter2)
+  ├─ [scorpius:cpu] start 23:38:05
+  ├─ [leo:sd] start 23:38:05
+  ├─ [leo:ram] start 23:38:05
+  ├─ [leo:nic] start 23:38:05
+  ├─ [leo:cpu] start 23:38:05
+✅ Pods listos.
+⏳ [23:38:13] Esperando que termine medición: fase1_descarga_medium_iter2 (PID: 3406277)
+  └─ [nitro5:sd] end 23:38:29
+  └─ [nitro5:ram] end 23:38:30
+  └─ [nitro5:nic] end 23:38:30
+  └─ [nitro5:cpu] end 23:38:30
+  └─ [aspire:cpu] end 23:38:31
+  └─ [aspire:sd] end 23:38:31
+  └─ [scorpius:cpu] end 23:38:32
+  └─ [scorpius:sd] end 23:38:32
+  └─ [leo:cpu] end 23:38:32
+  └─ [leo:sd] end 23:38:32
+  └─ [scorpius:nic] end 23:38:32
+  └─ [aspire:nic] end 23:38:32
+  └─ [aspire:ram] end 23:38:32
+  └─ [scorpius:ram] end 23:38:33
+  └─ [leo:nic] end 23:38:33
+  └─ [leo:ram] end 23:38:33
+=== Bloque 25s terminado - Fase: fase1_descarga_medium_iter2 ===
+[🧹] Limpiando CSVs internos de ecofloc en cada nodo (fase: fase1_descarga_medium_iter2)...
+  ✔ [nitro5:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [nitro5:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [nitro5:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [nitro5:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [leo:cpu] limpiado /home/leo/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [leo:nic] limpiado /home/leo/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [leo:ram] limpiado /home/leo/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [leo:sd] limpiado /home/leo/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [aspire:cpu] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [aspire:nic] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [aspire:ram] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [aspire:sd] limpiado /home/luish/Documents/p3/ecofloc2/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+  ✔ [scorpius:cpu] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-cpu/ECOFLOC_CPU_COMM_text.csv
+  ✔ [scorpius:nic] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-nic/ECOFLOC_NIC_COMM_text.csv
+  ✔ [scorpius:ram] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-ram/ECOFLOC_RAM_COMM_text.csv
+  ✔ [scorpius:sd] limpiado /home/scorpius03/Documents/ecofloc/ecofloc-sd/ECOFLOC_SD_COMM_text.csv
+========================================
+🔋 MEASURE ENERGY FINALIZADO
+   Fase: fase1_descarga_medium_iter2
+========================================
+✔️ [23:38:38] Medición fase1_descarga_medium_iter2 completada
+[📦] Archivando resultados → ./historyexecutions/exp(23:38:43)_fase1_medium_iter2

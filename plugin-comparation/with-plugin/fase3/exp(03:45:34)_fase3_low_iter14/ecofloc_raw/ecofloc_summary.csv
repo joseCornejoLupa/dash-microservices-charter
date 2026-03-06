@@ -1,0 +1,17 @@
+node,component,total_energy,avg_energy
+aspire,cpu,64.87,0.63
+aspire,nic,1.2,0.01
+aspire,ram,39.17,0.29
+aspire,sd,173.86,1.24
+leo,cpu,83.33,0.79
+leo,nic,0.26,0.0
+leo,ram,23.79,0.18
+leo,sd,0.0,0.0
+nitro5,cpu,38.84,0.34
+nitro5,nic,1.73,0.01
+nitro5,ram,20.48,0.15
+nitro5,sd,8.96,0.06
+scorpius,cpu,170.16,1.93
+scorpius,nic,0.36,0.0
+scorpius,ram,231.75,1.76
+scorpius,sd,0.0,0.0

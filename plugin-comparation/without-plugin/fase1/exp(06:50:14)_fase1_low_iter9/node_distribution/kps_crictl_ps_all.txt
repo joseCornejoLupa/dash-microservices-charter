@@ -1,0 +1,26 @@
+=== KUBERNETES PROCESS STATUS (crictl ps) ALL NODES ===
+Archivo generado: mer. 25 févr. 2026 06:49:24 -05
+--------------------------------------------------------
+### NODO: luish-Nitro-AN515-57 (LOCAL) ###
+CONTAINER           IMAGE               CREATED             STATE               NAME                      ATTEMPT             POD ID              POD                                            NAMESPACE
+f980732a37d63       c69fa2e9cbf5f       9 hours ago         Running             coredns                   0                   e994ab7e2f847       coredns-7f69d799b9-wctfx                       kube-system
+1ecc830e29f37       5e785d005ccc1       10 hours ago        Running             calico-kube-controllers   0                   87f1d553e9e45       calico-kube-controllers-7498b9bb4c-lk28g       kube-system
+bc2265be820f5       08616d26b8e74       10 hours ago        Running             calico-node               0                   78fd1429653ae       calico-node-svxtf                              kube-system
+a138dd6059cf9       f1b5e86e205a8       10 hours ago        Running             kube-proxy                0                   41f0cea58febc       kube-proxy-2rnqp                               kube-system
+9ab3f8da15c9c       d3042e988f33d       10 hours ago        Running             kube-scheduler            7                   18097ce67a94e       kube-scheduler-luish-nitro-an515-57            kube-system
+7166eed24d91f       e479eda972d59       10 hours ago        Running             kube-controller-manager   7                   60347e663852d       kube-controller-manager-luish-nitro-an515-57   kube-system
+3b2c3068fd97d       5ff854e85948c       10 hours ago        Running             kube-apiserver            6                   341b904ea140f       kube-apiserver-luish-nitro-an515-57            kube-system
+f616486cfe5b5       a9e7e6b294baf       10 hours ago        Running             etcd                      8                   4f4fcd59944e5       etcd-luish-nitro-an515-57                      kube-system
+### NODO: luish@luish-Aspire-A315-55G ###
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID              POD                 NAMESPACE
+b2ff049ca14ce       08616d26b8e74       10 hours ago        Running             calico-node         0                   25581051af5da       calico-node-nl4jm   kube-system
+06bc343353e96       f1b5e86e205a8       10 hours ago        Running             kube-proxy          0                   3c1dc109930d1       kube-proxy-sfhvx    kube-system
+### NODO: scorpius03@192.168.18.34 ###
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID              POD
+305de6df7792f       c69fa2e9cbf5f       9 hours ago         Running             coredns             0                   ae6c6cfe15234       coredns-7f69d799b9-4znh9
+f55b6af6421d5       08616d26b8e74       10 hours ago        Running             calico-node         0                   9434871bd29ff       calico-node-mt54z
+dce5af58eafa1       f1b5e86e205a8       10 hours ago        Running             kube-proxy          0                   35b139d6c54fb       kube-proxy-v5j8w
+### NODO: leo@192.168.18.36 ###
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID              POD
+63149dbb02472       08616d26b8e74       10 hours ago        Running             calico-node         0                   2dcc47ac38a1e       calico-node-nztd2
+28d384246fd64       f1b5e86e205a8       10 hours ago        Running             kube-proxy          0                   d65df68fc5468       kube-proxy-gjnsm

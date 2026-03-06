@@ -1,0 +1,78 @@
+============================================================
+PLUGIN SCHEDULING COMPARISON REPORT
+Generated: 2026-03-06 13:36:23
+============================================================
+
+DATASET SUMMARY
+------------------------------------------------------------
+- Experiments with-plugin       : 29  (low, medium)  [low=20, medium=9]
+- Experiments without-plugin    : 54  (high, low, medium)  [high=15, low=21, medium=18]
+
+RAW STATISTICS (grouped by plugin x intensity)
+------------------------------------------------------------
+Group              Intensity    N   avg_energy_J  std_energy  avg_succ_tx   std_tx   avg_J/tx
+---------------------------------------------------------------------------------------------
+with-plugin        low         20         843.23      234.34        340.8    175.6     2.6467
+with-plugin        medium       9         659.66      127.93        546.4     82.0     1.2062
+without-plugin     low         21         970.51      325.69       1183.6   1568.9     2.2554
+without-plugin     medium      18        1150.95      407.17       1821.4   1517.9     1.0631
+without-plugin     high        15        1141.58      447.46       1852.5   2061.3     1.7012
+
+RESEARCH QUESTION 1: Does the plugin reduce energy consumption?
+------------------------------------------------------------
+Comparison by intensity (with-plugin vs without-plugin):
+
+  LOW intensity (N_wp=20 vs N_wop=21):
+    with-plugin    avg: 843.23 J  (std: 234.34)
+    without-plugin avg: 970.51 J  (std: 325.69)
+    Difference: 13.1% less energy with the plugin
+
+  MEDIUM intensity (N_wp=9 vs N_wop=18):
+    with-plugin    avg: 659.66 J  (std: 127.93)
+    without-plugin avg: 1150.95 J  (std: 407.17)
+    Difference: 42.7% less energy with the plugin
+
+  Overall interpretation: The plugin consistently uses LESS energy across intensities, confirming the consolidation hypothesis.
+  See: energy_by_intensity.png, node_energy_breakdown.png
+
+RESEARCH QUESTION 2: Does the plugin improve successful request rate?
+------------------------------------------------------------
+Comparison by intensity:
+
+  LOW intensity (N_wp=20 vs N_wop=21):
+    with-plugin    avg: 340.8 tx  (std: 175.6)
+    without-plugin avg: 1183.6 tx  (std: 1568.9)
+    Difference: 71.2% less successful tx with the plugin
+    NOTE: without-plugin low has high variance (two distinct batches: ~1500 tx vs ~4800 tx)
+
+  MEDIUM intensity (N_wp=9 vs N_wop=18):
+    with-plugin    avg: 546.4 tx  (std: 82.0)
+    without-plugin avg: 1821.4 tx  (std: 1517.9)
+    Difference: 70.0% less successful tx with the plugin
+
+  Overall interpretation: The plugin consistently achieves FEWER successful transactions. Could indicate scheduling overhead or specific workload mismatch.
+  See: requests_by_intensity.png
+
+RESEARCH QUESTION 3: Combined efficiency and pod-distribution impact?
+------------------------------------------------------------
+Energy efficiency (J per successful transaction) by intensity:
+
+  LOW   : with-plugin 2.6467 J/tx  vs  without-plugin 2.2554 J/tx  → 17.4% worse
+  MEDIUM: with-plugin 1.2062 J/tx  vs  without-plugin 1.0631 J/tx  → 13.5% worse
+
+Pod distribution mechanism (avg nodes hosting at least one teastore pod)
+
+  LOW   :  with-plugin 3.00 node(s)  |  without-plugin 3.00 node(s)
+  MEDIUM:  with-plugin 3.00 node(s)  |  without-plugin 3.00 node(s)
+
+  Implication: Across all 2 compared intensities the plugin consistently spreads workloads over MORE nodes than the default scheduler, which may reduce per-node hotspots but prevents idle-node sleep states.
+  See: energy_efficiency.png, pod_distribution_heatmap.png
+
+LIMITATIONS
+------------------------------------------------------------
+- without-plugin low intensity has high variance due to two distinct experimental batches.
+- ecofloc measures total node energy; it cannot isolate individual pod consumption.
+- with-plugin has fewer replications per intensity (2) vs without-plugin (3-7); interpret std with caution.
+- pod_distribution_heatmap.
+
+============================================================

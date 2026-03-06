@@ -1,0 +1,2 @@
+duration_s,total_tx,successful_tx,failed_tx,dropped_tx,success_rate_pct,throughput_tx_per_s,peak_throughput,avg_response_time,min_response_time,max_response_time,std_response_time
+178.5,5940,296,265,5379,52.7629,1.658263,15,6.119277,0.0,27.059,8.685204
